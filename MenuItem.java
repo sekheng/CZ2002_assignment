@@ -33,4 +33,14 @@ public class MenuItem {
     public void setName(String newName){
         this.name=newName;
     }
+
+    //method to get description
+    public String getDescription(){
+        return this.description;
+    }
+
+    //method to set description
+    public void setDescription(){
+        this.description=description;
+    }
 }

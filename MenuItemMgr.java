@@ -10,7 +10,7 @@ public class MenuItemMgr {
     /**
      * createMenuItem method takes in price, description, name, and type
      * Puts them all in menuItem constructor
-     * then switch will check for type and add to chosen list
+     * then switch will check for type and add to chosen list, and writes a message
      */
     public void createMenuItem(int price, String description, String name, String type){
         MenuItem a = new MenuItem(price, description, name, type);
@@ -36,9 +36,9 @@ public class MenuItemMgr {
             System.out.println("wrong menuItem type");
             System.out.println("no item added");
             break;
-
-            
         }
-
     }
+
+
+    
 }
