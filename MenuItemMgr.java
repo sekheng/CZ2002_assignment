@@ -37,8 +37,37 @@ public class MenuItemMgr {
             System.out.println("no item added");
             break;
         }
+    }//end of createMenuItem
+
+    public void updateMenuItem(ArrayList<MenuItem> a){              //we assume that the menuItem object that we want to update is already in the right type
+        a.forEach(MenuItem -> {
+            System.out.println(MenuItem);
+        });
+
+        System.out.println("which item would you like to update");
+        int i = sc.nextInt();
+
+        System.out.println("old name is " + a.get(i+1).getName());
+        System.out.println("enter new name");
+        a.get(i+1).setName(sc.next());
+
+        System.out.println("old description is " + a.get(i+1).getDescription());
+        System.out.println("enter new description");
+        a.get(i+1).setDescription(sc.next());
+
+        System.out.println("old price is " + a.get(i+1).getPrice());
+        System.out.println("enter new price");
+        a.get(i+1).setPrice(sc.nextInt());
+    }//end of update
+
+
+    public void removeMenuItem(ArrayList<MenuItem> a){
+        a.forEach(MenuItem -> {
+            System.out.println(MenuItem);
+        });
+
+        System.out.println("which item would you like to delete");
+        int i = sc.nextInt();
+        a.remove(i+1);
     }
-
-
-    
 }

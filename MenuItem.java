@@ -40,7 +40,17 @@ public class MenuItem {
     }
 
     //method to set description
-    public void setDescription(){
+    public void setDescription(String description){
         this.description=description;
+    }
+
+    //method to get price
+    public int getPrice(){
+        return this.price;
+    }
+
+    //method to set price
+    public void setPrice(int price){
+        this.price=price;
     }
 }
