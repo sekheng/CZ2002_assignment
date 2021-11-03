@@ -1,3 +1,5 @@
+package CZ2002_assignment;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 public class StaffMgr {

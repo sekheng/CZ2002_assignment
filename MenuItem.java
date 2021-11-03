@@ -1,3 +1,5 @@
+package CZ2002_assignment;
+
 public class MenuItem {
 
     //name of menuItem

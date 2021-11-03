@@ -1,3 +1,5 @@
+package CZ2002_assignment;
+
 public class Staff {
     private String name;
     private int gender;
