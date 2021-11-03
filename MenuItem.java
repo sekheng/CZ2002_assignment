@@ -2,14 +2,27 @@ package CZ2002_assignment;
 
 public class MenuItem {
 
-    //name of menuItem
+    /**
+     * name of menuItem
+     */
     private String name;
-    //description of a menuItem object
+
+
+    /**
+     * description of a menuItem object
+     */
     private String description;
-    //the type of menuItem object (appetizer, drinks, etc)
+
+
+    /**
+     * the type of menuItem object (appetizer, drinks, etc)
+     */
     private String type;
-    //price of a menuItem object
-    private int price;
+
+    /**
+     * price of a menuItem object
+     */
+     private int price;
 
 
     /**constructs a menuItem object with given name, description, type, and price
@@ -26,33 +39,51 @@ public class MenuItem {
     }
 
 
-    //method to get name
+    /**
+     * Gets the name of this menuItem object
+     * @return this menuItem's name
+     */
     public String getName(){
         return this.name;
     }
 
-    //public to set name
+    /**
+     * Changes the name of the menuItem
+     * @param newName is the menuItem's new name
+     */
     public void setName(String newName){
         this.name=newName;
     }
 
-    //method to get description
+    /**
+     * Gets the description of this menuItem object
+     * @return this menuItem's description
+     */
     public String getDescription(){
         return this.description;
     }
 
-    //method to set description
-    public void setDescription(String description){
-        this.description=description;
+    /**
+     * Changes the description of the menuItem
+     * @param newDescription is the menuItem's new description
+     */
+    public void setDescription(String newDescription){
+        this.description=newDescription;
     }
 
-    //method to get price
+    /**
+     * Gets the price of this menuItem object
+     * @return this menuItem's price
+     */
     public int getPrice(){
         return this.price;
     }
 
-    //method to set price
-    public void setPrice(int price){
-        this.price=price;
+    /**
+     * Changes the price of the menuItem
+     * @param newPrice is the menuItem's new price
+     */
+    public void setPrice(int newPrice){
+        this.price=newPrice;
     }
 }
