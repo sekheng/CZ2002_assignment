@@ -64,7 +64,7 @@ public class MenuItemMgr {
      * we then print a message to ask for user input for the ArrayList index to select the menuItem they want to update
      * we then print out the old attributes of the menuItem object and ask for user input for new attribute values
      */
-    public void updateMenuItem(ArrayList<MenuItem> a){             
+    public void updateMenuItem(ArrayList<MenuItem> a){             //note in visual paradigm cant put ArrayList<MenuItem> into parameter
         a.forEach(MenuItem -> {
             System.out.println(MenuItem);
         });

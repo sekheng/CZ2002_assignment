@@ -1,11 +1,8 @@
 package CZ2002_assignment;
 
-public class MenuItem {
+import CZ2002_assignment.ObjectNamePrice;
 
-    /**
-     * name of menuItem
-     */
-    private String name;
+public class MenuItem extends ObjectNamePrice {
 
 
     /**
@@ -15,14 +12,9 @@ public class MenuItem {
 
 
     /**
-     * the type of menuItem object (appetizer, drinks, etc)
+     * the type of menuItem object (appetizer,main course, drinks)
      */
     private String type;
-
-    /**
-     * price of a menuItem object
-     */
-     private int price;
 
 
     /**constructs a menuItem object with given name, description, type, and price
@@ -30,12 +22,12 @@ public class MenuItem {
      * @param description This menuItem's description
      * @param name This menuItem's name
      * @param type This menuItem's type
+     * we call the superclass ObjectNamePrice constructor and input @param price and @param name into it
     */
     public MenuItem (int price, String description, String name, String type){
-        this.name=name;
+        super(price, name);
         this.description=description;
         this.type=type;
-        this.price=price;
     }
 
 

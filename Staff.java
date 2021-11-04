@@ -1,30 +1,61 @@
 package CZ2002_assignment;
 
-public class Staff {
-    private String name;
+import CZ2002_assignment.ObjectName;
+
+public class Staff extends ObjectName {
+
+    /**
+     * gender of a staff
+     */
     private int gender;
+
+    /**
+     * employeeID of a staff
+     */
     private String employeeID;
+
+    /**
+     * job title of a staff
+     */
     private String jobTitle;
 
+
+    /**constructs a staff object with given name, gender, employeeId, and jobTitle
+     * @param name This staff's name
+     * @param gender This staff's gender
+     * @param employeeID This staff's employee ID
+     * @param jobTitle This staff's job title
+     * we call the superclass ObjectName constructor and input @param name into it
+    */
     public Staff(String name, int gender, String employeeID, String jobTitle){
-        this.name=name;
+        super(name);
         this.gender=gender;
         this.employeeID=employeeID;
         this.jobTitle=jobTitle;
     }
 
-    public String getName(){
-        return this.name;
-    }
-
+    /**
+     * Gets the gender of the staff
+     * @return this staff's gender
+     */
     public int getGender(){
         return this.gender;
     }
 
+
+    /**
+     * Gets the employeeID of the staff
+     * @return this staff employeeID
+     */
     public String getEmployeeID(){
         return this.employeeID;
     }
 
+
+    /**
+     * Gets the jobTitle of the staff
+     * @return this staff's jobTitle
+     */
     public String getJobTitle(){
         return this.jobTitle;
     }
