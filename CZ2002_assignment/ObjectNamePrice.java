@@ -1,7 +1,7 @@
 package CZ2002_assignment;
 
 /**
-    Represents an object that has a name and price
+    Represents an object that has a name and price in cents
     @author    Kevin Patrick Santoso
     @version   1.0
     @since     2021-06-11
@@ -9,32 +9,32 @@ package CZ2002_assignment;
 public class ObjectNamePrice extends ObjectName{
 
     /**
-     * price of the object
+     * priceInCents of the object
      */
-    protected int price;
+    protected int priceInCents;
 
-    /**constructs an ObjectNamePrice object with given name and price
+    /**constructs an ObjectNamePrice object with given name and priceInCents
      * @param name This object's name
-     * @param price This object's price
+     * @param priceInCents This object's priceInCents
      */
     public ObjectNamePrice (int price, String name){
         super(name);
-        this.price=price;
+        this.priceInCents=price;
     }
 
     /**
-     * Gets the price of this object
-     * @return this object's price
+     * Gets the priceInCents of this object
+     * @return this object's priceInCents
      */
-    public int getPrice(){
-        return this.price;
+    public int getPriceInCents(){
+        return this.priceInCents;
     }
     
     /**
-     * Changes the price of the object
-     * @param newPrice is the object's new price
+     * Changes the priceInCents of the object
+     * @param newPrice is the object's new priceInCents
      */
-    public void setPrice(int newPrice){
-        this.price=newPrice;
+    public void setPriceInCents(int newPrice){
+        this.priceInCents=newPrice;
     }
 }

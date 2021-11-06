@@ -37,23 +37,23 @@ public class MenuItemMgr {
 
     /**
      * adds a menu item to the menu item list
-     * @param price This menuItem's price
+     * @param priceInCents This menuItem's priceInCents
      * @param description This menuItem's description
      * @param name This menuItem's name
      * @param type This menuItem's type
      */
-    public void addMenuItem(int price, String description, String name, String type) throws InputMismatchException  {
-        if (price<0){
-            throw new ArithmeticException("price cannot be negative");
+    public void createMenuItem(int priceInCents, String description, String name, String type) throws InputMismatchException  {
+        if (priceInCents<0){
+            throw new ArithmeticException("priceInCents cannot be negative");
         }
 
-        MenuItem temp = new MenuItem(price, description, name, type);
+        MenuItem temp = new MenuItem(priceInCents, description, name, type);
         menuItemList.add(temp);
     }
 
 
     /**
-     * method to change the name, description, price, and type of a menuItem object
+     * method to change the name, description, priceInCents, and type of a menuItem object
      * @param item is the menu item to be updated
      * we ask the users whcih attribute they want to change
      * we print the old attribute and ask for a replacement
@@ -62,7 +62,7 @@ public class MenuItemMgr {
     public void updateMenuItem(MenuItem item) throws InputMismatchException
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("(1) change name, (2) change price, (3) change description, (4) change type");
+        System.out.println("(1) change name, (2) change priceInCents, (3) change description, (4) change type");
         switch(sc.nextInt())
         {
             case 1:
@@ -71,8 +71,8 @@ public class MenuItemMgr {
             break;
 
             case 2:
-            System.out.println("old price is " + item.getPrice());
-            item.setPrice(sc.nextInt());
+            System.out.println("old priceInCents is " + item.getPriceInCents());
+            item.setPriceInCents(sc.nextInt());
             break;
 
             case 3:
@@ -99,8 +99,16 @@ public class MenuItemMgr {
      * deletes selected menuItem
      * @throws ArrayIndexOutOfBoundsException
      */
-    public void removeMenuItem(int i) throws ArrayIndexOutOfBoundsException
+    public void removeObjectName(int i) throws ArrayIndexOutOfBoundsException
     {
         menuItemList.remove(i);
     }
+
+    /**
+     * gets the list of menu items
+     * @return menuItemList
+     */
+    public ArrayList<MenuItem> getArrayOfObjectName(){
+        return menuItemList;
+    };
 }

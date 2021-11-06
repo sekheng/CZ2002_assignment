@@ -1,6 +1,6 @@
-3,served with chili sauce,french fries,appetizer
-3,vegetarian,sandwich,appetizer
-6,spicy,chicken rice,maincourse
-5,many mushrooms,mushroom risoto,maincourse
-3,cold,lemon tea,drinks
-4,hot,special coffee,drinks
+300,served with chili sauce,french fries,appetizer
+250,vegetarian,sandwich,appetizer
+600,spicy,chicken rice,maincourse
+500,many mushrooms,mushroom risoto,maincourse
+350,cold,lemon tea,drinks
+400,hot,special coffee,drinks

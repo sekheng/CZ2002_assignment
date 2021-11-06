@@ -22,14 +22,14 @@ public class MenuItem extends ObjectNamePrice {
 
 
     /**
-     * Creates a new menu item with given name, description, type, and price
-     * @param price This menuItem's price
+     * Creates a new menu item with given name, description, type, and priceInCents
+     * @param priceInCents This menuItem's priceInCents
      * @param description This menuItem's description
      * @param name This menuItem's name
      * @param type This menuItem's type
     */
-    public MenuItem (int price, String description, String name, String type){
-        super(price, name);
+    public MenuItem (int priceInCents, String description, String name, String type){
+        super(priceInCents, name);
         this.description=description;
         this.type=type;
     }

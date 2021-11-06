@@ -48,7 +48,7 @@ public class StaffMgr {
      * @param jobTitle This staff's job title
      * @throws InputMismatchException
      */
-    public void addStaff(String name, int gender, String employeeID, String jobTitle) throws InputMismatchException{
+    public void createStaff(String name, int gender, String employeeID, String jobTitle) throws InputMismatchException{
         Staff temp = new Staff(name, gender, employeeID, jobTitle);
         staffList.add(temp);
     }
@@ -64,4 +64,23 @@ public class StaffMgr {
         currentStaff = staffList.get(i);
         return currentStaff;
     }
+
+    /**
+     * method to remove a staff from the staffList
+     * @param i is the index for the menuItem object to be deleted
+     * deletes selected staff
+     * @throws ArrayIndexOutOfBoundsException
+     */
+    public void removeObjectName(int i) throws ArrayIndexOutOfBoundsException
+    {
+        staffList.remove(i);
+    }
+
+    /**
+     * gets the list of staff
+     * @return staffList
+     */
+    public ArrayList<Staff> getArrayOfObjectName(){
+        return staffList;
+    };
 }
