@@ -1,7 +1,5 @@
 package CZ2002_assignment;
 
-import CZ2002_assignment.ObjectNamePrice;
-
 public class MenuItem extends ObjectNamePrice {
 
 
@@ -47,5 +45,21 @@ public class MenuItem extends ObjectNamePrice {
         this.description=newDescription;
     }
 
+
+    /**
+     * Gets the type of this menuItem object
+     * @return this menuItem's type
+     */
+    public String getType(){
+        return this.type;
+    }
+
+    /**
+     * Changes the type of the menuItem
+     * @param newType is the menuItem's new description
+     */
+    public void setType(String newType){
+        this.type=newType;
+    }
     
 }

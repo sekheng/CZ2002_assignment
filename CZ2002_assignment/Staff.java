@@ -1,7 +1,5 @@
 package CZ2002_assignment;
 
-import CZ2002_assignment.ObjectName;
-
 public class Staff extends ObjectName {
 
     /**
