@@ -32,22 +32,6 @@ public class MenuItem extends ObjectNamePrice {
 
 
     /**
-     * Gets the name of this menuItem object
-     * @return this menuItem's name
-     */
-    public String getName(){
-        return this.name;
-    }
-
-    /**
-     * Changes the name of the menuItem
-     * @param newName is the menuItem's new name
-     */
-    public void setName(String newName){
-        this.name=newName;
-    }
-
-    /**
      * Gets the description of this menuItem object
      * @return this menuItem's description
      */
@@ -63,19 +47,5 @@ public class MenuItem extends ObjectNamePrice {
         this.description=newDescription;
     }
 
-    /**
-     * Gets the price of this menuItem object
-     * @return this menuItem's price
-     */
-    public int getPrice(){
-        return this.price;
-    }
-
-    /**
-     * Changes the price of the menuItem
-     * @param newPrice is the menuItem's new price
-     */
-    public void setPrice(int newPrice){
-        this.price=newPrice;
     }
 }
