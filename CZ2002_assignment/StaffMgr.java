@@ -34,17 +34,9 @@ public class StaffMgr {
      * then we ask Arraylist index as user input to select which staff to login as
      * @return the staff object index they selected
      */
-    public Staff selectStaff()
+    public Staff selectStaff(int i)
     {
-        Scanner sc = new Scanner(System.in);
-        for (int q=0; q<staffList.size();q++)
-            {
-                System.out.print(staffList.get(q).getName()+", ");
-            }
-
-        System.out.println("enter staff index");
-        currentStaff = staffList.get(sc.nextInt());
-        sc.close();
+        currentStaff = staffList.get(i);
         return currentStaff;
     }
 }
