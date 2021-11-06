@@ -1,6 +1,7 @@
 package CZ2002_assignment;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 /**
     To manage a list of Staffs
@@ -45,8 +46,9 @@ public class StaffMgr {
      * @param gender This staff's gender
      * @param employeeID This staff's employee ID
      * @param jobTitle This staff's job title
+     * @throws InputMismatchException
      */
-    public void addStaff(String name, int gender, String employeeID, String jobTitle){
+    public void addStaff(String name, int gender, String employeeID, String jobTitle) throws InputMismatchException{
         Staff temp = new Staff(name, gender, employeeID, jobTitle);
         staffList.add(temp);
     }
@@ -55,8 +57,9 @@ public class StaffMgr {
      * method to select a staff
      * @param i is the index for the staff to be selected
      * @return the staff selected
+     * @throws ArrayIndexOutofBoundsException
      */
-    public Staff selectStaff(int i)
+    public Staff selectStaff(int i) throws ArrayIndexOutOfBoundsException
     {
         currentStaff = staffList.get(i);
         return currentStaff;

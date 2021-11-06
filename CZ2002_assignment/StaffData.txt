@@ -1,1 +1,6 @@
 Heng,1,1,Waiter
+Jack,1,2,Waiter
+Mary,0,3,Waiter
+Ken,1,4,Waiter
+Bean,1,5,Manager
+Louis,1,6,Chef

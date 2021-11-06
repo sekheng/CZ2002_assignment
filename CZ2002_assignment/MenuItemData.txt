@@ -1,1 +1,6 @@
-5,hot,chicken,maincourse
+3,served with chili sauce,french fries,appetizer
+3,vegetarian,sandwich,appetizer
+6,spicy,chicken rice,maincourse
+5,many mushrooms,mushroom risoto,maincourse
+3,cold,lemon tea,drinks
+4,hot,special coffee,drinks
