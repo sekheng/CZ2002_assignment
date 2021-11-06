@@ -1,5 +1,11 @@
 package CZ2002_assignment;
 
+/**
+    Represents the MenuItems available to order
+    @author    Kevin Patrick Santoso
+    @version   1.0
+    @since     2021-06-11
+ */
 public class MenuItem extends ObjectNamePrice {
 
 
@@ -15,12 +21,12 @@ public class MenuItem extends ObjectNamePrice {
     private String type;
 
 
-    /**constructs a menuItem object with given name, description, type, and price
+    /**
+     * Creates a new menu item with given name, description, type, and price
      * @param price This menuItem's price
      * @param description This menuItem's description
      * @param name This menuItem's name
      * @param type This menuItem's type
-     * we call the superclass ObjectNamePrice constructor and input @param price and @param name into it
     */
     public MenuItem (int price, String description, String name, String type){
         super(price, name);

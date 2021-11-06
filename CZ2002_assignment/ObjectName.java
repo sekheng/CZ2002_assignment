@@ -1,5 +1,11 @@
 package CZ2002_assignment;
 
+/**
+    Represents an object that has a name
+    @author    Kevin Patrick Santoso
+    @version   1.0
+    @since     2021-06-11
+ */
 public class ObjectName {
     
     /**

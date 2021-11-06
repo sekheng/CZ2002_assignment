@@ -5,7 +5,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+    To create a a list of menu items from a file
+    @author    Lee Sek Heng
+    @version   1.0
+    @since     2021-06-11
+ */
 public class MenuItemFactory {
+
+    /**
+     * Create an array list of menu items from a text file
+     * every new line is a new staff and ',' is the delimiter
+     * @param filePath  relative filepath to the text file
+     * @return              array of staff created from it
+     * @throws Exception
+     */
     public static ArrayList<MenuItem> createMenuItem(String filePath) throws Exception
     {
         ArrayList<MenuItem> menuItemList = new ArrayList<>();

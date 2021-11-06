@@ -1,20 +1,31 @@
 package CZ2002_assignment;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+
+/**
+    To manage a list of Staffs
+    and select staff for logging in
+    @author    Kevin Patrick Santoso
+    @version   1.0
+    @since     2021-06-11
+ */
 public class StaffMgr {
-    private Staff currentStaff;
-    /**
-     * Constructs a new Scanner object
-     * sc contains the reference to the Scanner object
-     */
-    Scanner sc = new Scanner(System.in);
 
     /**
-     * creates an ArrayList called staffList to hold each staff in as an element
+     * represents the staff that is logged in
+     */
+    private Staff currentStaff;
+
+
+    /**
+     * creates an ArrayList called staffList to hold all staff
      */
     private ArrayList<Staff> staffList = new ArrayList<Staff>();
 
+    /**
+     * Constructor for a StaffMgr object
+     * when constructor is called, staffList will copy the ArrayList returned from StaffFactory
+     */
     public StaffMgr()
     {
         try
@@ -29,10 +40,21 @@ public class StaffMgr {
 
 
     /**
-     * this is a method to call the select a staff
-     * the entire staffList ArrayList will be printed out
-     * then we ask Arraylist index as user input to select which staff to login as
-     * @return the staff object index they selected
+     * adds a menu item to the menu item list
+     * @param name This staff's name
+     * @param gender This staff's gender
+     * @param employeeID This staff's employee ID
+     * @param jobTitle This staff's job title
+     */
+    public void addStaff(String name, int gender, String employeeID, String jobTitle){
+        Staff temp = new Staff(name, gender, employeeID, jobTitle);
+        staffList.add(temp);
+    }
+
+    /**
+     * method to select a staff
+     * @param i is the index for the staff to be selected
+     * @return the staff selected
      */
     public Staff selectStaff(int i)
     {

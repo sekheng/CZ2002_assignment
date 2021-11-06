@@ -1,5 +1,11 @@
 package CZ2002_assignment;
 
+/**
+    Represents an object that has a name and price
+    @author    Kevin Patrick Santoso
+    @version   1.0
+    @since     2021-06-11
+ */
 public class ObjectNamePrice extends ObjectName{
 
     /**
@@ -10,7 +16,6 @@ public class ObjectNamePrice extends ObjectName{
     /**constructs an ObjectNamePrice object with given name and price
      * @param name This object's name
      * @param price This object's price
-     * we call the superclass ObjectName constructor and input @param name into it
      */
     public ObjectNamePrice (int price, String name){
         super(name);
