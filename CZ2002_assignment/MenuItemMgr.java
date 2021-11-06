@@ -19,6 +19,7 @@ public class MenuItemMgr {
     private ArrayList<MenuItem> mainCourseList = new ArrayList<MenuItem>();
     private ArrayList<MenuItem> drinkList = new ArrayList<MenuItem>();
 
+    
 
     /**
      * this is a method to call the menuItem constructor
@@ -64,11 +65,17 @@ public class MenuItemMgr {
      * we then print a message to ask for user input for the ArrayList index to select the menuItem they want to update
      * we then print out the old attributes of the menuItem object and ask for user input for new attribute values
      */
-    public void updateMenuItem(ArrayList<MenuItem> a){             //note in visual paradigm cant put ArrayList<MenuItem> into parameter
+    public void updateMenuItem(Scanner sc){             //note in visual paradigm cant put ArrayList<MenuItem> into parameter
+        /* 
         a.forEach(MenuItem -> {
             System.out.println(MenuItem);
         });
-
+*/
+        for (MenuItem a : appetizerList)
+        {
+            System.out.println(a);
+        }
+        /*
         System.out.println("which item would you like to update");
         int i = sc.nextInt();
 
@@ -83,6 +90,8 @@ public class MenuItemMgr {
         System.out.println("old price is " + a.get(i+1).getPrice());
         System.out.println("enter new price");
         a.get(i+1).setPrice(sc.nextInt());
+
+        */
     }//end of update
 
 

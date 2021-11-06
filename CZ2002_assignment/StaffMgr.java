@@ -15,6 +15,17 @@ public class StaffMgr {
      */
     private ArrayList<Staff> staffList = new ArrayList<Staff>();
 
+    public StaffMgr()
+    {
+        try
+        {
+            staffList = StaffFactory.createStaff("StaffData.txt");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * this is a method to call the Staff constructor

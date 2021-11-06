@@ -47,5 +47,5 @@ public class MenuItem extends ObjectNamePrice {
         this.description=newDescription;
     }
 
-    }
+    
 }
