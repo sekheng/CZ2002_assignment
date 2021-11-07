@@ -4,5 +4,4 @@ public enum TablePax {
 	SMALLTABLE,
 	MEDTABLE,
 	LARGETABLE
-
 }
