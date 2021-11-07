@@ -6,7 +6,7 @@ package CZ2002_assignment;
     @version   1.0
     @since     2021-06-11
  */
-public class MenuItem extends ObjectNamePrice {
+public class MenuItem extends FoodItem {
 
 
     /**
