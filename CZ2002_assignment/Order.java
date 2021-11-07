@@ -7,8 +7,7 @@ public class Order {
 	private Staff CurrentStaff;
 	private int TableID;
 	private ArrayList<FoodItem>  arrayOfFoodItem;
-	
-	
+
 	public Order(Staff CurrentStaff, int TableID) {
 		this.CurrentStaff = CurrentStaff;
 		this.TableID = TableID;
@@ -24,5 +23,9 @@ public class Order {
 	
 	public int getTableID() {
 		return this.TableID;
+	}
+
+	public void setArrayOfFoodItem(ArrayList<FoodItem> arrayOfFoodItem) {
+		this.arrayOfFoodItem = arrayOfFoodItem;
 	}
 }
