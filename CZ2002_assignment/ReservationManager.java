@@ -74,10 +74,6 @@ public class ReservationManager {
 			}		
 		}
 		
-		
-		
-		
-		
 		//if Pax is more than 10, we will split the reservation into multiple tables	
 		else {
 			int remainingPax = Pax-10;
