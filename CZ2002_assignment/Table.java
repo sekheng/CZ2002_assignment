@@ -18,6 +18,8 @@ public class Table {
 		this.noOfPax = noOfPax;
 		this.resTime = resTime;
 		this.tableID = tableID;
+		
+		this.setResExpiry();
 	}
 
 	public int getCustomerID() {
@@ -55,7 +57,7 @@ public class Table {
 	}
 
 
-	public void setResExpiry(LocalDateTime resExpiry) {
+	public void setResExpiry() {
 		this.resExpiry = this.resTime.plusMinutes(15);
 	}
 

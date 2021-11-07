@@ -50,6 +50,8 @@ public class ReservationManager {
 				for(int i = 0; i<this.arrayOfTables.size();i++) {
 					if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 						Table smallTable = new Table(Pax,RezTime,i);
+						smallTable.setStatus(TableStatus.RESERVED);
+						smallTable.setCustomerID(CustomerID);
 						this.arrayOfTables.set(i, smallTable);
 					}
 				}
@@ -58,6 +60,8 @@ public class ReservationManager {
 				for(int i = 0; i<this.arrayOfTables.size();i++) {
 					if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 						Table medTable = new Table(Pax,RezTime,i);
+						medTable.setStatus(TableStatus.RESERVED);
+						medTable.setCustomerID(CustomerID);
 						this.arrayOfTables.set(i, medTable);
 					}
 				}
@@ -67,6 +71,8 @@ public class ReservationManager {
 				for(int i = 0; i<this.arrayOfTables.size();i++) {
 					if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 						Table largeTable = new Table(Pax,RezTime,i);
+						largeTable.setStatus(TableStatus.RESERVED);
+						largeTable.setCustomerID(CustomerID);
 						this.arrayOfTables.set(i, largeTable);
 					}
 				}
@@ -82,6 +88,8 @@ public class ReservationManager {
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table largeTable = new Table(10,RezTime,i);
+					largeTable.setStatus(TableStatus.RESERVED);	
+					largeTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, largeTable);
 				}
 			}
@@ -96,6 +104,8 @@ public class ReservationManager {
 					for(int i = 0; i<this.arrayOfTables.size();i++) {
 						if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 							Table smallTable = new Table(remainingPax,RezTime,i);
+							smallTable.setStatus(TableStatus.RESERVED);
+							smallTable.setCustomerID(CustomerID);
 							this.arrayOfTables.set(i, smallTable);
 						}
 					}
@@ -104,6 +114,8 @@ public class ReservationManager {
 					for(int i = 0; i<this.arrayOfTables.size();i++) {
 						if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 							Table medTable = new Table(remainingPax,RezTime,i);
+							medTable.setStatus(TableStatus.RESERVED);
+							medTable.setCustomerID(CustomerID);
 							this.arrayOfTables.set(i, medTable);
 						}
 					}
@@ -113,6 +125,8 @@ public class ReservationManager {
 					for(int i = 0; i<this.arrayOfTables.size();i++) {
 						if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 							Table largeTable = new Table(remainingPax,RezTime,i);
+							largeTable.setStatus(TableStatus.RESERVED);
+							largeTable.setCustomerID(CustomerID);
 							this.arrayOfTables.set(i, largeTable);
 						}
 					}
