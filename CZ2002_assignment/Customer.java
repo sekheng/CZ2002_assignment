@@ -1,20 +1,19 @@
 package CZ2002_assignment;
 
-public class Customer {
-	private String name;
+public class Customer extends ObjectName{
 	private int gender;
 	private boolean membership;
-	private int contact;
+	private int custID;
 	
-	public Customer(String name, int gender, boolean membership, int contact) {
-		this.name = name;
+	public Customer(String name, int gender, boolean membership, int custID) {
+		super(name);
 		this.gender = gender;
 		this.membership = membership;
-		this.contact = contact;
+		this.custID = custID;
 	}
 
-	public int getContact() {
-		return contact;
+	public int getCustID() {
+		return this.custID;
 	}
 
 	public String getName() {
