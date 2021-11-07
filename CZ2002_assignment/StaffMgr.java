@@ -46,9 +46,9 @@ public class StaffMgr {
      * @param gender This staff's gender
      * @param employeeID This staff's employee ID
      * @param jobTitle This staff's job title
-     * @throws InputMismatchException
+     * @throws NumberFormatException when @param gender is not int
      */
-    public void createStaff(String name, int gender, String employeeID, String jobTitle) throws InputMismatchException{
+    public void createStaff(String name, int gender, String employeeID, String jobTitle) throws NumberFormatException{
         Staff temp = new Staff(name, gender, employeeID, jobTitle);
         staffList.add(temp);
     }
@@ -69,11 +69,12 @@ public class StaffMgr {
      * method to remove a staff from the staffList
      * @param i is the index for the menuItem object to be deleted
      * deletes selected staff
-     * @throws ArrayIndexOutOfBoundsException
+     * @throws ArrayIndexOutOfBoundsException when @param index out of bounds
+     * @throws NumberFormatException when @param index is not int
      */
-    public void removeObjectName(int i) throws ArrayIndexOutOfBoundsException
+    public void removeObjectName(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
     {
-        staffList.remove(i);
+        staffList.remove(index);
     }
 
     /**
