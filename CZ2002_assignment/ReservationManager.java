@@ -30,7 +30,7 @@ public class ReservationManager {
 		
 		//Adding medium tables to array of tables
 		for(int i = this.smallTableno ; i<(this.smallTableno+ this.medTableno); i++) {
-			Table newTable = new Table(4,LocalDateTime.now(),i+1);
+			Table newTable = new Table(6,LocalDateTime.now(),i+1);
 			this.arrayOfTables.add(newTable);
 		}
 		
@@ -45,102 +45,40 @@ public class ReservationManager {
 	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName, int CustomerID,int CustomerGender, boolean MembershipStatus) {
 		Customer newCustomer = new Customer(CustomerName,CustomerGender,MembershipStatus,CustomerID);
 		this.arrayOfCustomers.add(newCustomer);
-		if(Pax<=10) {
-			if(Pax<=2) {
-				for(int i = 0; i<this.arrayOfTables.size();i++) {
-					if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-						Table smallTable = new Table(Pax,RezTime,i);
-						smallTable.setStatus(TableStatus.RESERVED);
-						smallTable.setCustomerID(CustomerID);
-						this.arrayOfTables.set(i, smallTable);
-					}
+
+		if(Pax<=2) {
+			for(int i = 0; i<this.arrayOfTables.size();i++) {
+				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
+					Table smallTable = new Table(Pax,RezTime,i);
+					smallTable.setStatus(TableStatus.RESERVED);
+					smallTable.setCustomerID(CustomerID);
+					this.arrayOfTables.set(i, smallTable);
 				}
 			}
-			else if(Pax<=4) {
-				for(int i = 0; i<this.arrayOfTables.size();i++) {
-					if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-						Table medTable = new Table(Pax,RezTime,i);
-						medTable.setStatus(TableStatus.RESERVED);
-						medTable.setCustomerID(CustomerID);
-						this.arrayOfTables.set(i, medTable);
-					}
+		}
+		else if(Pax<=6) {
+			for(int i = 0; i<this.arrayOfTables.size();i++) {
+				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
+					Table medTable = new Table(Pax,RezTime,i);
+					medTable.setStatus(TableStatus.RESERVED);
+					medTable.setCustomerID(CustomerID);
+					this.arrayOfTables.set(i, medTable);
 				}
 			}
-			
-			else {
-				for(int i = 0; i<this.arrayOfTables.size();i++) {
-					if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-						Table largeTable = new Table(Pax,RezTime,i);
-						largeTable.setStatus(TableStatus.RESERVED);
-						largeTable.setCustomerID(CustomerID);
-						this.arrayOfTables.set(i, largeTable);
-					}
-				}
-						
-			}		
 		}
 		
-		//if Pax is more than 10, we will split the reservation into multiple tables	
 		else {
-			int remainingPax = Pax-10;
-			
-			//Book one table for 10 people
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-					Table largeTable = new Table(10,RezTime,i);
-					largeTable.setStatus(TableStatus.RESERVED);	
+					Table largeTable = new Table(Pax,RezTime,i);
+					largeTable.setStatus(TableStatus.RESERVED);
 					largeTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, largeTable);
 				}
 			}
+					
+		}	
 			
-			if(remainingPax>10) {
-				//Recursive function, keeps booking a table for 10 people, till remaining people are less than 10
-				this.AddReservation(remainingPax, RezTime, CustomerName, CustomerID, CustomerGender, MembershipStatus);
-				}
-			else {
-				//Assign Table to remaining people
-				if(remainingPax<=2) {
-					for(int i = 0; i<this.arrayOfTables.size();i++) {
-						if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-							Table smallTable = new Table(remainingPax,RezTime,i);
-							smallTable.setStatus(TableStatus.RESERVED);
-							smallTable.setCustomerID(CustomerID);
-							this.arrayOfTables.set(i, smallTable);
-						}
-					}
-				}
-				else if(remainingPax<=4) {
-					for(int i = 0; i<this.arrayOfTables.size();i++) {
-						if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-							Table medTable = new Table(remainingPax,RezTime,i);
-							medTable.setStatus(TableStatus.RESERVED);
-							medTable.setCustomerID(CustomerID);
-							this.arrayOfTables.set(i, medTable);
-						}
-					}
-				}
-				
-				else {
-					for(int i = 0; i<this.arrayOfTables.size();i++) {
-						if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-							Table largeTable = new Table(remainingPax,RezTime,i);
-							largeTable.setStatus(TableStatus.RESERVED);
-							largeTable.setCustomerID(CustomerID);
-							this.arrayOfTables.set(i, largeTable);
-						}
-					}
-							
-				}
-			}
-				
-		}
-		
 	}
-	
-	
-	
-	
-	
 
 }
