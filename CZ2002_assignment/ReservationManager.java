@@ -1,7 +1,6 @@
 package CZ2002_assignment;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.lang.*;
 
 public class ReservationManager {
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
@@ -15,6 +14,7 @@ public class ReservationManager {
 	//ID numbers 1 -> smallTableNo : small tables
 	//ID numbers smallTableNo+1 -> smallTableNo + medTableNo : medium tables
 	//ID numbers smallTableNo + medTableNo +1 -> smallTableNo + medTableNo + largeTableNo : large tables
+	
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
 	public ReservationManager(int smallTableno, int medTableno, int largeTableno) {
@@ -42,8 +42,8 @@ public class ReservationManager {
 		
 	}
 	
-	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName, int CustomerID,int CustomerGender, boolean MembershipStatus) {
-		Customer newCustomer = new Customer(CustomerName,CustomerGender,MembershipStatus,CustomerID);
+	public void AddReservation(int Pax, LocalDateTime RezTime,String customerName, int customerID,int customerGender, boolean membershipStatus) {
+		Customer newCustomer = new Customer(customerName,customerGender,membershipStatus,customerID);
 		this.arrayOfCustomers.add(newCustomer);
 
 		if(Pax<=2) {
@@ -51,7 +51,8 @@ public class ReservationManager {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table smallTable = new Table(Pax,RezTime,i);
 					smallTable.setStatus(TableStatus.RESERVED);
-					smallTable.setCustomerID(CustomerID);
+					smallTable.setCustomerID(customerID);
+					smallTable.setResExpiry();
 					this.arrayOfTables.set(i, smallTable);
 				}
 			}
@@ -61,7 +62,8 @@ public class ReservationManager {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table medTable = new Table(Pax,RezTime,i);
 					medTable.setStatus(TableStatus.RESERVED);
-					medTable.setCustomerID(CustomerID);
+					medTable.setCustomerID(customerID);
+					medTable.setResExpiry();
 					this.arrayOfTables.set(i, medTable);
 				}
 			}
@@ -72,7 +74,8 @@ public class ReservationManager {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table largeTable = new Table(Pax,RezTime,i);
 					largeTable.setStatus(TableStatus.RESERVED);
-					largeTable.setCustomerID(CustomerID);
+					largeTable.setCustomerID(customerID);
+					largeTable.setResExpiry();
 					this.arrayOfTables.set(i, largeTable);
 				}
 			}
@@ -80,5 +83,29 @@ public class ReservationManager {
 		}	
 			
 	}
-
+	public void RemoveReservation(int customerID) {
+		for(int i = 0;i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getCustomerID()==customerID) {
+				System.out.println("Removed reservation for customer number " + customerID + " at table number" + this.arrayOfTables.get(i).getTableID());
+				this.arrayOfTables.remove(i);
+				return;
+			}
+		}
+		System.out.println("No booking found for this customer ID");
+	}
+	
+	public void CheckReservation(int customerID) {
+		for(int i = 0; i <this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getCustomerID() == customerID) {
+				System.out.println("Booking found for customer number " + customerID + " at table number " + this.arrayOfTables.get(i).getTableID() + "at time " + this.arrayOfTables.get(i).getResTime());
+			}
+		}
+	}
+	public void CheckTable(int tableID) {
+		for(int i = 0; i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getTableID()==tableID) {
+				System.out.println("Status of table number " + this.arrayOfTables.get(i).getTableID() + " is " + this.arrayOfTables.get(i).getStatus());
+			}
+		}
+	}
 }
