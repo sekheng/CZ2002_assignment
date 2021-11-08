@@ -18,21 +18,15 @@ public class Table {
 		this.noOfPax = noOfPax;
 		this.resTime = resTime;
 		this.tableID = tableID;
-		
-		this.setResExpiry();
 	}
 
 	public int getCustomerID() {
 		return customerID;
 	}
 
-
-
 	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
-
-
 
 	public int getTableID() {
 		return tableID;
@@ -69,6 +63,14 @@ public class Table {
 
 	public TableStatus getStatus() {
 		return status;
+	}
+
+	public LocalDateTime getResTime() {
+		return resTime;
+	}
+
+	public void setResTime(LocalDateTime resTime) {
+		this.resTime = resTime;
 	}
 	
 
