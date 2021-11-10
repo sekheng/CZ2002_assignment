@@ -1,6 +1,7 @@
 package CZ2002_assignment;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.lang.*;
 
 public class ReservationManager {
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
@@ -14,7 +15,6 @@ public class ReservationManager {
 	//ID numbers 1 -> smallTableNo : small tables
 	//ID numbers smallTableNo+1 -> smallTableNo + medTableNo : medium tables
 	//ID numbers smallTableNo + medTableNo +1 -> smallTableNo + medTableNo + largeTableNo : large tables
-	
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
 	public ReservationManager(int smallTableno, int medTableno, int largeTableno) {
@@ -42,19 +42,16 @@ public class ReservationManager {
 		
 	}
 	
-	public void AddReservation(int Pax, LocalDateTime RezTime,String customerName, int customerID,int customerGender, boolean membershipStatus) {
-		
-		Customer newCustomer = new Customer(customerName,customerGender,membershipStatus,customerID);
+	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName, int CustomerID,int CustomerGender, boolean MembershipStatus) {
+		Customer newCustomer = new Customer(CustomerName,CustomerGender,MembershipStatus,CustomerID);
 		this.arrayOfCustomers.add(newCustomer);
 
-		//Based on number of pax, scrolls through the array of table till it finds a table of suitable size and status vacant, and adds customer details to it
 		if(Pax<=2) {
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table smallTable = new Table(Pax,RezTime,i);
 					smallTable.setStatus(TableStatus.RESERVED);
-					smallTable.setCustomerID(customerID);
-					smallTable.setResExpiry();
+					smallTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, smallTable);
 				}
 			}
@@ -64,8 +61,7 @@ public class ReservationManager {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table medTable = new Table(Pax,RezTime,i);
 					medTable.setStatus(TableStatus.RESERVED);
-					medTable.setCustomerID(customerID);
-					medTable.setResExpiry();
+					medTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, medTable);
 				}
 			}
@@ -76,8 +72,7 @@ public class ReservationManager {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table largeTable = new Table(Pax,RezTime,i);
 					largeTable.setStatus(TableStatus.RESERVED);
-					largeTable.setCustomerID(customerID);
-					largeTable.setResExpiry();
+					largeTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, largeTable);
 				}
 			}
@@ -85,35 +80,7 @@ public class ReservationManager {
 		}	
 			
 	}
-	public void RemoveReservation(int customerID) {
-		
-		//Scrolls through array of tables, and removes reservation based on customer ID
-		for(int i = 0;i<this.arrayOfTables.size();i++) {
-			if(this.arrayOfTables.get(i).getCustomerID()==customerID) {
-				System.out.println("Removed reservation for customer number " + customerID + " at table number" + this.arrayOfTables.get(i).getTableID());
-				this.arrayOfTables.remove(i);
-				return;
-			}
-		}
-		System.out.println("No booking found for this customer ID");
-	}
 	
-	public void CheckReservation(int customerID) {
-		
-		//Scrolls through array of tables, and checks for reservation existing for given customer ID
-		for(int i = 0; i <this.arrayOfTables.size();i++) {
-			if(this.arrayOfTables.get(i).getCustomerID() == customerID) {
-				System.out.println("Booking found for customer number " + customerID + " at table number " + this.arrayOfTables.get(i).getTableID() + "at time " + this.arrayOfTables.get(i).getResTime());
-			}
-		}
-	}
-	public void CheckTable(int tableID) {
-		
-		//Scrolls through array of tables, and returns the status of table with given table ID
-		for(int i = 0; i<this.arrayOfTables.size();i++) {
-			if(this.arrayOfTables.get(i).getTableID()==tableID) {
-				System.out.println("Status of table number " + this.arrayOfTables.get(i).getTableID() + " is " + this.arrayOfTables.get(i).getStatus());
-			}
-		}
-	}
+	
+
 }
