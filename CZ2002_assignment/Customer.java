@@ -1,13 +1,13 @@
 package CZ2002_assignment;
 
 public class Customer extends ObjectName{
-	private int gender;
+	private int gender; //1- male, 2- female
 	private boolean membership;
 	private int custID;
 	
 	public Customer(String name, int gender, boolean membership, int custID) {
 		super(name);
-		this.gender = gender;
+		this.gender = gender; 
 		this.membership = membership;
 		this.custID = custID;
 	}

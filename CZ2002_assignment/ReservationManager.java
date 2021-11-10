@@ -19,26 +19,32 @@ public class ReservationManager {
 	
 	public ReservationManager(int smallTableno, int medTableno, int largeTableno) {
 		this.smallTableno = smallTableno;
+		System.out.println("Number of small tables "+ this.smallTableno);
 		this.medTableno = medTableno;
+		System.out.println("Number of medium tables "+ this.medTableno);
 		this.largeTableno = largeTableno;
+		System.out.println("Number of large tables "+this.largeTableno);
 		
 		//Adding small tables to array of tables
 		for(int i = 0 ; i< this.smallTableno; i++) {
 			Table newTable = new Table(2,LocalDateTime.now(),i+1);
 			this.arrayOfTables.add(newTable);
+			
 		}
+		System.out.println("Small tables added");
 		
 		//Adding medium tables to array of tables
 		for(int i = this.smallTableno ; i<(this.smallTableno+ this.medTableno); i++) {
 			Table newTable = new Table(6,LocalDateTime.now(),i+1);
 			this.arrayOfTables.add(newTable);
 		}
-		
+		System.out.println("Medium tables added");
 		//Adding large tables to array of tables
-		for(int i = this.smallTableno+this.medTableno; i<(this.smallTableno + this.medTableno + this.largeTableno) ; i++) {
-			Table newTable = new Table(10,LocalDateTime.now(),i=1);
+		for(int i = (this.smallTableno+this.medTableno); i<(this.smallTableno + this.medTableno + this.largeTableno); i++) {
+			Table newTable = new Table(10,LocalDateTime.now(),i+1);
 			this.arrayOfTables.add(newTable);
 		}
+		System.out.println("Large Tables added");
 		
 	}
 	
