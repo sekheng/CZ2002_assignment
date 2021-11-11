@@ -62,6 +62,7 @@ public class ReservationManager {
 					smallTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, smallTable);
 					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " at table number " + this.arrayOfTables.get(i).getTableID());
+					return;
 				}
 			}
 		}
@@ -76,7 +77,7 @@ public class ReservationManager {
 					medTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, medTable);
 					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " at table number " + this.arrayOfTables.get(i).getTableID());
-
+					return;
 				}
 			}
 		}
@@ -90,7 +91,7 @@ public class ReservationManager {
 					largeTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, largeTable);
 					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " at table number " + this.arrayOfTables.get(i).getTableID());
-
+					return;
 				}
 			}
 					
@@ -111,6 +112,7 @@ public class ReservationManager {
 		System.out.println("No booking found");
 		return;
 	}
+	
 	public void CheckAllReservation() {
 		System.out.println("Customer IDs who have bookings are");
 		for(int i = 0; i <this.arrayOfTables.size();i++) {
@@ -118,6 +120,21 @@ public class ReservationManager {
 				System.out.println(this.arrayOfTables.get(i).getCustomerID());
 			}
 		}
+	}
+	
+	public void RemoveReservation(int CustomerID) {
+		for(int i = 0; i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
+				System.out.println("Removing booking  for customer " + CustomerID);
+				System.out.println("Details are:");
+				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
+				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
+				this.arrayOfTables.remove(i);
+				return;
+			}
+		}
+		System.out.println("No booking found");
+		return;
 	}
 	
 

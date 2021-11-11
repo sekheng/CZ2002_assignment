@@ -32,9 +32,19 @@ public class ApplicationGUI
         if(sc.nextInt() == 1) {
         	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
         	int noOfDesiredTables = sc.nextInt();
+
         	for (int i =0; i<noOfDesiredTables; i++) {
         		System.out.printf("Number of people on Table %d:",i+1);
         		int noOfPeople = sc.nextInt();
+        		
+        		System.out.println("Enter Customer Name ");
+        		String customerName = sc.next();
+        		System.out.print("Enter customer ID ");
+        		int customerID = sc.nextInt();
+        		System.out.println("Enter customer Gender (1-male, 2-female)");
+        		int customerGender = sc.nextInt();
+        		System.out.println("Is customer a member? True/False");
+        		boolean membershipStatus = sc.nextBoolean();
         		System.out.println("What time would you like to book the reservation for? (YYYY-MM-DD-HH-MM) ");
         		// Split string 
         		String str = sc.next();
@@ -46,19 +56,13 @@ public class ApplicationGUI
         		int minutes = Integer.parseInt(substrings[4]);
         		LocalDateTime resTime = LocalDateTime.of(year, month, dayOfMonth, hour, minutes);
         		
-        		System.out.println("Enter Customer Name ");
-        		String customerName = sc.next();
-        		System.out.print("Enter customer ID ");
-        		int customerID = sc.nextInt();
-        		System.out.println("Enter customer Gender (1-male, 2-female)");
-        		int customerGender = sc.nextInt();
-        		System.out.println("Is customer a member? True/False");
-        		boolean membershipStatus = sc.nextBoolean();
+
         		myReservationManager.AddReservation(noOfPeople, resTime, customerName, customerID, customerGender, membershipStatus);
         		
         	}
         	System.out.println("Checking all reservation");
         	myReservationManager.CheckAllReservation();
+        	
         	System.out.println("Press 2 to check reservation:");
         	if(sc.nextInt()==2) {
         		System.out.println("Enter customer ID");
@@ -66,6 +70,13 @@ public class ApplicationGUI
         		myReservationManager.CheckReservation(customerID);
         	}
     		//myReservationManager.RemoveReservation(customerID);
+        	
+        	System.out.println("Press 3 to remove reservation:");
+        	if(sc.nextInt()==3) {
+        		System.out.println("Enter customer ID");
+        		int customerID= sc.nextInt();
+        		myReservationManager.RemoveReservation(customerID);
+        	}
         }
         
         
