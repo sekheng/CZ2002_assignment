@@ -6,7 +6,7 @@ import java.util.*;
 
 public class OrderManager {
 
-	private  ArrayList<Order> ArrayofOrders;
+	private  ArrayList<Order> ArrayofOrders = new ArrayList<Order>();
 	
 	public OrderManager(){
 		this.ArrayofOrders = ArrayofOrders;
