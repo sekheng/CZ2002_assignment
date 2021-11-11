@@ -72,7 +72,7 @@ public class StaffMgr {
      * @throws ArrayIndexOutOfBoundsException when @param index out of bounds
      * @throws NumberFormatException when @param index is not int
      */
-    public void removeObjectName(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
+    public void removeStaff(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
     {
         staffList.remove(index);
     }
@@ -81,7 +81,7 @@ public class StaffMgr {
      * gets the list of staff
      * @return staffList
      */
-    public ArrayList<Staff> getArrayOfObjectName(){
+    public ArrayList<Staff> getArrayOfStaff(){
         return staffList;
     };
 }

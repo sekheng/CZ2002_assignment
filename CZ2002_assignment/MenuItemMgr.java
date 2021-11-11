@@ -104,7 +104,7 @@ public class MenuItemMgr {
      * @throws ArrayIndexOutOfBoundsException when @param index out of bounds
      * @throws NumberFormatException when @param index is not int
      */
-    public void removeObjectName(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
+    public void removeMenuItem(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
     {
         menuItemList.remove(index);
     }
@@ -113,7 +113,7 @@ public class MenuItemMgr {
      * gets the list of menu items
      * @return menuItemList
      */
-    public ArrayList<MenuItem> getArrayOfObjectName(){
+    public ArrayList<MenuItem> getArrayOfMenuItem(){
         return menuItemList;
     };
 }
