@@ -86,7 +86,20 @@ public class ReservationManager {
 		}	
 			
 	}
-	
+
+	public void CheckReservation(int CustomerID) {
+		for(int i = 0; i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
+				System.out.println("Booking found for customer " + CustomerID);
+				System.out.println("Details are:");
+				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
+				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
+				return;
+			}
+		}
+		System.out.println("No booking found");
+		return;
+	}
 	
 
 }

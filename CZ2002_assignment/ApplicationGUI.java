@@ -46,9 +46,9 @@ public class ApplicationGUI
         		int minutes = Integer.parseInt(substrings[4]);
         		LocalDateTime resTime = LocalDateTime.of(year, month, dayOfMonth, hour, minutes);
         		
-        		System.out.println("Enter Customer Name");
+        		System.out.println("Enter Customer Name ");
         		String customerName = sc.next();
-        		System.out.print("Enter customer ID");
+        		System.out.print("Enter customer ID ");
         		int customerID = sc.nextInt();
         		System.out.println("Enter customer Gender (1-male, 2-female)");
         		int customerGender = sc.nextInt();
@@ -57,7 +57,13 @@ public class ApplicationGUI
         		myReservationManager.AddReservation(noOfPeople, resTime, customerName, customerID, customerGender, membershipStatus);
         		
         	}
-    		//myReservationManager.CheckReservation(customerID);
+        	
+        	System.out.println("Press 2 to check reservation:");
+        	if(sc.nextInt()==2) {
+        		System.out.println("Enter customer ID");
+        		int customerID = sc.nextInt();
+        		myReservationManager.CheckReservation(customerID);
+        	}
     		//myReservationManager.RemoveReservation(customerID);
         }
         
