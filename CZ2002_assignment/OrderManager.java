@@ -39,6 +39,8 @@ public class OrderManager {
 		return this.ArrayofOrders;
 	}
 	
+	
+	
 	public Order getOrder(int TableID) {
 		int flag = 0;
 		Order selectedOrder =null;
@@ -50,7 +52,6 @@ public class OrderManager {
 				selectedOrder = ArrayofOrders.get(i);
 			}
 		}
-		
 		//Check whether tableID existed in ArrayofOrders 
 		if(flag == 0) {
 			System.out.println("No such tableID has been assigned an Order");

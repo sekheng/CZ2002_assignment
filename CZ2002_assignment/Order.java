@@ -6,7 +6,7 @@ public class Order {
 	
 	private Staff CurrentStaff;
 	private int TableID;
-	private ArrayList<FoodItem>  arrayOfFoodItem;
+	private ArrayList<FoodItem>  arrayOfFoodItem = new ArrayList<FoodItem>();
 
 	public Order(Staff CurrentStaff, int TableID) {
 		this.CurrentStaff = CurrentStaff;

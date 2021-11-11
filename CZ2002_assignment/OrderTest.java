@@ -18,6 +18,9 @@ public class OrderTest {
 		System.out.println(test.getArrayofOrder().get(0).getTableID());
 		test.removeOrder(7);
 		System.out.println(test.getArrayofOrder());
+		
+		OrderInvoice testinvoice = new OrderInvoice(testOrder, 0, 0);
+		testinvoice.PrintReceipt();
 	}
 
 }
