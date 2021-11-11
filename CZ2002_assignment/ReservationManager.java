@@ -49,37 +49,48 @@ public class ReservationManager {
 	}
 	
 	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName, int CustomerID,int CustomerGender, boolean MembershipStatus) {
+		System.out.println("Adding a reservation");
 		Customer newCustomer = new Customer(CustomerName,CustomerGender,MembershipStatus,CustomerID);
 		this.arrayOfCustomers.add(newCustomer);
-
+		System.out.println("New customer added");
 		if(Pax<=2) {
+			System.out.println("Booking a small table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table smallTable = new Table(Pax,RezTime,i);
 					smallTable.setStatus(TableStatus.RESERVED);
 					smallTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, smallTable);
+					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " at table number " + this.arrayOfTables.get(i).getTableID());
 				}
 			}
 		}
+		
 		else if(Pax<=6) {
+			System.out.println("Booking a medium table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
+					System.out.println("Booking table " + this.arrayOfTables.get(i).getTableID());
 					Table medTable = new Table(Pax,RezTime,i);
 					medTable.setStatus(TableStatus.RESERVED);
 					medTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, medTable);
+					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " at table number " + this.arrayOfTables.get(i).getTableID());
+
 				}
 			}
 		}
 		
 		else {
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
+				System.out.println("Booking a large table");
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table largeTable = new Table(Pax,RezTime,i);
 					largeTable.setStatus(TableStatus.RESERVED);
 					largeTable.setCustomerID(CustomerID);
 					this.arrayOfTables.set(i, largeTable);
+					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " at table number " + this.arrayOfTables.get(i).getTableID());
+
 				}
 			}
 					
@@ -99,6 +110,14 @@ public class ReservationManager {
 		}
 		System.out.println("No booking found");
 		return;
+	}
+	public void CheckAllReservation() {
+		System.out.println("Customer IDs who have bookings are");
+		for(int i = 0; i <this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getStatus()==TableStatus.RESERVED) {
+				System.out.println(this.arrayOfTables.get(i).getCustomerID());
+			}
+		}
 	}
 	
 

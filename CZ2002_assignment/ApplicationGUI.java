@@ -57,7 +57,8 @@ public class ApplicationGUI
         		myReservationManager.AddReservation(noOfPeople, resTime, customerName, customerID, customerGender, membershipStatus);
         		
         	}
-        	
+        	System.out.println("Checking all reservation");
+        	myReservationManager.CheckAllReservation();
         	System.out.println("Press 2 to check reservation:");
         	if(sc.nextInt()==2) {
         		System.out.println("Enter customer ID");

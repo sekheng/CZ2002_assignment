@@ -18,6 +18,7 @@ public class Table {
 		this.noOfPax = noOfPax;
 		this.resTime = resTime;
 		this.tableID = tableID;
+		this.setSeatsPax();
 	}
 
 	public int getCustomerID() {
@@ -32,11 +33,11 @@ public class Table {
 		return tableID;
 	}
 
-	public void setSeatsPax(TablePax seatsPax) {
+	public void setSeatsPax() {
 		if(this.noOfPax<=2) {
 			this.seatsPax = TablePax.SMALLTABLE;
 		}
-		else if(this.noOfPax<=4) {
+		else if(this.noOfPax<=6) {
 			this.seatsPax = TablePax.MEDTABLE;
 		}
 		else if(this.noOfPax<=10) {
