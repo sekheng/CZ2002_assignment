@@ -9,6 +9,7 @@ public class OrderInvoice {
 	private float discount;
 	private LocalDateTime currentTime;
 	private Order attachedOrder;
+	private String restaurantName;
 	
 	public OrderInvoice(Order attachedOrder, LocalDateTime currentTime, float discount, float tax) {
 		this.attachedOrder = attachedOrder;
@@ -32,7 +33,9 @@ public class OrderInvoice {
 	
 	public void PrintReceipt() {
 		double cost = this.getTotalCost(this.attachedOrder,this.tax,this.discount);
-		System.out.println("")
+		float tax = this.tax;
+		float discount = this.discount;
+		System.out.println(restaurantName);
 	}
 	
 	
