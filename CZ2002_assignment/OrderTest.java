@@ -16,6 +16,8 @@ public class OrderTest {
 		
 		Staff stafftest;
 		stafftest = new Staff("Katy", 20, "5U34582", "Manager");
+		
+		
 
 		Order testOrder1 = new Order(stafftest, 8);
 		
