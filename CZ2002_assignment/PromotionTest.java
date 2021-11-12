@@ -24,6 +24,12 @@ public class PromotionTest {
         new MenuItem(350,"cold","lemon tea","drinks")
     ));
 
+    ArrayList<MenuItem> testPromoSet2 = new ArrayList<MenuItem>(Arrays.asList(
+        new MenuItem(250,"vegetarian","sandwich","appetizer"),
+        new MenuItem(500,"many mushrooms","mushroom risoto","maincourse"),
+        new MenuItem(350,"cold","lemon tea","drinks")
+    ));
+
     /**
      * Function to test the Promotion Manager
      * @param ArrayList<MenuItem> list  = testPromoSet
@@ -35,7 +41,6 @@ public class PromotionTest {
         PromotionManager testPromoMgr = new PromotionManager();
         //Get Index by getting the Array of Promotions and returning it's length (append at the end)
         testPromoMgr.createPromotion("Vegetarian Set", 990, testPromoSet, testPromoMgr.getArrayOfPromotions().size());
-        System.out.println(testPromoMgr.getArrayOfPromotions());
         //Manually create a list of promotions
         //Artificial Promotion List
         ArrayList<Promotion> artificialPromoList = new ArrayList<Promotion>();
@@ -43,9 +48,27 @@ public class PromotionTest {
         Promotion artificialPromo = new Promotion(990, "Vegetarian Set", testPromoSet, artificialPromoList.size());
         //Append the articialPromo
         artificialPromoList.add(artificialPromo);
-        System.out.println(artificialPromoList);
         //Check that both are created and initialized properly
-        Assert.assertTrue("Both Promotion Set Lists are the NOT the same!", promoSetComparison(testPromoMgr.getArrayOfPromotions(), artificialPromoList));
+        Assert.assertTrue("Both Promotion Set Lists are NOT the same!", promoSetComparison(testPromoMgr.getArrayOfPromotions(), artificialPromoList));
+    }
+
+
+    @Test
+    public void PromoMgrTestNotEql() {
+        //Creation of Promotional Package using PromotionManager
+        PromotionManager testPromoMgr = new PromotionManager();
+        //Get Index by getting the Array of Promotions and returning it's length (append at the end)
+        testPromoMgr.createPromotion("Vegetarian Set", 990, testPromoSet, testPromoMgr.getArrayOfPromotions().size());
+        //testPromoMgr.createPromotion("Vegetarian Set", 1000, testPromoSet, testPromoMgr.getArrayOfPromotions().size());
+        //Manually create a list of promotions
+        //Artificial Promotion List
+        ArrayList<Promotion> artificialPromoList = new ArrayList<Promotion>();
+        //Manually create the same promotion as above and append to articialPromotions
+        Promotion artificialPromo = new Promotion(1000, "Vegetarian Set", testPromoSet, artificialPromoList.size());
+        //Append the articialPromo
+        artificialPromoList.add(artificialPromo);
+        //Check that both are created and initialized properly
+        Assert.assertFalse("Both Promotion Set Lists are the same!", promoSetComparison(testPromoMgr.getArrayOfPromotions(), artificialPromoList));
     }
 
     /**
@@ -58,21 +81,31 @@ public class PromotionTest {
 
         if (mgrList.size() != artList.size())
         {
-            return false;
+            return comp;
         }
 
-        for (Promotion mgrPromoItem : mgrList)
+        for (int i = 0; i < mgrList.size(); i++)
         {
-            for (Promotion artPromoItem : artList)
-            {
-                if (mgrPromoItem.getArrayOfItems() == artPromoItem.getArrayOfItems())
-                {
-                    comp = true;
-                    break;
-                }
-                comp = false;
+            Promotion mgrPromo = mgrList.get(i);
+            Promotion artPromo = artList.get(i);
+            //Check their name
+            String mgrPromoName = mgrPromo.getName();
+            String artPromoName = artPromo.getName();
+            //Check their price
+            int mgrPromoPrice = mgrPromo.getPriceInCents();
+            int artPromoPrice = artPromo.getPriceInCents();
+            //Cbeck their contents. TestingBothItemArray function defined in MenuItemTesting
+            ArrayList<MenuItem> mgrListItem = mgrPromo.getArrayOfItems();
+            ArrayList<MenuItem> artListItem = artPromo.getArrayOfItems();
+            comp =  (mgrPromoName == artPromoName) && 
+                    (mgrPromoPrice == artPromoPrice) && 
+                    MenuItemTesting.TestingBothItemArrays(mgrListItem, artListItem);
+
+            if (comp == false) {
+                return comp;
             }
         }
+
         return comp;
     }
 }

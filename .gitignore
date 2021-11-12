@@ -1,3 +1,4 @@
 *.class
 *.ps1
 ~$pendixB.docx
+.vscode/settings.json

@@ -85,7 +85,7 @@ public class MenuItemTesting {
      * @param array2    2nd array to be passed in
      * @return              true if it is completely identical. false if any one of them is false
      */
-    private static boolean TestingBothItemArrays(ArrayList<MenuItem> array1, ArrayList<MenuItem> array2)
+    public static boolean TestingBothItemArrays(ArrayList<MenuItem> array1, ArrayList<MenuItem> array2)
     {
         if (array1.size() != array2.size())
         {
