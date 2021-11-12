@@ -1,5 +1,6 @@
 package CZ2002_assignment;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -64,6 +65,18 @@ public class MenuItemTesting {
         assertEquals(testItem.getDescription(), "newDescription");
         testItem.setType("newType");
         assertEquals(testItem.getType(), "newType");
+    }
+
+    /**
+     * Meant to test invalid inputs at menu items to see if those values pass through
+     */
+    @Test
+    public void TestInvalidMenuItem()
+    {
+        MenuItem testItem = new MenuItem(10, "description", "name", "type");
+        int negativePrice = -100;
+        testItem.setPriceInCents(negativePrice);
+        assertNotEquals(testItem.getPriceInCents(), negativePrice);
     }
 
     /**
