@@ -1,7 +1,25 @@
 package CZ2002_assignment;
 
+/**
+ * Base class meant for promotional package and menu item
+ * @author Lee Sek Heng
+ * @version 1.2
+ * @since 2021-11-12
+ */
 public class FoodItem extends ObjectName{
-
+		/**
+		 * Exception to be thrown when the price when negative
+		 * @author Lee Sek Heng
+		 * @version 1.0
+		 * @since 2021-11-12
+		 */
+		protected class IncorrectPriceException extends Exception
+		{
+			public IncorrectPriceException(String errorMessage)
+			{
+				super(errorMessage);
+			}
+		}
 	    /**
 	     * priceInCents of the object
 	     */
@@ -13,7 +31,7 @@ public class FoodItem extends ObjectName{
 	     */
 	    public FoodItem (int price, String name){
 	        super(name);
-	        this.priceInCents=price;
+			setPriceInCents(price);
 	    }
 
 	    /**
@@ -25,10 +43,20 @@ public class FoodItem extends ObjectName{
 	    }
 	    
 	    /**
-	     * Changes the priceInCents of the object
-	     * @param newPrice is the object's new priceInCents
+	     * Changes the priceInCents of the object.
+	     * @param newPrice is the object's new priceInCents. Do not put it less than 0!
 	     */
 	    public void setPriceInCents(int newPrice){
-	        this.priceInCents=newPrice;
+			try
+			{
+				if (newPrice >= 0)
+	        		this.priceInCents=newPrice;
+				else
+					throw new IncorrectPriceException("price is below negative value!");
+			}
+			catch (Exception exception)
+			{
+				exception.printStackTrace();
+			}
 	    }
 }
