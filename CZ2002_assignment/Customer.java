@@ -16,11 +16,6 @@ public class Customer extends ObjectName{
 		return this.custID;
 	}
 
-	public String getName() {
-		return this.name;
-	}
-
-
 	public int getGender() {
 		return this.gender;
 	}

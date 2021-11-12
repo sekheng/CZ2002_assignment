@@ -55,13 +55,13 @@ public class StaffMgr {
 
     /**
      * method to select a staff
-     * @param i is the index for the staff to be selected
+     * @param index is the index for the staff to be selected
      * @return the staff selected
      * @throws ArrayIndexOutofBoundsException
      */
-    public Staff selectStaff(int i) throws ArrayIndexOutOfBoundsException
+    public Staff selectStaff(int index) throws ArrayIndexOutOfBoundsException
     {
-        currentStaff = staffList.get(i);
+        currentStaff = staffList.get(index);
         return currentStaff;
     }
 
