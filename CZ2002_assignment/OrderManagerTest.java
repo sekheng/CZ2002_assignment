@@ -47,6 +47,8 @@ public class OrderManagerTest {
 	@Test
 	public void OrderMgrtest() {
 		
+		OrderManager myOrderMgr = new OrderManager();
+		
 		
         
         
