@@ -12,10 +12,11 @@ public class OrderInvoice {
 	private Order attachedOrder;
 	private static String restaurantName = "SYAKKW";
 	
-	public OrderInvoice(Order attachedOrder, float discount, float tax) {
+	public OrderInvoice(Order attachedOrder, LocalDateTime dateTime, float discount, float tax) {
 		this.attachedOrder = attachedOrder;
 		this.discount = discount;
 		this.tax = tax;
+		this.currentTime = dateTime;
 	}
 	
 	
@@ -36,8 +37,8 @@ public class OrderInvoice {
 		float tax = this.tax;
 		String stars = new String(new char[40]).replace('\0', '*');
 		float discount = this.discount;
-		String currentTime = LocalDateTime.now().toString();
-		String[] dateTime = currentTime.split("T");
+		
+		String[] dateTime = currentTime.toString().split("T");
 		System.out.printf("%22s","Table ID :");
 		System.out.println(attachedOrder.getTableID() + '\n');
 		System.out.printf("%22s",restaurantName+'\n'+'\n');
@@ -56,14 +57,17 @@ public class OrderInvoice {
 		}
 		
 		System.out.printf("%-20s | ", "Total");
-		System.out.printf("%.2f",cost);
-		
-		
+		System.out.printf("%.2f",cost);	
+		System.out.println();
 		
 	}
 	
 	public Order getOrder() {
 		return this.attachedOrder;
+	}
+	
+	public LocalDateTime getTime() {
+		return this.currentTime;
 	}
 
 

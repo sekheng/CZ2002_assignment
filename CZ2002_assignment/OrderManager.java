@@ -1,12 +1,15 @@
 package CZ2002_assignment;
 
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.*;
 
 
 public class OrderManager {
 
 	private  ArrayList<Order> ArrayofOrders = new ArrayList<Order>();
+	private RevenueReport revenueReport = new RevenueReport();
+	
 	
 	public OrderManager(){
 		this.ArrayofOrders = ArrayofOrders;
@@ -35,11 +38,22 @@ public class OrderManager {
 		return cancellation;
 	}
 	
+	
+	public void printReceipt(int tableID, float discount, float tax) {
+		
+		Order order = this.getOrder(tableID);
+		OrderInvoice orderInvoice = new OrderInvoice(order, LocalDateTime.now(),discount,tax);
+		orderInvoice.formatReceipt();
+		this.removeOrder(tableID);
+		revenueReport.StoreInvoice(orderInvoice);
+		
+		
+	}
+	
 	public ArrayList<Order> getArrayofOrder(){
 		return this.ArrayofOrders;
 	}
-	
-	
+
 	
 	public Order getOrder(int TableID) {
 		Order selectedOrder =null;
@@ -58,14 +72,9 @@ public class OrderManager {
 		return selectedOrder;
 	}
 	
-	public void printReceipt(int tableID, float discount, float tax) {
-		
-		Order order = this.getOrder(tableID);
-		OrderInvoice orderInvoice = new OrderInvoice(order, discount,tax);
-		orderInvoice.formatReceipt();
-		this.removeOrder(tableID);
-		
-		
+	
+	public RevenueReport getRevenueReport() {
+		return this.revenueReport;
 	}
 
 	

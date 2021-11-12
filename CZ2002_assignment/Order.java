@@ -34,10 +34,15 @@ public class Order {
 	}
 	
 	public void viewOrder() {
-		System.out.printf("%30s","Order for %d", TableID);
+		System.out.printf("%20s","Order for Table ");
+		System.out.println(this.TableID);
 		for (int i =0; i<arrayOfFoodItem.size(); i++) {
 			String name = arrayOfFoodItem.get(i).getName();
-			System.out.printf("Item %d : %-20s", (i+1), name);
+			System.out.printf("Item %d : %-20s |", (i+1), name);
+			System.out.println();
 		}
+		String end = new String(new char[30]).replace('\0', '-');
+		System.out.println(end);
 	}
+	
 }
