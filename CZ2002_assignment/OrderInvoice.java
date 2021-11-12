@@ -4,13 +4,53 @@ import java.util.*;
 import java.text.*;
 import java.time.LocalDateTime;
 
+/**
+Represents a Order Invoice 
+An Order Invoice contains one order assigned to a table
+An Order can contain multiple Food Items
+
+@author Kanupriya Malhotra 
+@version 1.0
+@since 2021-11-10
+*/
+
 public class OrderInvoice {
 	
+	/**
+	 * The tax applied on the order in percentage 
+	 */
 	private float tax;
+	
+	
+	/**
+	 * The discount applied on the order in percentage 
+	 */
 	private float discount;
+	
+	/**
+	 * The date and time of the Order Invoice's issue 
+	 */
 	private LocalDateTime currentTime;
+	
+	/**
+	 * The Order attached to the invoice containing food items 
+	 */
 	private Order attachedOrder;
+	
+	/**
+	 * The name of the restaurant
+	 */
 	private static String restaurantName = "Food Express";
+	
+	
+	/**
+	 * Creates a new Order Invoice with a given Order
+	 * The date and time is typically the time of Order Invoice creation
+	 * @param attachedOrder This OrderInvoice's attached Order.
+	 * @param discount This OrderInvoice's discount.
+	 * @param tax This OrderInvoice's tax.
+	 * @param dateTime This OrderInvoice's time of creation. 
+	 */
 	
 	public OrderInvoice(Order attachedOrder, LocalDateTime dateTime, float tax,float discount) {
 		this.attachedOrder = attachedOrder;
@@ -20,6 +60,10 @@ public class OrderInvoice {
 	}
 	
 	
+	/**
+	 * Calculates the total cost by adding the prices and incorporating taxes and discounts 
+	 * @return the total cost payable by the customer, including discounts and taxes. 
+	 */
 	public double getTotalCost() {
 		ArrayList<FoodItem> arrayOfFoodItems = this.attachedOrder.getArrayOfFoodItem();
 		double cost =0;
@@ -30,7 +74,13 @@ public class OrderInvoice {
 		cost = cost - ((this.discount/100)*cost);
 		return cost;
 	}
-		
+	
+	/**
+	 * Formats and prints out the receipt of the OrderInvoice
+	 * Includes the Table ID and time of Invoice Creation
+	 * Includes the name and price of each food item 
+	 * Includes the total cost, after tax and discount has been applied
+	 */
 	public void formatReceipt() {
 		double cost = this.getTotalCost();
 		float tax = this.tax;
@@ -62,10 +112,18 @@ public class OrderInvoice {
 		
 	}
 	
+	/**
+	 * Gets the Order attached to the Order Invoice 
+	 * @return This Order Invoice's Order 
+	 */
 	public Order getOrder() {
 		return this.attachedOrder;
 	}
 	
+	/**
+	 * Gets the date and time of creation of the Order Invoice 
+	 * @return This Order Invoice's time of creation 
+	 */
 	public LocalDateTime getTime() {
 		return this.currentTime;
 	}

@@ -4,18 +4,41 @@ import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+Represents a an Order Manager 
+An Order Manager consists of a list Orders allocated to different Tables 
+An Order Manager has a Revenue Report that tracks all Order Invoices
+
+@author Kanupriya Malhotra 
+@version 1.0
+@since 2021-11-10
+*/
 
 public class OrderManager {
-
+	
+	
+	/**
+	 * Array containing all Orders and their details 
+	 */
 	private  ArrayList<Order> ArrayofOrders = new ArrayList<Order>();
+	
+	/**
+	 * The Revenue Report for this Order Manager that keeps track of all Order Invoices 
+	 */
 	private RevenueReport revenueReport = new RevenueReport();
 	
-	
+	/**
+	 * Creates an OrderManager 
+	 */
 	public OrderManager(){
 		this.ArrayofOrders = ArrayofOrders;
 	}
 		
-	
+	/**
+	 * Adds an Order to the Order Manager. 
+	 * Adds Order to the Array of Orders 
+	 * @return confirmation of whether the order has been successfully added or not 
+	 */
 	public String addOrder(Order order){
 		ArrayofOrders.add(order);
 		String confirmation = "Successfully added Order";
@@ -23,6 +46,12 @@ public class OrderManager {
 		
 	}
 	
+	/**
+	 * Removes an Order from the Order Manager based on the TableID of the Order. 
+	 * Removes Order from the Array of Orders 
+	 * Prints whether the Order was successfully cancelled 
+	 * 
+	 */
 	public void removeOrder(int TableID) {
 		int flag =0;
 		String cancellation;
