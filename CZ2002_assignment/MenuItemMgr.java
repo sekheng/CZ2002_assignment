@@ -65,6 +65,7 @@ public class MenuItemMgr {
      */
     public void updateMenuItem(MenuItem item) throws InputMismatchException
     {
+        /*
         Scanner sc = new Scanner(System.in);
         System.out.println("(1) change name, (2) change priceInCents, (3) change description, (4) change type");
         switch(sc.nextInt())
@@ -94,6 +95,11 @@ public class MenuItemMgr {
             break;
         }// end of switch
         sc.close();
+        */
+        // clearly SC has to be outside of MenuItemMgr
+        // thus this will fixed it by assuming that scanner will be enter from outside
+        
+
     }//end of update
 
 
