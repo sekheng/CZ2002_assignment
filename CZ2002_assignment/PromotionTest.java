@@ -12,7 +12,7 @@ import org.junit.Test;
 * Test class for testing Promotions & Promotion Manager 
 * @author  Chai Youxiang
 * @version 1.0
-* @since     2021-12-11
+* @since   2021-12-11
 */
 public class PromotionTest {
 
@@ -54,7 +54,25 @@ public class PromotionTest {
      * @return true if both arrays are the same, false otherwise
      */
     private static boolean promoSetComparison(ArrayList<Promotion> mgrList, ArrayList<Promotion> artList) {
-        boolean comp;
-        for (int i)
+        boolean comp = false;
+
+        if (mgrList.size() != artList.size())
+        {
+            return false;
+        }
+
+        for (Promotion mgrPromoItem : mgrList)
+        {
+            for (Promotion artPromoItem : artList)
+            {
+                if (mgrPromoItem.getArrayOfItems() == artPromoItem.getArrayOfItems())
+                {
+                    comp = true;
+                    break;
+                }
+                comp = false;
+            }
+        }
+        return comp;
     }
 }
