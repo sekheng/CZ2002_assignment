@@ -23,10 +23,13 @@ public class OrderTest {
 		FoodItem foodItem2 = new FoodItem(270,"Hakka Noodles");
 		testOrder1.addItem(foodItem);
 		testOrder1.addItem(foodItem2);
+		
+		
 		OrderManager testManager = new OrderManager();
 		testManager.addOrder(testOrder1);
-		
 		testOrder1.viewOrder();
+		
+		
 		OrderInvoice testinvoice = new OrderInvoice(testOrder1, LocalDateTime.now(), 0, 0);
 		testManager.printReceipt(8, 3, 2);
 		

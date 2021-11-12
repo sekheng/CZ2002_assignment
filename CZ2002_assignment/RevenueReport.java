@@ -14,7 +14,6 @@ public class RevenueReport {
 		
 	}
 	
-	
 	public void GetOrderInvoice(LocalDateTime startDate,LocalDateTime endDate ){
 		
 		System.out.println("SEARCHING FOR INVOICES IN GIVEN TIME RANGE..........");
@@ -30,17 +29,17 @@ public class RevenueReport {
 	
 	public void GetOrderInvoice(){
 		
+		System.out.println("PRINTING ALL RECIEPTS..........");
+		
 		for(int i=0;i<ArrayOfOrderInvoice.size();i++) {
 				ArrayOfOrderInvoice.get(i).formatReceipt();
 			}
 		}
         
-	
-	
-	
-	
+
 	public void StoreInvoice(OrderInvoice orderInvoice) {
 		ArrayOfOrderInvoice.add(orderInvoice);
+		System.out.println("Order Invoice Stored...");
 	}
 	
 	

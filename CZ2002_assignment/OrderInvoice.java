@@ -10,9 +10,9 @@ public class OrderInvoice {
 	private float discount;
 	private LocalDateTime currentTime;
 	private Order attachedOrder;
-	private static String restaurantName = "SYAKKW";
+	private static String restaurantName = "Food Express";
 	
-	public OrderInvoice(Order attachedOrder, LocalDateTime dateTime, float discount, float tax) {
+	public OrderInvoice(Order attachedOrder, LocalDateTime dateTime, float tax,float discount) {
 		this.attachedOrder = attachedOrder;
 		this.discount = discount;
 		this.tax = tax;
@@ -20,20 +20,19 @@ public class OrderInvoice {
 	}
 	
 	
-	public double getTotalCost(Order AttachedOrder, float tax, float discount) {
-		ArrayList<FoodItem> arrayOfFoodItems = AttachedOrder.getArrayOfFoodItem();
+	public double getTotalCost() {
+		ArrayList<FoodItem> arrayOfFoodItems = this.attachedOrder.getArrayOfFoodItem();
 		double cost =0;
 		for(int i=0;i<arrayOfFoodItems.size();i++) {
 			cost=cost+(arrayOfFoodItems.get(i).getPriceInCents()/100);
 		}
-		cost= cost+(cost*(tax/100));
-		cost = cost - ((discount/100)*cost);
+		cost= cost+(cost*(this.tax/100));
+		cost = cost - ((this.discount/100)*cost);
 		return cost;
 	}
-	
-	
+		
 	public void formatReceipt() {
-		double cost = this.getTotalCost(this.attachedOrder,this.tax,this.discount);
+		double cost = this.getTotalCost();
 		float tax = this.tax;
 		String stars = new String(new char[40]).replace('\0', '*');
 		float discount = this.discount;
@@ -59,6 +58,7 @@ public class OrderInvoice {
 		System.out.printf("%-20s | ", "Total");
 		System.out.printf("%.2f",cost);	
 		System.out.println();
+		System.out.println();
 		
 	}
 	
@@ -70,7 +70,4 @@ public class OrderInvoice {
 		return this.currentTime;
 	}
 
-
-
-	
 }

@@ -39,7 +39,8 @@ public class Order {
 		for (int i =0; i<arrayOfFoodItem.size(); i++) {
 			String name = arrayOfFoodItem.get(i).getName();
 			System.out.printf("Item %d : %-20s |", (i+1), name);
-			System.out.println();
+		
+			
 		}
 		String end = new String(new char[30]).replace('\0', '-');
 		System.out.println(end);
