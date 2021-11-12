@@ -26,6 +26,7 @@ public class Exp1 {
 		timedExe.scheduleAtFixedRate(Exp1::run, initialDelay, 2, TimeUnit.MINUTES);
 	}
 	
+	
 	public static void run() {
 		LocalDateTime now2 = LocalDateTime.now();
 		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");

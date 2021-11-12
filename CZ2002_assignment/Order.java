@@ -39,51 +39,7 @@ public class Order {
 	public Order(Staff currentStaff, int tableID) {
 		this.currentStaff = currentStaff;
 		this.tableID = tableID;
-	}
-	
-	
-	
-	
-	/**
-	 * gets Staff member assigned to the Order 
-	 * @return Staff member assigned to the Order 
-	 */
-	public Staff getStaff() {
-		return this.currentStaff;
-	}
-	
-	
-	
-	/**
-	 * gets Array of Food Items assigned to the Order 
-	 * @return Array of Food Items belonging to the Order 
-	 */
-	public ArrayList<FoodItem> getArrayOfFoodItem(){
-		return this.arrayOfFoodItem;
-	}
-	
-	
-	
-	
-	/**
-	 * gets Table ID 
-	 * @return Table ID that the Order is assigned to 
-	 */
-	public int getTableID() {
-		return this.tableID;
-	}
-
-	
-	
-	
-	/**
-	 * sets Array of Food Item to Order 
-	 * @param Array of Food Item that needs to be assigned to the Order 
-	 */
-	public void setArrayOfFoodItem(ArrayList<FoodItem> arrayOfFoodItem) {
-		this.arrayOfFoodItem = arrayOfFoodItem;
-	}
-	
+	}	
 	
 	
 	
@@ -126,4 +82,58 @@ public class Order {
 		String end = new String(new char[30]).replace('\0', '-');
 		System.out.println(end);
 	}
+	
+	
+	
+	
+	/**
+	 * gets Staff member assigned to the Order 
+	 * @return Staff member assigned to the Order 
+	 */
+	public Staff getStaff() {
+		return this.currentStaff;
+	}
+	
+	
+	
+	/**
+	 * gets Staff member assigned to the Order 
+	 * @return Staff member assigned to the Order 
+	 */
+	public void setStaff(Staff staff) {
+		 this.currentStaff =  staff;
+	}
+	
+	
+	
+	/**
+	 * gets Array of Food Items assigned to the Order 
+	 * @return Array of Food Items belonging to the Order 
+	 */
+	public ArrayList<FoodItem> getArrayOfFoodItem(){
+		return this.arrayOfFoodItem;
+	}
+	
+	
+	
+	
+	/**
+	 * gets Table ID 
+	 * @return Table ID that the Order is assigned to 
+	 */
+	public int getTableID() {
+		return this.tableID;
+	}
+
+	
+	
+	
+	/**
+	 * sets Array of Food Item to Order 
+	 * @param Array of Food Item that needs to be assigned to the Order 
+	 */
+	public void setArrayOfFoodItem(ArrayList<FoodItem> arrayOfFoodItem) {
+		this.arrayOfFoodItem = arrayOfFoodItem;
+	}
+
 }
