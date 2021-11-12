@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class MenuItemTesting {
     /**
-     * Testing the behaviour
+     * Testing the behaviours and functions of MenuItemMgr
      */
     @Test
     public void MenuMgrTesting()
@@ -39,7 +39,31 @@ public class MenuItemTesting {
         // then test the updating of menu item
         MenuItem currItem = myMenuMgr.getArrayOfMenuItem().get(myMenuMgr.getArrayOfMenuItem().size() - 1);
         // currItem should be the same as testItem
-        myMenuMgr.updateMenuItem(currItem);
+        //myMenuMgr.updateMenuItem(currItem);
+        currItem.setName("newName");
+        testItem.setName("newName");
+        assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
+        // then test removing the item from it
+        myMenuMgr.removeMenuItem(myMenuMgr.getArrayOfMenuItem().size() - 1);
+        expectedResult.remove(testItem);
+        assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
+    }
+
+    /**
+     * Testing the behavior of menu item
+     */
+    @Test
+    public void TestMenuItem()
+    {
+        MenuItem testItem = new MenuItem(100, "description", "name", "type");
+        testItem.setName("newName");
+        assertEquals(testItem.getName(), "newName");
+        testItem.setPriceInCents(169);
+        assertEquals(testItem.priceInCents, 169);
+        testItem.setDescription("newDescription");
+        assertEquals(testItem.getDescription(), "newDescription");
+        testItem.setType("newType");
+        assertEquals(testItem.getType(), "newType");
     }
 
     /**

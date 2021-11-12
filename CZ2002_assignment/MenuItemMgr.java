@@ -7,8 +7,8 @@ import java.util.InputMismatchException;
 /**
     To manage a list of menuItems
     allows addition, updates, and deletion of menuItems
-    @author    Kevin Patrick Santoso
-    @version   1.0
+    @author    Kevin Patrick Santoso and Lee Sek heng
+    @version   1.1
     @since     2021-06-11
  */
 public class MenuItemMgr {
@@ -98,8 +98,7 @@ public class MenuItemMgr {
         */
         // clearly SC has to be outside of MenuItemMgr
         // thus this will fixed it by assuming that scanner will be enter from outside
-        
-
+        // now i think about it, maybe the update is done from the array of menuitem manager
     }//end of update
 
 
@@ -112,6 +111,7 @@ public class MenuItemMgr {
      */
     public void removeMenuItem(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
     {
+        //
         menuItemList.remove(index);
     }
 
