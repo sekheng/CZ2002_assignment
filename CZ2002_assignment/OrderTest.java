@@ -2,6 +2,8 @@ package CZ2002_assignment;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 public class OrderTest {
@@ -11,16 +13,17 @@ public class OrderTest {
 		
 		Staff stafftest;
 		stafftest = new Staff("Katy", 20, "5U34582", "Manager");
-		Order testOrder;
-		testOrder =new Order(stafftest, 7);
-		OrderManager test = new OrderManager();
-		test.addOrder(testOrder);
-		System.out.println(test.getArrayofOrder().get(0).getTableID());
-		test.removeOrder(7);
-		System.out.println(test.getArrayofOrder());
+		Order testOrder1 = new Order(stafftest, 8);
 		
-		OrderInvoice testinvoice = new OrderInvoice(testOrder, 0, 0);
-		testinvoice.PrintReceipt();
+		FoodItem foodItem = new FoodItem(170,"Fried Rice");
+		FoodItem foodItem2 = new FoodItem(270,"Hakka Noodles");
+		testOrder1.addItem(foodItem);
+		testOrder1.addItem(foodItem2);
+		OrderManager test = new OrderManager();
+		test.addOrder(testOrder1);
+		OrderInvoice testinvoice = new OrderInvoice(testOrder1, 0, 0);
+		test.printReceipt(8, 3, 2);
+		
 	}
 
 }

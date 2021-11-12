@@ -42,22 +42,30 @@ public class OrderManager {
 	
 	
 	public Order getOrder(int TableID) {
-		int flag = 0;
 		Order selectedOrder =null;
 		
 		// Search for Order by tableID 
 		for(int i =0; i<ArrayofOrders.size();i++) {
 			if(ArrayofOrders.get(i).getTableID() == TableID) {
-				flag =1;
 				selectedOrder = ArrayofOrders.get(i);
 			}
 		}
 		//Check whether tableID existed in ArrayofOrders 
-		if(flag == 0) {
+		if(selectedOrder == null) {
 			System.out.println("No such tableID has been assigned an Order");
 		}
 		
 		return selectedOrder;
+	}
+	
+	public void printReceipt(int tableID, float discount, float tax) {
+		
+		Order order = this.getOrder(tableID);
+		OrderInvoice orderInvoice = new OrderInvoice(order, discount,tax);
+		orderInvoice.formatReceipt();
+		this.removeOrder(tableID);
+		
+		
 	}
 
 	

@@ -5,13 +5,13 @@ public class FoodItem extends ObjectName{
 	    /**
 	     * priceInCents of the object
 	     */
-	    protected int priceInCents;
+	    protected double priceInCents;
 
 	    /**constructs an ObjectNamePrice object with given name and priceInCents
 	     * @param name This object's name
 	     * @param priceInCents This object's priceInCents
 	     */
-	    public FoodItem (int price, String name){
+	    public FoodItem (double price, String name){
 	        super(name);
 	        this.priceInCents=price;
 	    }
@@ -20,7 +20,7 @@ public class FoodItem extends ObjectName{
 	     * Gets the priceInCents of this object
 	     * @return this object's priceInCents
 	     */
-	    public int getPriceInCents(){
+	    public double getPriceInCents(){
 	        return this.priceInCents;
 	    }
 	    
