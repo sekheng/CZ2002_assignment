@@ -31,13 +31,13 @@ public class OrderTest {
 		
 		
 		OrderInvoice testinvoice = new OrderInvoice(testOrder1, LocalDateTime.now(), 0, 0);
-		testManager.printReceipt(8, 3, 2);
+//		testManager.printReceipt(8, 3, 2);
 		
 		RevenueReport revenueReport = testManager.getRevenueReport();
 		LocalDateTime startDate = LocalDateTime.parse("2016-10-31 23:59:59", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		LocalDateTime endDate = LocalDateTime.parse("2023-10-31 23:59:59", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		
-		revenueReport.GetOrderInvoice(startDate, endDate);
+//		revenueReport.GetOrderInvoice(startDate, endDate);
 		
 	}
 
