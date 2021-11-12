@@ -46,7 +46,7 @@ public class FoodItem extends ObjectName{
 	     * Changes the priceInCents of the object.
 	     * @param newPrice is the object's new priceInCents. Do not put it less than 0!
 	     */
-	    public void setPriceInCents(int newPrice){
+	    public void setPriceInCents(double newPrice){
 			try
 			{
 				if (newPrice >= 0)
