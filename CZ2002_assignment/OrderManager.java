@@ -23,7 +23,7 @@ public class OrderManager {
 		
 	}
 	
-	public String removeOrder(int TableID) {
+	public void removeOrder(int TableID) {
 		int flag =0;
 		String cancellation;
 		for(int i =0; i<ArrayofOrders.size();i++) {
@@ -35,7 +35,7 @@ public class OrderManager {
 
 		if(flag == 0) cancellation = "No order found for this tableID";
 		else cancellation = "Order Cancelled";
-		return cancellation;
+		System.out.println(cancellation);
 	}
 	
 	
