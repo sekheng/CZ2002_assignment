@@ -5,9 +5,9 @@ import java.lang.*;
 
 public class ReservationManager {
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
-	private int smallTableno;
-	private int medTableno;
-	private int largeTableno;
+	private int smallTableno = 7;
+	private int medTableno = 10;
+	private int largeTableno = 15;
 	
 	
 	//Array of tables is filled up according to size, with first all small tables, then all medium tables, then all Large tables
@@ -17,12 +17,9 @@ public class ReservationManager {
 	//ID numbers smallTableNo + medTableNo +1 -> smallTableNo + medTableNo + largeTableNo : large tables
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
-	public ReservationManager(int smallTableno, int medTableno, int largeTableno) {
-		this.smallTableno = smallTableno;
+	public ReservationManager() {
 		System.out.println("Number of small tables "+ this.smallTableno);
-		this.medTableno = medTableno;
 		System.out.println("Number of medium tables "+ this.medTableno);
-		this.largeTableno = largeTableno;
 		System.out.println("Number of large tables "+this.largeTableno);
 		
 		//Adding small tables to array of tables

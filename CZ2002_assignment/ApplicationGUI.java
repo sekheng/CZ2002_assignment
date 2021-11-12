@@ -9,16 +9,12 @@ public class ApplicationGUI
     	Scanner sc = new Scanner(System.in);
         System.out.println("code out application GUI");
         
-        
-        // user should already get the specific item from menu item manager
-        // user select the attribute of the menu item to update
-        // put in the correct value
-        // 
+       
         
         
         //Reservation Manager Test
         //StaffMgr myStaffMgr = new StaffMgr();
-        ReservationManager myReservationManager;
+        ReservationManager myReservationManager = new ReservationManager();
         
         System.out.println("Enter total number of small tables in this restaurant:");
         int smalltables = sc.nextInt();
@@ -27,7 +23,6 @@ public class ApplicationGUI
         System.out.println("Enter total number of large tables in this restaurant:");
         int largetables = sc.nextInt();
         
-        myReservationManager = new ReservationManager(smalltables,medtables,largetables);
         System.out.println("Press 1 to make reservation :");
         if(sc.nextInt() == 1) {
         	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
