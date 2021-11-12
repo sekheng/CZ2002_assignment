@@ -96,6 +96,7 @@ public class ReservationManager {
 			
 	}
 
+//Check reservation for particular customer ID
 	public void CheckReservation(int CustomerID) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
@@ -110,6 +111,7 @@ public class ReservationManager {
 		return;
 	}
 	
+//Check all reservations
 	public void CheckAllReservation() {
 		System.out.println("Customer IDs who have bookings are");
 		for(int i = 0; i <this.arrayOfTables.size();i++) {
@@ -118,15 +120,32 @@ public class ReservationManager {
 			}
 		}
 	}
-	
-	public void RemoveReservation(int CustomerID) {
+
+//Remove reservation based on customer ID
+	public void RemoveReservationCustomerID(int CustomerID) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
 				System.out.println("Removing booking  for customer " + CustomerID);
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
 				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
-				this.arrayOfTables.remove(i);
+				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);;
+				return;
+			}
+		}
+		System.out.println("No booking found");
+		return;
+	}
+
+//Remove reservation based on table ID
+	public void RemoveReservationTableID(int TableID) {
+		for(int i = 0; i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getTableID()  == TableID) {
+				System.out.println("Removing booking  for customer " + TableID);
+				System.out.println("Details are:");
+				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
+				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
+				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);;
 				return;
 			}
 		}

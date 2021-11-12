@@ -70,7 +70,7 @@ public class ApplicationGUI
         	if(sc.nextInt()==3) {
         		System.out.println("Enter customer ID");
         		int customerID= sc.nextInt();
-        		myReservationManager.RemoveReservation(customerID);
+        		myReservationManager.RemoveReservationCustomerID(customerID);
         	}
         }
         
