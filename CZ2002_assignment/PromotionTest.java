@@ -54,8 +54,7 @@ public class PromotionTest {
      * @return true if both arrays are the same, false otherwise
      */
     private static boolean promoSetComparison(ArrayList<Promotion> mgrList, ArrayList<Promotion> artList) {
-        boolean comp = mgrList.equals(artList);
-        System.out.println(comp);
-        return comp;
+        boolean comp;
+        for (int i)
     }
 }
