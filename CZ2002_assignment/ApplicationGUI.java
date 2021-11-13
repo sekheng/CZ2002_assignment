@@ -114,7 +114,7 @@ public class ApplicationGUI
 	        			break;
 	        		}
 	        		
-	        		else if ( staff == null) {
+	        		if ( staff == null) {
 	        			System.out.println("Invalid Staff Entered");
 	        			break;
 	        		}
