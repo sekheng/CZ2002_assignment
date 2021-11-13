@@ -57,7 +57,6 @@ public class OrderManagerTest {
 	
 	
 	
-	
 	 private static boolean TestingFoodItemArrays(ArrayList<FoodItem> array1, ArrayList<FoodItem> array2)
 	    {
 		 

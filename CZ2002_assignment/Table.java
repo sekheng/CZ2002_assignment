@@ -55,13 +55,12 @@ public class Table {
 	 * Creates a new Table given the number of people needed to be accomodated  
 	 * The name should include both first and
 	 * last name.
-	 * @param name This Student's name.
-	 * @param age This Student's age.
+	 * @param 
+	 * @param
 	 */
 	public Table(int noOfPax, int tableID) {
 		
 		this.noOfPax = noOfPax;
-		this.resTime = resTime;
 		this.tableID = tableID;
 		this.setSeatsPax();
 	}
