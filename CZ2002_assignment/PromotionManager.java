@@ -50,6 +50,16 @@ public class PromotionManager {
 		return promo;
 		
 	}	
+	
+	public void printPromotions() {
+		for(int i = 0; i<this.arrayOfPromotions.size(); i++) {
+			System.out.println("-----------AVAILABLE PROMOTIONS---------");
+			System.out.printf("%-20s","Name");
+			System.out.printf("%20s","Index \n");
+			System.out.printf("%-20s",arrayOfPromotions.get(i).getName());
+			System.out.printf("%20d \n",getArrayOfPromotions().get(i).getIndex() );
+		}
+	}
 
 	
 	

@@ -6,9 +6,7 @@ public class ApplicationGUI
 {
 	
     public static void main(String[] args) {
-    	Scanner sc = new Scanner(System.in);
-        System.out.println("code out application GUI");
-        
+    	Scanner sc = new Scanner(System.in);   
        OrderManager restaurantOrderManager =  new OrderManager();
        ReservationManager restaurantReservationManager = new ReservationManager();
        MenuItemMgr restaurantMenuItemMgr = new MenuItemMgr();
@@ -54,6 +52,9 @@ public class ApplicationGUI
 	        		switch(input1) {
 	        			case 1:
 	        				System.out.println("********************* CREATE MENU ITEM *********************");
+	        				
+	        				System.out.println("\n ------------------ MENU-----------------------------------\n");
+	        				restaurantMenuItemMgr.viewMenu();
 	        				sc.nextLine();
 	        				System.out.println("Enter name of item");
 	        				String name = sc.nextLine();
@@ -65,6 +66,9 @@ public class ApplicationGUI
 	        				int price = sc.nextInt();
 	        				restaurantMenuItemMgr.createMenuItem(price,desc,name,type);
 	        				System.out.println("Created item");
+	        				
+	        				System.out.println("\n ------------------ UPDATE MENU-----------------------------------\n");
+	        				restaurantMenuItemMgr.viewMenu();
 	        				
 	        				break;
 	        		
@@ -183,10 +187,14 @@ public class ApplicationGUI
 	    				
 	    				restaurantPromoManager.addPromo(promo);
 	    				restaurantMenuItemMgr.createMenuItem(promo.getPriceInCents(),promo.stringOfNames(),promo.getName(),"promotion");
+	    				System.out.println("\n ------------------ UPDATED MENU-----------------------------------\n");
+        				restaurantMenuItemMgr.viewMenu();
 	    				break;
 	    		
 	    			case 2:
 	    				System.out.println("********************UPDATE PROMOTION***************");
+	    				
+	    				restaurantPromoManager.printPromotions();
 	    				System.out.println("Enter Index of Promotion to be edited:");
 	    				Integer editIndex = sc.nextInt();
 	    				Promotion editPromo = restaurantPromoManager.getPromotion(editIndex);
@@ -227,7 +235,8 @@ public class ApplicationGUI
 			    					editPromo.addItem(addItem);
 			    					System.out.println("Menu Item added to Promotion");
 			    					restaurantMenuItemMgr.createMenuItem(editPromo.getPriceInCents(), editPromo.stringOfNames(), editPromo.getName(), "promotion");
-
+			    					System.out.println("\n ------------------ UPDATED MENU-----------------------------------\n");
+			        				restaurantMenuItemMgr.viewMenu();
 			    				}
 			    				else {
 			    					System.out.println("Incorrect Menu Item entered!");
@@ -238,7 +247,8 @@ public class ApplicationGUI
 			    				Integer newPrice = sc.nextInt();
 			    				editPromo.setPriceInCents(newPrice);
 		    					restaurantMenuItemMgr.createMenuItem(editPromo.getPriceInCents(), editPromo.stringOfNames(), editPromo.getName(), "promotion");
-
+		    					System.out.println("\n ------------------ UPDATED MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
 			    				
 			    			}
 		    				
@@ -253,6 +263,8 @@ public class ApplicationGUI
 	    				
 	    			case 3: 
 	    				System.out.println("**********REMOVE PROMOTION****************:");
+	    				restaurantPromoManager.printPromotions();
+	    				System.out.println();
 	    				System.out.println("Enter index of the Promotion to be removed:");
 	    				Integer removeIndex = sc.nextInt();
 	    				Promotion removePromo = restaurantPromoManager.getPromotion(removeIndex);
@@ -281,7 +293,9 @@ public class ApplicationGUI
 	        			break;
 	        		}
 	        		
-	        
+	        		restaurantStaffMgr.printStaff();
+	        		System.out.println();
+	        		
 	        		System.out.println("Please enter the name of the Staff that is creating this Order : ");
 	        		String staffName = sc.next();
 	       
