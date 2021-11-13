@@ -1,19 +1,64 @@
 package CZ2002_assignment;
 import java.time.*;
 
+
+/**
+Represents a Table 
+A Table can be of three different sizes depending on the number of people it can accomodate 
+A Table can have one of the three status at one time : Vacant, Occupied or Reserved 
+@author Swapneel Bhatt
+@version 1.0
+@since 2021-11-12
+*/
 public class Table {
 
+	
+	/**
+	 * The category of table size 
+	 */
 	private TablePax seatsPax;
+	
+	/**
+	 * The number of People to be assigned to a table 
+	 */
 	private int noOfPax;
+	
+	/**
+	 * The time of Reservation 
+	 */
 	LocalDateTime resTime = LocalDateTime.now() ;  //dummy values for reservation time and expiry, will be updated in constructor and setter.
+	
+	/**
+	 * The time of Reservation Expiry 
+	 */
 	LocalDateTime resExpiry = LocalDateTime.now();
+	
+	
+	/**
+	 * The Table ID (Unique for each table)
+	 */
+	
 	private int tableID;
+	
+	/**
+	 * The Customer ID assigned to the Table 
+	 */
 	private int customerID;
+	
+	/**
+	 * The status of the Table indicating its availibility 
+	 */
 	private TableStatus status = TableStatus.VACANT;
 	
 	
-	
-	public Table(int noOfPax, LocalDateTime resTime, int tableID) {
+	/**
+	 * Creates a new Table given the number of people needed to be accomodated  
+	 * The name should include both first and
+	 * last name.
+	 * @param name This Student's name.
+	 * @param age This Student's age.
+	 */
+	public Table(int noOfPax, int tableID) {
 		
 		this.noOfPax = noOfPax;
 		this.resTime = resTime;
