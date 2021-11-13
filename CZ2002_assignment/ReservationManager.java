@@ -46,20 +46,20 @@ public class ReservationManager {
 			this.arrayOfTables.add(newTable);
 			
 		}
-		System.out.println("Small tables created");
+
 		
 		//Adding medium tables to array of tables
 		for(int i = this.smallTableno ; i<(this.smallTableno+ this.medTableno); i++) {
 			Table newTable = new Table(6,i+1);
 			this.arrayOfTables.add(newTable);
 		}
-		System.out.println("Medium tables created");
+
 		//Adding large tables to array of tables
 		for(int i = (this.smallTableno+this.medTableno); i<(this.smallTableno + this.medTableno + this.largeTableno); i++) {
 			Table newTable = new Table(10,i+1);
 			this.arrayOfTables.add(newTable);
 		}
-		System.out.println("Large Tables created");
+
 		
 	}
 	
