@@ -8,7 +8,7 @@ A Table can be of three different sizes depending on the number of people it can
 A Table can have one of the three status at one time : Vacant, Occupied or Reserved 
 @author Swapneel Bhatt
 @version 1.0
-@since 2021-11-12
+@since 2021-11-1
 */
 public class Table {
 

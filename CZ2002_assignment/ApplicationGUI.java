@@ -34,8 +34,8 @@ public class ApplicationGUI
         do {
 	        System.out.println("Press the following to perform the following function:");
 	        System.out.println(" 1. Create/Update/Remove menu item \n 2. Create/Update/Remove promotion  \n 3. Create order \n 4. View Order \n"
-	        		+ " 5. Add/Remove order item/s to/from order \n 6. Create reservation booking \n 7. Check In a customer \n 8. Check/Remove reservation booking \n 9. Check table availability) \n"
-	        		+ " 10. Print order invoice \n 11. Print sale revenue report by period (eg day or month) \n 12. Exit");
+	        		+ " 5. Add/Remove order item/s to/from order \n 6. Create reservation booking \n 7. Check In a customer \n 8. Check reservation booking \n 9.Remove reservation booking \n 10. Check table availability \n"
+	        		+ " 11. Print order invoice \n 12. Print sale revenue report by period (eg day or month) \n 13. Exit");
 	        
 	        
 	        Integer input = sc.nextInt();
@@ -337,42 +337,94 @@ public class ApplicationGUI
 	        	
 	        		break;
 	        	case 6:
+	        	restaurantReservationManager.UpdateBookings();
             	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
             	int noOfDesiredTables = sc.nextInt();
+        		
+        		System.out.println("Enter Customer Name ");
+        		String customerName = sc.next();
 
+        		System.out.println("Enter customer Gender (1-male, 2-female)");
+        		int customerGender = sc.nextInt();
+        		System.out.println("Is customer a member? True/False");
+        		boolean membershipStatus = sc.nextBoolean();
+        		System.out.println("What time would you like to book the reservation for? (YYYY-MM-DD-HH-MM) ");
+        		// Split string 
+        		String str = sc.next();
+        		String[] substrings = str.split("-");
+        		int year = Integer.parseInt(substrings[0]);
+        		int month = Integer.parseInt(substrings[1]);
+        		int dayOfMonth = Integer.parseInt(substrings[2]);
+        		int hour = Integer.parseInt(substrings[3]);
+        		int minutes = Integer.parseInt(substrings[4]);
+        		LocalDateTime resTime = LocalDateTime.of(year, month, dayOfMonth, hour, minutes);
+        		int bookingCustomerID = restaurantReservationManager.assignCustomerID();
             	for (int j =0; j<noOfDesiredTables; j++) {
             		System.out.printf("Number of people on Table %d:",j+1);
             		int noOfPeople = sc.nextInt();
-            		
-            		System.out.println("Enter Customer Name ");
-            		String customerName = sc.next();
 
-            		System.out.println("Enter customer Gender (1-male, 2-female)");
-            		int customerGender = sc.nextInt();
-            		System.out.println("Is customer a member? True/False");
-            		boolean membershipStatus = sc.nextBoolean();
-            		System.out.println("What time would you like to book the reservation for? (YYYY-MM-DD-HH-MM) ");
-            		// Split string 
-            		String str = sc.next();
-            		String[] substrings = str.split("-");
-            		int year = Integer.parseInt(substrings[0]);
-            		int month = Integer.parseInt(substrings[1]);
-            		int dayOfMonth = Integer.parseInt(substrings[2]);
-            		int hour = Integer.parseInt(substrings[3]);
-            		int minutes = Integer.parseInt(substrings[4]);
-            		LocalDateTime resTime = LocalDateTime.of(year, month, dayOfMonth, hour, minutes);
-            		restaurantReservationManager.AddReservation(noOfPeople, resTime, customerName, customerGender, membershipStatus);
+            		restaurantReservationManager.AddReservation(noOfPeople, resTime, customerName, customerGender, membershipStatus,bookingCustomerID);
             	}
             	break;
             	
 	        	case 7:
-	        		
+	        		restaurantReservationManager.UpdateBookings();
+	        		System.out.println("Which customer would you like to check in ?");
+	        		int id = sc.nextInt();
+	        		restaurantReservationManager.CheckInCustomer(id);
+	        		break;
+	        	
+	        	case 8:
+	        		restaurantReservationManager.UpdateBookings();
+	        		System.out.println("Do you want to \n 1. Check all reservations \n 2. Check a booking by customer ID");
+	        		int choice = sc.nextInt();
+	        		switch(choice) {
+	        		case 1:
+	        			restaurantReservationManager.CheckAllReservation();
+	        			break;
+	        		case 2:
+	        			System.out.println("Enter customer ID you want to check reservation for");
+	        			int customerID = sc.nextInt();
+	        			restaurantReservationManager.CheckReservation(customerID);
+	        			break;
+	        		default:
+	        			System.out.println("Choose a correct option");
+	        		}
 	        		break;
 	        		
 	        		
+	        	case 9:
+	        		restaurantReservationManager.UpdateBookings();
+	        		System.out.println("Would you like to remove booking by \n 1. Customer ID \n 2. Customer name \n 3. Table ID");
+	        		int choice2 = sc.nextInt();
+	        		switch(choice2) {
+	        		case 1:
+	        			System.out.println("Enter customer ID");
+	        			int customerID = sc.nextInt();
+	        			restaurantReservationManager.RemoveReservationCustomerID(customerID);
+	        			break;
+	        		case 2:
+	        			System.out.println("Enter Customer name");
+	        			String name = sc.next();
+	        			restaurantReservationManager.RemoveReservationName(name);
+	        			break;
+	        		case 3:
+	        			System.out.println("Enter Table ID");
+	        			int ID = sc.nextInt();
+	        			restaurantReservationManager.RemoveReservationTableID(ID);
+	        			break;
+	        		default:
+	        			System.out.println("Choose a correct option");
+	        		}
+	        		break;
 	        		
-	        		
-	        	case 11:
+	        	case 10:
+	        		restaurantReservationManager.UpdateBookings();
+	        		System.out.println("Enter the table ID whose status you want to check");
+	        		int tableCheckID = sc.nextInt();
+	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
+	        		System.out.println(newTable.getStatus());
+	        	case 13:
 	        		i = false;
 	        		break;
 	        		
@@ -382,34 +434,6 @@ public class ApplicationGUI
 	        
        
 
-        
-        
-
-
-
-//        		myReservationManager.AddReservation(noOfPeople, resTime, customerName, customerID, customerGender, membershipStatus);
-//        		
-//        	}
-//        	System.out.println("Checking all reservation");
-//        	myReservationManager.CheckAllReservation();
-//        	
-//        	System.out.println("Press 2 to check reservation:");
-//        	if(sc.nextInt()==2) {
-//        		System.out.println("Enter customer ID");
-//        		int customerID = sc.nextInt();
-//        		myReservationManager.CheckReservation(customerID);
-//        	}
-//    		//myReservationManager.RemoveReservation(customerID);
-//        	
-//        	System.out.println("Press 3 to remove reservation:");
-//        	if(sc.nextInt()==3) {
-//        		System.out.println("Enter customer ID");
-//        		int customerID= sc.nextInt();
-//        		myReservationManager.RemoveReservationCustomerID(customerID);
-//        	}
-//        }
-//        
-//        
     }       
     
 }
