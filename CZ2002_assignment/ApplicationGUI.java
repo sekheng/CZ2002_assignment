@@ -373,7 +373,6 @@ public class ApplicationGUI
             	for (int j =0; j<noOfDesiredTables; j++) {
             		System.out.printf("Number of people on Table %d:",j+1);
             		int noOfPeople = sc.nextInt();
-
             		restaurantReservationManager.AddReservation(noOfPeople, resTime, customerName, customerGender, membershipStatus,bookingCustomerID);
             	}
             	break;
@@ -445,19 +444,8 @@ public class ApplicationGUI
 	        		System.out.println("Enter the table ID whose status you want to check");
 	        		int tableCheckID = sc.nextInt();
 	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
+	        		System.out.println("Table number : " + newTable.getTableID());
 	        		System.out.println(newTable.getStatus());
-	        		break; 
-	        		
-	        	case 11:
-	        		System.out.println("********PRINT ORDER INVOICE**************");
-	        		System.out.println("What table would you like to print the Invoice for?");
-	        		Integer invoiceTable = sc.nextInt();
-	        		System.out.println("Enter Tax:");
-	        		float invoiceTax = sc.nextFloat();
-	        		System.out.println("Enter Discount:");
-	        		float invoiceDiscount = sc.nextFloat();
-	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
-	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
 	        		break;
 	        		
 	        	case 12:
@@ -485,6 +473,7 @@ public class ApplicationGUI
 	        		LocalDateTime endresTime = LocalDateTime.of(endyear, endmonth, enddayOfMonth, endhour, endminutes);
 	        		restaurantOrderManager.getRevenueReport().GetOrderInvoice(startresTime, endresTime);
 	        		break;
+
 	        		
 	        	case 13:
 	        		i = false;
