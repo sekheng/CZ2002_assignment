@@ -90,7 +90,7 @@ public class StaffMgr {
     	Staff staff = null;
     	for(int i=0; i<this.getArrayOfStaff().size(); i++) {
     		System.out.println(this.getArrayOfStaff().get(i).getName());
-    		if(this.getArrayOfStaff().get(i).getName() == Name) {
+    		if(this.getArrayOfStaff().get(i).getName().compareTo(Name) == 0) {
     			System.out.println("Yayyy");
     			staff = this.getArrayOfStaff().get(i);
     		}
