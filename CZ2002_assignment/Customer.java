@@ -1,17 +1,20 @@
 package CZ2002_assignment;
 
-public class Customer extends ObjectName{
+public class Customer {
+	private String name;
 	private int gender; //1- male, 2- female
 	private boolean membership;
 	private int custID;
 	
-	public Customer(String name, int gender, boolean membership, int custID) {
-		super(name);
+	public Customer(String name, int gender, boolean membership) {
+		this.name = name;
 		this.gender = gender; 
 		this.membership = membership;
-		this.custID = custID;
 	}
 
+	public String getName() {
+		return this.name;
+	}
 	public int getCustID() {
 		return this.custID;
 	}
@@ -22,6 +25,10 @@ public class Customer extends ObjectName{
 
 	public boolean isMembership() {
 		return this.membership;
+	}
+
+	public void setCustID(int custID) {
+		this.custID = custID;
 	}
 
 }

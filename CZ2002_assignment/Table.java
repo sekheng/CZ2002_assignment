@@ -50,7 +50,10 @@ public class Table {
 	 */
 	private TableStatus status = TableStatus.VACANT;
 	
-	
+	/** 
+	 * The name of the Customer assigned to the table
+	 */
+	private String customerName;
 	/**
 	 * Creates a new Table given the number of people needed to be accomodated  
 	 * The name should include both first and
@@ -116,6 +119,14 @@ public class Table {
 
 	public void setResTime(LocalDateTime resTime) {
 		this.resTime = resTime;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	
 
