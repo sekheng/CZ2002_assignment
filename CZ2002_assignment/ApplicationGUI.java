@@ -50,7 +50,18 @@ public class ApplicationGUI
         		
         		switch(input1) {
         			case 1:
+
+        				System.out.println("Enter name of item");
+        				String name = sc.next();
+        				System.out.println("Enter description of item");
+        				String desc = sc.next();
+        				System.out.println("What is the type? appetiser, maincourse or drinks? ");
+        				String type = sc.next();
+        				System.out.println("What is the price of the item in cents?");
+        				int price = sc.nextInt();
+        				restaurantMenuItemMgr.createMenuItem(price,desc,name,type);
         				System.out.println("Created item");
+
         		
         			case 2:
         				System.out.println("Menu Item Updated");
