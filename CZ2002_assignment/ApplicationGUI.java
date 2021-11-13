@@ -34,8 +34,8 @@ public class ApplicationGUI
         do {
 	        System.out.println("Press the following to perform the following function:");
 	        System.out.println(" 1. Create/Update/Remove menu item \n 2. Create/Update/Remove promotion  \n 3. Create order \n 4. View Order \n"
-	        		+ " 5. Add/Remove order item/s to/from order \n 6. Create reservation booking \n 7. Check In a customer \n 8. Check reservation booking \n 9.Remove reservation booking \n 10. Check table availability) \n"
-	        		+ " 11. Print order invoice \n 13. Print sale revenue report by period (eg day or month) \n 14. Exit");
+	        		+ " 5. Add/Remove order item/s to/from order \n 6. Create reservation booking \n 7. Check In a customer \n 8. Check reservation booking \n 9.Remove reservation booking \n 10. Check table availability \n"
+	        		+ " 11. Print order invoice \n 12. Print sale revenue report by period (eg day or month) \n 13. Exit");
 	        
 	        
 	        Integer input = sc.nextInt();
@@ -352,10 +352,13 @@ public class ApplicationGUI
 	        		}
 	        		break;
 	        		
-	        		
-	        		
-	        		
-	        	case 14:
+	        	case 10:
+	        		restaurantReservationManager.UpdateBookings();
+	        		System.out.println("Enter the table ID whose status you want to check");
+	        		int tableCheckID = sc.nextInt();
+	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
+	        		System.out.println(newTable.getStatus());
+	        	case 13:
 	        		i = false;
 	        		break;
 	        		
