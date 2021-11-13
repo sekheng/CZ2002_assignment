@@ -13,8 +13,7 @@ import org.junit.Test;
 public class ReservationTesting {
     
     /**
-     * To test reservation manager thoroughly.
-     * 
+     * To test reservation manager with full reservation
      */
     @Test
     public void ReservationMgrTestingFullReservation()
@@ -36,6 +35,9 @@ public class ReservationTesting {
         // it will also add the same customer again and again even though it is inside the table
     }
 
+    /**
+     * To test reservation manager with expired reservation
+     */
     @Test
     public void ReservationMgrTableExpired()
     {
@@ -44,6 +46,6 @@ public class ReservationTesting {
         myRManager.AddReservation(1, LocalDateTime.of(2021, 11, 14, 3, 1, 1), "CustomerName", 1, 1, true);
         myRManager.AddReservation(1, LocalDateTime.of(2021, 11, 12, 3, 1, 1), "CustomerName", 1, 1, true);
         // then it needs to check whether the reservation expired
-        
+
     }
 }
