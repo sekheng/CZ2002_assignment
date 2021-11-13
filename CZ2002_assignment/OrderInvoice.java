@@ -106,9 +106,11 @@ public class OrderInvoice {
 		}
 		
 		System.out.printf("%-20s | ", "Tax");
-		System.out.printf("%.2f %",tax);
+		System.out.printf("%.2f percent ",tax);
+		System.out.println();
 		System.out.printf("%-20s | ", "Discount");
-		System.out.printf("%.2f %",discount);
+		System.out.printf("%.2f percent",discount);
+		System.out.println();
 		System.out.printf("%-20s | ", "Total");
 		System.out.printf("%.2f",cost);	
 		System.out.println();

@@ -85,10 +85,12 @@ public class OrderManager {
 	public void printReceipt(int tableID, float discount, float tax) {
 		
 		Order order = this.getOrder(tableID);
-		OrderInvoice orderInvoice = new OrderInvoice(order, LocalDateTime.now(),discount,tax);
-		orderInvoice.formatReceipt();
-		this.removeOrder(tableID);
-		revenueReport.StoreInvoice(orderInvoice);	
+		if(order != null) {
+			OrderInvoice orderInvoice = new OrderInvoice(order, LocalDateTime.now(),discount,tax);
+			orderInvoice.formatReceipt();
+			this.removeOrder(tableID);
+			revenueReport.StoreInvoice(orderInvoice);
+		}
 	}
 
 	

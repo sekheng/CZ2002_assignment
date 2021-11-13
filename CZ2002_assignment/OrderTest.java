@@ -1,5 +1,6 @@
 package CZ2002_assignment;
 
+import java.util.*;
 import static org.junit.Assert.*;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class OrderTest {
 	public void test() {
 		
 		Staff stafftest;
+		Scanner sc = new Scanner(System.in);
 		stafftest = new Staff("Katy", 20, "5U34582", "Manager");
 		
 		
@@ -33,13 +35,22 @@ public class OrderTest {
 		
 		
 		OrderInvoice testinvoice = new OrderInvoice(testOrder1, LocalDateTime.now(), 0, 0);
-//		testManager.printReceipt(8, 3, 2);
+		testManager.printReceipt(8, 3, 2);
 		
 		RevenueReport revenueReport = testManager.getRevenueReport();
-		LocalDateTime startDate = LocalDateTime.parse("2016-10-31 23:59:59", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-		LocalDateTime endDate = LocalDateTime.parse("2023-10-31 23:59:59", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		
-//		revenueReport.GetOrderInvoice(startDate, endDate);
+		sc.nextLine();
+		System.out.println("Enter start Date: YYYY-MM-DD HH:MM:SS ");
+		
+		String s = sc.nextLine();
+		
+		System.out.println("Enter end Date: YYYY-MM-DD HH:MM:SS ");
+		
+		String e = sc.nextLine();
+		LocalDateTime startDate = LocalDateTime.parse(s, DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss"));
+		LocalDateTime endDate = LocalDateTime.parse(e, DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss"));
+		
+		revenueReport.GetOrderInvoice(startDate, endDate);
 		
 	}
 
