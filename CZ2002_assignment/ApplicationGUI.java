@@ -437,26 +437,9 @@ public class ApplicationGUI
 	        		System.out.println("Enter the table ID whose status you want to check");
 	        		int tableCheckID = sc.nextInt();
 	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
+	        		System.out.println("Table number : " + newTable.getTableID());
 	        		System.out.println(newTable.getStatus());
-<<<<<<< HEAD
 	        		break;
-=======
-	        		break; 
->>>>>>> 7ec032fd95a10a14518acb48ea08718981ad4075
-	        		
-	        	case 11:
-	        		System.out.println("********PRINT ORDER INVOICE**************");
-	        		System.out.println("What table would you like to print the Invoice for?");
-	        		Integer invoiceTable = sc.nextInt();
-	        		System.out.println("Enter Tax:");
-	        		float invoiceTax = sc.nextFloat();
-	        		System.out.println("Enter Discount:");
-	        		float invoiceDiscount = sc.nextFloat();
-	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
-	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
-	        		break;
-<<<<<<< HEAD
-=======
 	        		
 	        	case 12:
 	        		System.out.println("********PRINT REVENUE REPORT**************");
@@ -483,7 +466,7 @@ public class ApplicationGUI
 	        		LocalDateTime endresTime = LocalDateTime.of(endyear, endmonth, enddayOfMonth, endhour, endminutes);
 	        		restaurantOrderManager.getRevenueReport().GetOrderInvoice(startresTime, endresTime);
 	        		break;
->>>>>>> 7ec032fd95a10a14518acb48ea08718981ad4075
+
 	        		
 	        	case 13:
 	        		i = false;

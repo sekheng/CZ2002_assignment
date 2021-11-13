@@ -43,7 +43,7 @@ public class Table {
 	/**
 	 * The Customer ID assigned to the Table 
 	 */
-	private int customerID;
+	private int customerID =0;
 	
 	/**
 	 * The status of the Table indicating its availibility 
