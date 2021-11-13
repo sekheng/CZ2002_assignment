@@ -445,6 +445,13 @@ public class ApplicationGUI
 	        	case 11:
 	        		System.out.println("********PRINT ORDER INVOICE**************");
 	        		System.out.println("What table would you like to print the Invoice for?");
+	        		Integer invoiceTable = sc.nextInt();
+	        		System.out.println("Enter Tax:");
+	        		float invoiceTax = sc.nextFloat();
+	        		System.out.println("Enter Discount:");
+	        		float invoiceDiscount = sc.nextFloat();
+	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
+	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
 	        		
 	        		
 	        	case 13:
