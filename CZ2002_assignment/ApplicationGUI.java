@@ -368,34 +368,6 @@ public class ApplicationGUI
 	        
        
 
-        
-        
-
-
-
-//        		myReservationManager.AddReservation(noOfPeople, resTime, customerName, customerID, customerGender, membershipStatus);
-//        		
-//        	}
-//        	System.out.println("Checking all reservation");
-//        	myReservationManager.CheckAllReservation();
-//        	
-//        	System.out.println("Press 2 to check reservation:");
-//        	if(sc.nextInt()==2) {
-//        		System.out.println("Enter customer ID");
-//        		int customerID = sc.nextInt();
-//        		myReservationManager.CheckReservation(customerID);
-//        	}
-//    		//myReservationManager.RemoveReservation(customerID);
-//        	
-//        	System.out.println("Press 3 to remove reservation:");
-//        	if(sc.nextInt()==3) {
-//        		System.out.println("Enter customer ID");
-//        		int customerID= sc.nextInt();
-//        		myReservationManager.RemoveReservationCustomerID(customerID);
-//        	}
-//        }
-//        
-//        
     }       
     
 }

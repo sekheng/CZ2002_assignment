@@ -2,10 +2,27 @@ package CZ2002_assignment;
 import java.time.*;
 import java.util.*;
 import java.lang.*;
-
+/**
+ * Manager class for adding, checking, and removing reservations
+ * @author swapneelbhatt
+ * @version 1.0
+ * @since 2021-11-10
+ *
+ */
 public class ReservationManager {
+	
+	/**
+	 * static int to create unique customer IDs
+	 */
 	private static int customerID = 1;
+	/**
+	 * ArrayList of tables in the restauratnt, with details of table ID, 
+	 * table size, status and the customer assigned to them
+	 */
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
+	/**
+	 * Number of tables in the restaurant
+	 */
 	private int smallTableno = 10;
 	private int medTableno = 15;
 	private int largeTableno = 10;
@@ -17,6 +34,10 @@ public class ReservationManager {
 	//ID numbers smallTableNo + medTableNo +1 -> smallTableNo + medTableNo + largeTableNo : large tables
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
+	/**
+	 * constructor function for reservation manager
+	 * instantiates the tables in restaurant
+	 */
 	public ReservationManager() {
 		
 		//Adding small tables to array of tables
@@ -41,12 +62,27 @@ public class ReservationManager {
 		System.out.println("Large Tables created");
 		
 	}
+	
+	/**
+	 * Generating unique customer ID 
+	 * @return customerID
+	 */
 	public int assignCustomerID() {
 		int ID = this.customerID;
 		ReservationManager.customerID++;
 		return ID;
 	}
 	
+	/**
+	 * Adding a reservation to array of tables
+	 * @param Pax : number of people on the table
+	 * @param RezTime : time of reservation
+	 * @param CustomerName : string of customerName
+	 * @param CustomerGender : int of customerGender
+	 * @param MembershipStatus : boolean for MembershipStatus
+	 * @param CustomerID : int for unique customerID
+	 * Assigns a table that matches the size and vacancy requirements
+	 */
 	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName,int CustomerGender, boolean MembershipStatus, int CustomerID) {
 		System.out.println("Adding a reservation");
 		Customer newCustomer = new Customer(CustomerName,CustomerGender,MembershipStatus);
@@ -111,7 +147,10 @@ public class ReservationManager {
 		}	
 	}
 
-//Check reservation for particular customer ID
+/**
+ * Checks the reservation for a particular customer ID
+ * @param CustomerID: Customer ID whose reservation we want to check
+ */
 	public void CheckReservation(int CustomerID) {
 		int flag = 0;
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
