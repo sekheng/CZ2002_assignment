@@ -262,6 +262,7 @@ public class ApplicationGUI
 	        		
 	        	case 3:
 	        		System.out.println("\n***********CREATE ORDER**************");
+	        		restaurantReservationManager.getOccupiedTables();
 	        		System.out.println("Please enter the Table ID that you would like to place the order for: ");
 	        		Integer tableID = sc.nextInt();
 	        		Table table = restaurantReservationManager.GetTableByID(tableID);
@@ -299,6 +300,7 @@ public class ApplicationGUI
 	        		
 	        	case 4:
 	        		System.out.println("\n***********VIEW ORDER**************");
+	        		restaurantReservationManager.getOccupiedTables();
 	        		System.out.println("Enter Table ID of Order you would like to print:");
 	        		Integer viewtableID = sc.nextInt();
 	        		Order viewOrder = restaurantOrderManager.getOrder(viewtableID);
@@ -313,6 +315,7 @@ public class ApplicationGUI
 	        		break;
 	        	case 5:
 	        		System.out.println("\n***********ADD/REMOVE ITEMS TO/FROM ORDER**************");
+	        		
 	        		System.out.println("Enter Table ID of Order you would like to update:");
 	        		Integer updatetableID = sc.nextInt();
 	        		Order updateOrder = restaurantOrderManager.getOrder(updatetableID);
@@ -488,7 +491,7 @@ public class ApplicationGUI
 	        		
 	        	case 11:
 	        		System.out.println("*************************************ORDER INVOICE *************************");
-	        	
+	        		restaurantReservationManager.getOccupiedTables();
 	        		System.out.println("What table would you like to print the Invoice for?");
 	        		Integer invoiceTable = sc.nextInt();
 	        		System.out.println("Enter Tax:");
