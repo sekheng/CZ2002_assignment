@@ -2,11 +2,15 @@ package CZ2002_assignment;
 import java.util.*;
 
 public class PromotionManager {
-
+	private int promoID =1;
 	private ArrayList<Promotion> arrayOfPromotions = new ArrayList<Promotion>();
 	public PromotionManager() {
 	}
-	
+	public int assignID() {
+		int ID = this.promoID;
+		this.promoID++;
+		return ID;
+	}
 	public void addPromo(Promotion newPromo) {
 		
 		arrayOfPromotions.add(newPromo);
