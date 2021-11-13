@@ -53,9 +53,9 @@ public class ApplicationGUI
 	        		
 	        		switch(input1) {
 	        			case 1:
-	        				System.out.println("Enter name of item");
-	        				String name = sc.next();
 	        				sc.nextLine();
+	        				System.out.println("Enter name of item");
+	        				String name = sc.nextLine();
 	        				System.out.println("Enter description of item");
 	        				String desc = sc.nextLine();
 	        				System.out.println("Is the item an appetiser,maincourse, or drinks?");
@@ -67,9 +67,47 @@ public class ApplicationGUI
 	        				break;
 	        		
 	        			case 2:
-	        				System.out.println("Menu Item Updated");
+	        				sc.nextLine();
+	        				System.out.println("Enter the name of the item you want to update");
+	        				String originalName = sc.nextLine();
+	        				System.out.println("Do you want to update : \n 1. Name \n 2. Price \n 3. Description \4. Type");
+	        				int updateChoice = sc.nextInt();
+	        				switch(updateChoice) {
+	        				case 1:
+	        					sc.nextLine();
+	        					System.out.println("Enter new name");
+	        					String newName = sc.nextLine();
+	        					restaurantMenuItemMgr.updateMenuItemName(originalName, newName);
+	        					break;
+	        				case 2:
+	        					System.out.println("Enter new price in cents");
+	        					int newPrice = sc.nextInt();
+	        					restaurantMenuItemMgr.UpdateMenuItemPrice(originalName, newPrice);
+	        					break;
+	        				case 3:
+	        					sc.nextLine();
+	        					System.out.println("Enter new description");
+	        					String newDesc = sc.nextLine();
+	        					restaurantMenuItemMgr.UpdateMenuItemDescription(originalName, newDesc);
+	        					break;
+	        				case 4: 
+	        					sc.nextLine();
+	        					System.out.println("Enter new type");
+	        					String newType = sc.nextLine();
+	        					restaurantMenuItemMgr.UpdateMenuItemType(originalName, newType);
+	        					break;
+	        				default: 
+	        					System.out.println("Enter a valid choice");
+	        					break;
+	        				}
+	        				
 	        				break;
 	        			case 3: 
+	        				sc.nextLine();
+	        				System.out.println("Enter the name for the item you want to remove");
+	        				String itemName = sc.nextLine();
+	        				restaurantMenuItemMgr.removeMenuItem(itemName);
+	        				
 	        				System.out.println("Menu Item Removed");
 	        				break;
 	        			default:

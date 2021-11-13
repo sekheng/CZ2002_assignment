@@ -104,6 +104,7 @@ public class MenuItemMgr {
     
     //Update menu item name
     public void updateMenuItemName(String originalName,String newName) {
+    	System.out.println("Original name entered is " + originalName);
     	for(int i=0; i<this.menuItemList.size();i++)
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
     			this.menuItemList.get(i).setName(newName);
