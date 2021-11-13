@@ -45,7 +45,7 @@ public class MenuItemTesting {
         testItem.setName("newName");
         assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
         // then test removing the item from it
-        myMenuMgr.removeMenuItem(myMenuMgr.getArrayOfMenuItem().size() - 1);
+//        myMenuMgr.removeMenuItem(myMenuMgr.getArrayOfMenuItem().size() - 1);
         expectedResult.remove(testItem);
         assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
     }

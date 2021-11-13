@@ -104,7 +104,7 @@ public class ApplicationGUI
 	        				break;
 	        			case 3: 
 	        				sc.nextLine();
-	        				System.out.println("Enter the name for the item you want to remove");
+	        				System.out.println("Enter the name for the item you want to remove ");
 	        				String itemName = sc.nextLine();
 	        				restaurantMenuItemMgr.removeMenuItem(itemName);
 	        				
@@ -129,38 +129,58 @@ public class ApplicationGUI
 	    			case 1:
 	    				
 	    				System.out.println("******CREATE PROMOTION*******");
-	    				System.out.println("Please enter the name of the promotion:");
+	    				sc.nextLine();
+	    				System.out.println("Please enter the name of the promotion: \n");
 	    				String promotionName = sc.nextLine();
-	    				System.out.println("Please enter the price of the promotion:");
+	    				System.out.println("Please enter the price of the promotion: \n");
 	    				Integer promotionPrice = sc.nextInt();
-	    				System.out.println("How many items would you like to add to this promotion?");
+	    				System.out.println("How many items would you like to add to this promotion? \n");
 	    				Integer noOfPromotionItems = sc.nextInt();
-	    				System.out.println("Enter Index of this promotion?: ");
+	    				System.out.println("Enter Index of this promotion?: \n ");
 
 	    				Integer promotionIndex = sc.nextInt();
 
 	    				Promotion promo = new Promotion(promotionPrice, promotionName, promotionIndex) ;
-	    				
-	    				for(int p =0; p<noOfPromotionItems ; p++) {
+	    				for(int p =0; p<noOfPromotionItems;) {
+	    					sc.nextLine();
 	    					System.out.printf("Enter the name of menu item %d: \n", (p+1));
 	    					String menuItemName = sc.nextLine();
 	    					MenuItem menuItem = restaurantMenuItemMgr.getMenuItem(menuItemName);
 	    					if(menuItem != null) {
 	    						promo.addItem(menuItem);
+	    						System.out.println("Menu Item added .........");
+	    						p++;
+	    						
 	    					}	
 	    					else {
-	    						System.out.println("Invalid Menu Item added!");
+	    						System.out.println("Invalid Menu Item added! Try Again");
+	    						
 	    					}
 	    				}
 	    				
-	    				
+	    				restaurantPromoManager.addPromo(promo);
 	    				break;
 	    		
 	    			case 2:
-	    				System.out.println("Promotion Updated");
+	    				System.out.println("********************UPDATE PROMOTION***************");
+	    				System.out.println("Enter Index of Promotion to be edited:");
+	    				Integer editIndex = sc.nextInt();
+	    				Promotion editPromo = restaurantPromoManager.getPromotion(editIndex);
+	    				System.out.println("Enter: \n 1.Remove Item From Promotion \n 2. Add Item to Promotion 3. Update Price of Promotion");
+	    				
+	    				Integer updatechoice = sc.nextInt();
+	    				if(updatechoice == 1) {
+		    				System.out.println("Enter name of menu item to be removed:");
+		    				
+
+	    				}
+
 	    				break;
 	    			case 3: 
-	    				System.out.println("Promotion Removed");
+	    				System.out.println("**********REMOVE PROMOTION****************:");
+	    				System.out.println("Enter index of the Promotion to be removed:");
+	    				Integer removeIndex = sc.nextInt();
+	    				restaurantPromoManager.removePromotion(removeIndex);
 	    				break;
 	    				
 	    			default:

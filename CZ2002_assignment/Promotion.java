@@ -15,7 +15,6 @@ public class Promotion extends FoodItem {
 	public Promotion(int price, String name, int index) {
 		super(price, name);
 		// TODO Auto-generated constructor stub
-		this.arrayOfItems = null;
 		this.index = index;
 	}
 
