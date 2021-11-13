@@ -167,7 +167,10 @@ public class ReservationManager {
 		return;
 	}
 	
-//Check all reservations
+/**
+ * Checks all the reservations and prints out the 
+ * customer IDs that have a booking
+ */
 	public void CheckAllReservation() {
 		System.out.println("Customer IDs who have bookings are");
 		
@@ -186,7 +189,10 @@ public class ReservationManager {
 		}
 	}
 
-//Remove reservation for all tables based on customer ID
+/**
+ * Checks reservation status for a particular customer ID
+ * @param CustomerID
+ */
 	public void RemoveReservationCustomerID(int CustomerID) {
 		int flag = 0;
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
@@ -211,7 +217,10 @@ public class ReservationManager {
 		return;
 	}
 
-//Remove reservation based on table ID
+/**
+ * Removes reservation based on table ID
+ * @param TableID
+ */
 	public void RemoveReservationTableID(int TableID) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getTableID()  == TableID) {
@@ -234,7 +243,10 @@ public class ReservationManager {
 		System.out.println("No booking found");
 		return;
 	}
-	
+/**
+ * removes reservation based on customer name
+ * @param name
+ */
 	public void RemoveReservationName(String name) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getCustomerName().compareTo(name)==0) {
@@ -258,7 +270,11 @@ public class ReservationManager {
 		return;
 	}
 
-//Change status of customer's bookings from Reserved to Occupied
+/**
+ * Check in the customer, and change their booking status from reserved to booked
+ * @param CustomerID
+ * @return boolean to show if check in was successful or not
+ */
 	public boolean CheckInCustomer(int CustomerID) {
 		int flag = 0;
 		for (int i = 0; i < this.arrayOfTables.size();i++) {
@@ -278,7 +294,10 @@ public class ReservationManager {
 		}
 	}
 
-	//Check all tables that are reserved, and make them vacant if current time is >15 mins from reservation time
+/**
+ * Update booking status, remove expired bookings
+ * expiry for a booking is 15 minutes after the booking time
+ */
 	public void UpdateBookings() {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getStatus() == TableStatus.RESERVED) {
@@ -291,7 +310,9 @@ public class ReservationManager {
 		}
 	}
 
-	
+/**
+ * prints out all tables that have a customer checked in	
+ */
 	public void getOccupiedTables() {
 		System.out.println("The tables that are occupied are ");
 		for(int i = 0;i<this.arrayOfTables.size();i++) {
@@ -300,7 +321,11 @@ public class ReservationManager {
 			}
 		}
 	}
-	//Get object of class Table with a given TableID
+/**
+ * returns the Table based on table ID
+ * @param TableID
+ * @return object of class Table
+ */
 	public Table GetTableByID(int TableID) {
 		Table selectedtable =null;
 		for(int i =0; i<this.arrayOfTables.size(); i++) {
