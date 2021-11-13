@@ -398,7 +398,8 @@ public class ApplicationGUI
         		int customerGender = sc.nextInt();
         		System.out.println("Is customer a member? True/False");
         		boolean membershipStatus = sc.nextBoolean();
-        		System.out.println("What time would you like to book the reservation for? (YYYY-MM-DD-HH-MM) ");
+        		
+        		System.out.println("What time would you like to book the reservation for? (YYYY-MM-DD-HH-MM) ");         
         		// Split string 
         		String str = sc.next();
         		String[] substrings = str.split("-");
@@ -422,7 +423,10 @@ public class ApplicationGUI
 	        		restaurantReservationManager.CheckAllReservation();
 	        		System.out.println("Which customer ID would you like to check in ?");
 	        		int id = sc.nextInt();
-	        		
+	        		if(id == 0) {
+	        			System.out.println("0 is not a customer ID. Please choose from the printed values");
+	        			break;
+	        		}
 	        		boolean checkin = restaurantReservationManager.CheckInCustomer(id);
 	        		if(checkin== true) {	
 
@@ -444,6 +448,10 @@ public class ApplicationGUI
 	        		case 2:
 	        			System.out.println("Enter customer ID you want to check reservation for");
 	        			int customerID = sc.nextInt();
+	        			if(customerID==0) {
+	        				System.out.println("0 is not a valid customerID");
+	        				break;
+	        			}
 	        			restaurantReservationManager.CheckReservation(customerID);
 	        			break;
 	        		default:
