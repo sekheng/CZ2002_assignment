@@ -85,7 +85,11 @@ public class StaffMgr {
         return staffList;
     };
     
-   
+    /**
+     * method to get a staff from their name
+     * @param Name is the name of the staff
+     * @return staff
+     */
     public Staff getStaff(String Name) {
     	Staff staff = null;
     	for(int i=0; i<this.getArrayOfStaff().size(); i++) {
