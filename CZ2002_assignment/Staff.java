@@ -63,4 +63,5 @@ public class Staff extends ObjectName {
     public String getJobTitle(){
         return this.jobTitle;
     }
+    
 }

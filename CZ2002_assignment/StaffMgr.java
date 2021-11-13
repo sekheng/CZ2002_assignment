@@ -84,4 +84,15 @@ public class StaffMgr {
     public ArrayList<Staff> getArrayOfStaff(){
         return staffList;
     };
+    
+   
+    public Staff getStaff(String Name) {
+    	Staff staff = null;
+    	for(int i=0; i<this.getArrayOfStaff().size(); i++) {
+    		if(this.getArrayOfStaff().get(i).getName() == Name) {
+    			staff = this.getArrayOfStaff().get(i);
+    		}
+    	}
+    	return staff;
+    }
 }

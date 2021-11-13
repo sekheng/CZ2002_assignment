@@ -29,71 +29,105 @@ public class ApplicationGUI
         System.out.println("There are  15 medium tables in the restaurant with a max capacity of 6 pax");
         System.out.println("There are  10 large tables in the restaurant with a max capacity of 10 pax");
         
-        
-        System.out.println("Press the following to perform the following function:");
-        System.out.println(" 1. Create/Update/Remove menu item \n 2. Create/Update/Remove promotion  \n 3. Create order \n 4. View Order \n"
-        		+ " 5. Add/Remove order item/s to/from order \n 6. Create reservation booking \n 7. Check/Remove reservation booking \n 8. Check table availability) \n"
-        		+ " 9. Print order invoice \n 10. Print sale revenue report by period (eg day or month)");
-        
-        
-        Integer input = sc.nextInt();
-        
-        switch(input) {
-        
-        	case 1:
-        		System.out.println("Press one of the following options to perform the following function: ");
-        		System.out.println("1. Create Menu Item");
-        		System.out.println("2. Update Menu Item");
-        		System.out.println("3. Remove Menu Item");
-        		
-        		Integer input1 = sc.nextInt();
-        		
-        		switch(input1) {
-        			case 1:
-        				System.out.println("Created item");
-        		
-        			case 2:
-        				System.out.println("Menu Item Updated");
-        			case 3: 
-        				System.out.println("Menu Item Removed");
-        				
-        			default:
-        				System.out.println("Please enter a valid Option");
-
-        		}
-        		
-        	case 2:
-        		System.out.println("Press one of the following options to perform the following function: ");
-        		System.out.println("1. Create Promotion");
-        		System.out.println("2. Update Promotion");
-        		System.out.println("3. Remove Promotion");
-        		
-        		Integer input2 = sc.nextInt();
-        		
-        		switch(input2) {
-    			case 1:
-    				System.out.println("Created Promotion");
-    		
-    			case 2:
-    				System.out.println("Promotion Updated");
-    			case 3: 
-    				System.out.println("Promotion Removed");
-    				
-    			default:
-    				System.out.println("Please enter a valid Option");
-
-        		}
-        		
-        	case 3:
-        		System.out.println("***********CREATE ORDER**************");
-        		System.out.println("Please enter the Table ID that you would like to place the order for: ");
-        		Integer tableID = sc.nextInt();
-        		System.out.println("Please enter the name of the Staff that is creating this Order : ");
-        		String staffName = sc.next();
-        		Staff staff = restaurantStaffMgr.getStaff(staffName);
-        		Order newOrder = 
-
-        }
+        boolean i = true;
+        do {
+	        System.out.println("Press the following to perform the following function:");
+	        System.out.println(" 1. Create/Update/Remove menu item \n 2. Create/Update/Remove promotion  \n 3. Create order \n 4. View Order \n"
+	        		+ " 5. Add/Remove order item/s to/from order \n 6. Create reservation booking \n 7. Check/Remove reservation booking \n 8. Check table availability) \n"
+	        		+ " 9. Print order invoice \n 10. Print sale revenue report by period (eg day or month) \n 11. Exit");
+	        
+	        
+	        Integer input = sc.nextInt();
+	       
+	        
+	        switch(input) {
+	        
+	        	case 1:
+	        		System.out.println("Press one of the following options to perform the following function: ");
+	        		System.out.println("1. Create Menu Item");
+	        		System.out.println("2. Update Menu Item");
+	        		System.out.println("3. Remove Menu Item");
+	        		
+	        		Integer input1 = sc.nextInt();
+	        		
+	        		switch(input1) {
+	        			case 1:
+	        				System.out.println("Created item");
+	        		
+	        			case 2:
+	        				System.out.println("Menu Item Updated");
+	        			case 3: 
+	        				System.out.println("Menu Item Removed");
+	        				
+	        			default:
+	        				System.out.println("Please enter a valid Option");
+	
+	        		}
+	        		
+	        	case 2:
+	        		System.out.println("Press one of the following options to perform the following function: ");
+	        		System.out.println("1. Create Promotion");
+	        		System.out.println("2. Update Promotion");
+	        		System.out.println("3. Remove Promotion");
+	        		
+	        		Integer input2 = sc.nextInt();
+	        		
+	        		switch(input2) {
+	    			case 1:
+	    				System.out.println("Created Promotion");
+	    		
+	    			case 2:
+	    				System.out.println("Promotion Updated");
+	    			case 3: 
+	    				System.out.println("Promotion Removed");
+	    				
+	    			default:
+	    				System.out.println("Please enter a valid Option");
+	
+	        		}
+	        		
+	        	case 3:
+	        		System.out.println("***********CREATE ORDER**************");
+	        		System.out.println("Please enter the Table ID that you would like to place the order for: ");
+	        		Integer tableID = sc.nextInt();
+	        		Table table = restaurantReservationManager.GetTableByID(tableID);
+	        		
+	        
+	        		System.out.println("Please enter the name of the Staff that is creating this Order : ");
+	        		String staffName = sc.next();
+	        		
+	        		
+	        		Staff staff = restaurantStaffMgr.getStaff(staffName);
+	        		
+	        		if ( table == null) {
+	        			System.out.println("Invalid Table Entered");
+	        			break;
+	        		}
+	        		
+	        		else if ( staff == null) {
+	        			System.out.println("Invalid Staff Entered");
+	        			break;
+	        		}
+	        		
+	        		else {
+	        			
+	        			if(table.getStatus()==TableStatus.OCCUPIED) {
+	        				Order newOrder = new Order(staff, tableID);
+	        			}
+	        			
+	        			else {
+	        				System.out.println("This Table has not been Occupied yet. Please Reserve and Check in Customer Details before placing an Order for this Table");
+	        			}
+	        		}
+	        		
+	        	case 11:
+	        		i = false;
+	        		
+	        }
+	        
+        }while(i);
+	        
+       
         
         
 //        
@@ -149,6 +183,6 @@ public class ApplicationGUI
 //        }
 //        
 //        
-        
-    }
+    }       
+    
 }
