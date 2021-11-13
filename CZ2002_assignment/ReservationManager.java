@@ -5,10 +5,9 @@ import java.lang.*;
 
 public class ReservationManager {
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
-	private int smallTableno = 7;
-	private int medTableno = 10;
-	private int largeTableno = 15;
-	
+	private int smallTableno = 10;
+	private int medTableno = 15;
+	private int largeTableno = 10;
 	
 	//Array of tables is filled up according to size, with first all small tables, then all medium tables, then all Large tables
 	//Table IDs start from 1
@@ -18,9 +17,7 @@ public class ReservationManager {
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
 	public ReservationManager() {
-		System.out.println("Number of small tables "+ this.smallTableno);
-		System.out.println("Number of medium tables "+ this.medTableno);
-		System.out.println("Number of large tables "+this.largeTableno);
+
 		
 		//Adding small tables to array of tables
 		for(int i = 0 ; i< this.smallTableno; i++) {
@@ -28,20 +25,20 @@ public class ReservationManager {
 			this.arrayOfTables.add(newTable);
 			
 		}
-		System.out.println("Small tables added");
+		System.out.println("Small tables created");
 		
 		//Adding medium tables to array of tables
 		for(int i = this.smallTableno ; i<(this.smallTableno+ this.medTableno); i++) {
 			Table newTable = new Table(6,i+1);
 			this.arrayOfTables.add(newTable);
 		}
-		System.out.println("Medium tables added");
+		System.out.println("Medium tables created");
 		//Adding large tables to array of tables
 		for(int i = (this.smallTableno+this.medTableno); i<(this.smallTableno + this.medTableno + this.largeTableno); i++) {
 			Table newTable = new Table(10,i+1);
 			this.arrayOfTables.add(newTable);
 		}
-		System.out.println("Large Tables added");
+		System.out.println("Large Tables created");
 		
 	}
 	
@@ -63,6 +60,8 @@ public class ReservationManager {
 					return;
 				}
 			}
+			System.out.println("No vacancy, sorry!");
+			return;
 		}
 		
 		else if(Pax<=6) {
@@ -79,11 +78,13 @@ public class ReservationManager {
 					return;
 				}
 			}
+			System.out.println("No vacancy, sorry!");
+			return;
 		}
 		
 		else {
+			System.out.println("Booking a large table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
-				System.out.println("Booking a large table");
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
 					Table largeTable = new Table(Pax,i);
 					largeTable.setResTime(RezTime);
@@ -94,6 +95,8 @@ public class ReservationManager {
 					return;
 				}
 			}
+			System.out.println("No vacancy, sorry!");
+			return;
 					
 		}	
 			
@@ -132,7 +135,14 @@ public class ReservationManager {
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
 				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
-				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);;
+				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);
+				
+				//Removing customer from customer array
+				for (i = 0; i<this.arrayOfCustomers.size();i++) {
+					if(this.arrayOfCustomers.get(i).getCustID() == CustomerID) {
+						this.arrayOfCustomers.remove(i);
+					}
+				}
 				return;
 			}
 		}
@@ -148,7 +158,15 @@ public class ReservationManager {
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
 				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
-				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);;
+				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);
+				int customerID = this.arrayOfTables.get(i).getCustomerID();
+				
+				//Removing customer from customer array
+				for(i = 0; i<this.arrayOfCustomers.size();i++) {
+					if(this.arrayOfCustomers.get(i).getCustID()==customerID) {
+						this.arrayOfCustomers.remove(i);
+					}
+				}
 				return;
 			}
 		}
