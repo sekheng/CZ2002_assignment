@@ -29,6 +29,7 @@ public class ApplicationGUI
         System.out.println("There are  15 medium tables in the restaurant with a max capacity of 6 pax");
         System.out.println("There are  10 large tables in the restaurant with a max capacity of 10 pax");
         
+<<<<<<< HEAD
         boolean i = true;
         do {
 	        System.out.println("Press the following to perform the following function:");
@@ -128,6 +129,7 @@ public class ApplicationGUI
         }while(i);
 	        
        
+
         
         
 //        
