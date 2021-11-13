@@ -158,9 +158,7 @@ public class ApplicationGUI
 	    				Integer promotionPrice = sc.nextInt();
 	    				System.out.println("How many items would you like to add to this promotion? \n");
 	    				Integer noOfPromotionItems = sc.nextInt();
-	    				System.out.println("Enter Index of this promotion?: \n ");
-
-	    				Integer promotionIndex = sc.nextInt();
+	    				Integer promotionIndex = restaurantPromoManager.assignID();
 	    				
 	    				System.out.println("\n ------------------ MENU-----------------------------------\n");
         				restaurantMenuItemMgr.viewMenu();
@@ -184,6 +182,7 @@ public class ApplicationGUI
 	    				}
 	    				
 	    				restaurantPromoManager.addPromo(promo);
+	    				restaurantMenuItemMgr.createMenuItem(promo.getPriceInCents(),promo.stringOfNames(),promo.getName(),"promotion");
 	    				break;
 	    		
 	    			case 2:
@@ -485,6 +484,19 @@ public class ApplicationGUI
 	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
 	        		System.out.println("Table number : " + newTable.getTableID());
 	        		System.out.println(newTable.getStatus());
+	        		break;
+	        		
+	        	case 11:
+	        		System.out.println("*************************************ORDER INVOICE *************************");
+	        	
+	        		System.out.println("What table would you like to print the Invoice for?");
+	        		Integer invoiceTable = sc.nextInt();
+	        		System.out.println("Enter Tax:");
+	        		float invoiceTax = sc.nextFloat();
+	        		System.out.println("Enter Discount:");
+	        		float invoiceDiscount = sc.nextFloat();
+	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
+	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
 	        		break;
 	        		
 	        	case 12:

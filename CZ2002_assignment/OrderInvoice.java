@@ -89,7 +89,7 @@ public class OrderInvoice {
 		
 		String[] dateTime = currentTime.toString().split("T");
 		System.out.printf("%22s","Table ID :");
-		System.out.println(attachedOrder.getTableID() + '\n');
+		System.out.println((attachedOrder.getTableID() - 10) + '\n');
 		System.out.printf("%22s",restaurantName+'\n'+'\n');
 		System.out.printf("%-20s",dateTime[0]);
 		System.out.printf("%20s",dateTime[1]+'\n');
