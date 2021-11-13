@@ -39,12 +39,12 @@ public class PromotionTest {
         //Creation of Promotional Package using PromotionManager
         PromotionManager testPromoMgr = new PromotionManager();
         //Get Index by getting the Array of Promotions and returning it's length (append at the end)
-        testPromoMgr.createPromotion("Vegetarian Set", 990, testPromoSet, testPromoMgr.getArrayOfPromotions().size());
         //Manually create a list of promotions
         //Artificial Promotion List
         ArrayList<Promotion> artificialPromoList = new ArrayList<Promotion>();
         //Manually create the same promotion as above and append to articialPromotions
         Promotion artificialPromo = new Promotion(990, "Vegetarian Set", testPromoSet, artificialPromoList.size());
+        testPromoMgr.addPromo(artificialPromo);
         //Append the articialPromo
         artificialPromoList.add(artificialPromo);
         //Check that both are created and initialized properly
@@ -60,10 +60,10 @@ public class PromotionTest {
     @Test
     public void PromoMgrNotEql() {
         PromotionManager testPromoMgr = new PromotionManager();
-        testPromoMgr.createPromotion("Vegetarian Set", 990, testPromoSet, testPromoMgr.getArrayOfPromotions().size());
         ArrayList<Promotion> artificialPromoList = new ArrayList<Promotion>();
         Promotion artificialPromo = new Promotion(1000, "Vegetarian Set", testPromoSet, artificialPromoList.size());
         artificialPromoList.add(artificialPromo);
+        testPromoMgr.addPromo(artificialPromo);
         Assert.assertFalse("Both Promotion Set Lists are THE SAME", promoSetComparison(testPromoMgr.getArrayOfPromotions(), artificialPromoList));
     }
 

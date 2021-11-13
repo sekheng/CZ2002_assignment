@@ -53,7 +53,7 @@ public class ApplicationGUI
 	        			case 1:
 	        				System.out.println("********************* CREATE MENU ITEM *********************");
 	        				
-	        				System.out.println("\n ------------------ MENU-----------------------------------\n");
+	        				System.out.println("\n ------------------ EXISTING MENU-----------------------------------\n");
 	        				restaurantMenuItemMgr.viewMenu();
 	        				sc.nextLine();
 	        				System.out.println("Enter name of item");
@@ -79,7 +79,7 @@ public class ApplicationGUI
 	        				sc.nextLine();
 	        				System.out.println("Enter the name of the item you want to update");
 	        				String originalName = sc.nextLine();
-	        				System.out.println("Do you want to update : \n 1. Name \n 2. Price \n 3. Description \4. Type");
+	        				System.out.println("Do you want to update : \n 1. Name \n 2. Price \n 3. Description \n");
 	        				int updateChoice = sc.nextInt();
 	        				switch(updateChoice) {
 	        				case 1:
@@ -270,6 +270,9 @@ public class ApplicationGUI
 	    				Promotion removePromo = restaurantPromoManager.getPromotion(removeIndex);
 	    				restaurantPromoManager.removePromotion(removeIndex);
 	    				restaurantMenuItemMgr.removeMenuItem(removePromo.getName());
+    					System.out.println("\n ------------------ UPDATED MENU-----------------------------------\n");
+        				restaurantMenuItemMgr.viewMenu();
+	    				
 	    				
 	    				break;
 	    				
