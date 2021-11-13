@@ -32,11 +32,17 @@ public class Promotion extends FoodItem {
 	}
 	
 	public void removeItem(MenuItem menuItem) {
+		boolean flag = false;
 		for(int i =0; i<this.getArrayOfItems().size(); i++) {
 			if(this.getArrayOfItems().get(i) == menuItem) {
 				this.arrayOfItems.remove(i);
 				System.out.println("Successfully removed menu item from Promotion....");
+				flag = true;
 			}
+		}
+		
+		if(flag == false) {
+			System.out.println("This item does not exist in promotion");
 		}
 	}
 }

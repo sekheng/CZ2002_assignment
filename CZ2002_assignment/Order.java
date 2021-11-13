@@ -59,10 +59,16 @@ public class Order {
 	 * @param name of food item that needs to be removed from Order 
 	 */
 	public void removeItem(String name) {
+		boolean flag = false;
 		for(int i =0; i<arrayOfFoodItem.size();i++) {
 			if(arrayOfFoodItem.get(i).getName() == name) {
 				arrayOfFoodItem.remove(i);
+				System.out.println("Item successfully removed!");
+				flag = true;
 			}
+		}
+		if(flag == false) {
+			System.out.println("No such item found in the order");
 		}
 	}
 	

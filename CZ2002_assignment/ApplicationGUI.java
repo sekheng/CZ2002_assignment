@@ -209,11 +209,9 @@ public class ApplicationGUI
 			    			}
 	    					
 	    				}
-	    				
-
-	    				
-
 	    				break;
+	    				
+	    				
 	    			case 3: 
 	    				System.out.println("**********REMOVE PROMOTION****************:");
 	    				System.out.println("Enter index of the Promotion to be removed:");
@@ -231,7 +229,7 @@ public class ApplicationGUI
 
 	        		
 	        	case 3:
-	        		System.out.println("***********CREATE ORDER**************");
+	        		System.out.println("\n***********CREATE ORDER**************");
 	        		System.out.println("Please enter the Table ID that you would like to place the order for: ");
 	        		Integer tableID = sc.nextInt();
 	        		Table table = restaurantReservationManager.GetTableByID(tableID);
@@ -266,9 +264,77 @@ public class ApplicationGUI
 	        		break;
 	        		
 	        	case 4:
+	        		System.out.println("\n***********VIEW ORDER**************");
+	        		System.out.println("Enter Table ID of Order you would like to print:");
+	        		Integer viewtableID = sc.nextInt();
+	        		Order viewOrder = restaurantOrderManager.getOrder(viewtableID);
+	        		
+	        		if(viewOrder!=null) {
+	        			viewOrder.viewOrder();
+	        		}
+	        		else {
+	        			System.out.println("No Order Found for this Table ID");
+	        		}
 	        		
 	        		break;
 	        	case 5:
+	        		System.out.println("\n***********ADD/REMOVE ITEMS TO/FROM ORDER**************");
+	        		System.out.println("Enter Table ID of Order you would like to update:");
+	        		Integer updatetableID = sc.nextInt();
+	        		Order updateOrder = restaurantOrderManager.getOrder(updatetableID);
+	        		if(updateOrder!=null) {
+	        			
+	        			System.out.println("Enter: \n 1.Remove Item From Order \n 2. Add Item to Order");
+						Integer input5 = sc.nextInt();
+						
+						switch(input5) {
+						
+						case 1:
+							System.out.println("\n***********REMOVE ITEM FROM ORDER**************");
+							System.out.println("Enter name of menu item to be removed:");
+		    				String removeItemName = sc.nextLine();
+		    				MenuItem removeItem = restaurantMenuItemMgr.getMenuItem(removeItemName);
+		    				if(removeItem != null) {
+		    					updateOrder.removeItem(removeItem.getName());
+		    				}
+		    				else {
+		    					System.out.println("Incorrect Menu Item entered!");
+		    				}
+							
+							break;
+							
+							
+						case 2:
+							System.out.println("\n***********ADD ITEM TO ORDER**************");
+							sc.nextLine();
+							System.out.println("How many items would you like to add to this order? \n");
+		    				Integer noOfOrderItems = sc.nextInt();
+		    				for(int p =0; p<noOfOrderItems;) {
+		    					sc.nextLine();
+		    					System.out.printf("Enter the name of menu item %d: \n", (p+1));
+		    					String menuItemName = sc.nextLine();
+		    					MenuItem menuItem = restaurantMenuItemMgr.getMenuItem(menuItemName);
+		    					if(menuItem != null) {
+		    						updateOrder.addItem(menuItem);
+		    						System.out.println("Menu Item added .........");
+		    						p++;
+		    						
+		    					}	
+		    					else {
+		    						System.out.println("Invalid Menu Item added! Try Again");
+		    						
+		    					}
+		    				}
+		    				
+							
+							break;
+						
+						default:
+							System.out.println("Invalid choice Entered!!");
+							
+						}
+	        		}
+	        	
 	        		break;
 	        	case 6:
             	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
