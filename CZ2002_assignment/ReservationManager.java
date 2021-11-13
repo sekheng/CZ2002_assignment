@@ -262,14 +262,22 @@ public class ReservationManager {
 
 //Change status of customer's bookings from Reserved to Occupied
 	public boolean CheckInCustomer(int CustomerID) {
+		int flag = 0;
 		for (int i = 0; i < this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getCustomerID() == CustomerID) {
 				this.arrayOfTables.get(i).setStatus(TableStatus.OCCUPIED);
-				return true;
+				System.out.println("Checked in at table : " + this.arrayOfTables.get(i).getTableID());
+				flag = 1;
 			}
 		}
+		
+		if(flag ==1) {
+			return true;
+		}
+		else {
 		System.out.println("No such customer");
 		return false;
+		}
 	}
 
 	//Check all tables that are reserved, and make them vacant if current time is >15 mins from reservation time
@@ -301,21 +309,5 @@ public class ReservationManager {
 	return selectedtable;
 	}
 
-
-	//get object of class Table with a given customerID
-	public Table GetTableByCustID(int customerID) {
-		Table selectedtable =null;
-		for(int i =0; i<this.arrayOfTables.size(); i++) {
-			if(this.arrayOfTables.get(i).getCustomerID()==customerID) {
-				 selectedtable =  this.arrayOfTables.get(i);
-				 System.out.println("Table Successfully Identified...");
-				 return selectedtable;
-			}
-		}
-	if(selectedtable == null) {
-		System.out.println("NO SUCH TABLE");
-	}
-	return selectedtable;
-	}
 	
 }
