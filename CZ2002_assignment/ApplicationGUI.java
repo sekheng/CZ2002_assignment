@@ -29,6 +29,7 @@ public class ApplicationGUI
         System.out.println("There are  15 medium tables in the restaurant with a max capacity of 6 pax");
         System.out.println("There are  10 large tables in the restaurant with a max capacity of 10 pax");
 
+        
         boolean i = true;
         do {
 	        System.out.println("Press the following to perform the following function:");
@@ -52,6 +53,15 @@ public class ApplicationGUI
 	        		
 	        		switch(input1) {
 	        			case 1:
+	        				System.out.println("Enter name of item");
+	        				String name = sc.next();
+	        				System.out.println("Enter description of item");
+	        				String desc = sc.next();
+	        				System.out.println("Is the item an appetiser,maincourse, or drinks?");
+	        				String type = sc.next();
+	        				System.out.println("What is the price of the item (in cents) ?");
+	        				int price = sc.nextInt();
+	        				restaurantMenuItemMgr.createMenuItem(price,desc,name,type);
 	        				System.out.println("Created item");
 	        		
 	        			case 2:
