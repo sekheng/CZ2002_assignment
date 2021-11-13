@@ -366,7 +366,6 @@ public class ApplicationGUI
             	for (int j =0; j<noOfDesiredTables; j++) {
             		System.out.printf("Number of people on Table %d:",j+1);
             		int noOfPeople = sc.nextInt();
-
             		restaurantReservationManager.AddReservation(noOfPeople, resTime, customerName, customerGender, membershipStatus,bookingCustomerID);
             	}
             	break;
@@ -439,6 +438,7 @@ public class ApplicationGUI
 	        		int tableCheckID = sc.nextInt();
 	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
 	        		System.out.println(newTable.getStatus());
+	        		break;
 	        		
 	        	case 11:
 	        		System.out.println("********PRINT ORDER INVOICE**************");
@@ -450,7 +450,7 @@ public class ApplicationGUI
 	        		float invoiceDiscount = sc.nextFloat();
 	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
 	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
-	        		
+	        		break;
 	        		
 	        	case 13:
 	        		i = false;

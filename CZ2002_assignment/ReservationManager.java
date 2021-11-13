@@ -94,7 +94,6 @@ public class ReservationManager {
 			System.out.println("Booking a small table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.SMALLTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-					System.out.println("Booking table " + this.arrayOfTables.get(i).getTableID());
 					Table smallTable = new Table(Pax,i);
 					smallTable.setResTime(RezTime);
 					smallTable.setStatus(TableStatus.RESERVED);
@@ -113,7 +112,6 @@ public class ReservationManager {
 			System.out.println("Booking a medium table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.MEDTABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-					System.out.println("Booking table " + this.arrayOfTables.get(i).getTableID());
 					Table medTable = new Table(Pax,i);
 					medTable.setResTime(RezTime);
 					medTable.setStatus(TableStatus.RESERVED);
@@ -131,7 +129,6 @@ public class ReservationManager {
 			System.out.println("Booking a large table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
 				if((this.arrayOfTables.get(i).getSeatsPax() == TablePax.LARGETABLE) && (this.arrayOfTables.get(i).getStatus()==TableStatus.VACANT)) {
-					System.out.println("Booking table " + this.arrayOfTables.get(i).getTableID());
 					Table largeTable = new Table(Pax,i);
 					largeTable.setResTime(RezTime);
 					largeTable.setStatus(TableStatus.RESERVED);
