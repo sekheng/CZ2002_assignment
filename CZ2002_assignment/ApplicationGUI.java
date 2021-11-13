@@ -371,8 +371,13 @@ public class ApplicationGUI
 	        		restaurantReservationManager.UpdateBookings();
 	        		System.out.println("Which customer ID would you like to check in ?");
 	        		int id = sc.nextInt();
-	        		restaurantReservationManager.CheckInCustomer(id);
-	        		System.out.println("Customer has checked in");
+	        		
+	        		boolean checkin = restaurantReservationManager.CheckInCustomer(id);
+	        		if(checkin== true) {	
+	        			Table checkinTable = restaurantReservationManager.GetTableByCustID(id);
+	        			System.out.println("Customer has checked in");
+	        			System.out.println("Seated at Table ID: " + checkinTable.getTableID());
+	        		}
 	        	
 	        		break;
 	        	
