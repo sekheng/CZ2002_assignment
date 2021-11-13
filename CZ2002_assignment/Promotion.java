@@ -45,6 +45,14 @@ public class Promotion extends FoodItem {
 			System.out.println("This item does not exist in promotion");
 		}
 	}
+	
+	public String stringOfNames() {
+		String names = "";
+		for(int i = 0; i<this.arrayOfItems.size();i++) {
+			names = names + this.arrayOfItems.get(i).getName();
+		}
+		return names;
+	}
 }
 	
 	

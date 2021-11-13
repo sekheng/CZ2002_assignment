@@ -319,7 +319,7 @@ public class ApplicationGUI
 	        		Order updateOrder = restaurantOrderManager.getOrder(updatetableID);
 	        		if(updateOrder!=null) {
 	        			
-	        			System.out.println("Enter: \n 1.Remove Item From Order \n 2. Add Item to Order");
+	        			System.out.println("Enter: \n 1.Remove Item From Order \n 2. Add Item to Order \n 3. Add Promotion to Order");
 						Integer input5 = sc.nextInt();
 						
 						switch(input5) {
@@ -365,8 +365,19 @@ public class ApplicationGUI
 		    						
 		    					}
 		    				}
-		    				
-							
+		    				break;
+						case 3: 
+							System.out.println("\n ************* ADD PROMOTION TO ORDER *******************");
+							System.out.println("Which promotion index would you like to add to this order ?\n");
+							int promoIndex = sc.nextInt();
+							Promotion promo = restaurantPromoManager.getPromotion(promoIndex);
+							if(promo!=null) {
+								MenuItem promoItem = new MenuItem(promo.getPriceInCents(),promo.stringOfNames(),promo.getName(),"promotion");
+								updateOrder.addItem(promoItem);
+							}
+							else {
+								System.out.println("Invalid promo item added! Try again");
+							}
 							break;
 						
 						default:
