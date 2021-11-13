@@ -65,10 +65,13 @@ public class ApplicationGUI
 	        				int price = sc.nextInt();
 	        				restaurantMenuItemMgr.createMenuItem(price,desc,name,type);
 	        				System.out.println("Created item");
+	        				
 	        				break;
 	        		
 	        			case 2:
 	        				System.out.println("******************* UPDATE MENU ITEM **********************");
+	        				System.out.println("\n List of Menu Items");
+	        				restaurantMenuItemMgr.viewMenu();
 	        				sc.nextLine();
 	        				System.out.println("Enter the name of the item you want to update");
 	        				String originalName = sc.nextLine();
@@ -80,23 +83,27 @@ public class ApplicationGUI
 	        					System.out.println("Enter new name");
 	        					String newName = sc.nextLine();
 	        					restaurantMenuItemMgr.updateMenuItemName(originalName, newName);
+	        					
 	        					break;
 	        				case 2:
 	        					System.out.println("Enter new price in cents");
 	        					int newPrice = sc.nextInt();
 	        					restaurantMenuItemMgr.UpdateMenuItemPrice(originalName, newPrice);
+	        					
 	        					break;
 	        				case 3:
 	        					sc.nextLine();
 	        					System.out.println("Enter new description");
 	        					String newDesc = sc.nextLine();
 	        					restaurantMenuItemMgr.UpdateMenuItemDescription(originalName, newDesc);
+	        					
 	        					break;
 	        				case 4: 
 	        					sc.nextLine();
 	        					System.out.println("Enter new type");
 	        					String newType = sc.nextLine();
 	        					restaurantMenuItemMgr.UpdateMenuItemType(originalName, newType);
+	        					
 	        					break;
 	        				default: 
 	        					System.out.println("Enter a valid choice");

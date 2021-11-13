@@ -165,8 +165,23 @@ public class MenuItemMgr {
     			menuItem = this.getArrayOfMenuItem().get(i);
     			System.out.println("Menu item successfully identified.....");
     		}
-
     	};
     	return menuItem;
+    }
+    
+    public void viewMenu() {
+    	System.out.printf("%-15s |","Name");
+		System.out.printf("%-15s |","Price");
+		System.out.printf("%-15s ","Description \n");
+		System.out.println(".........................................................................");
+		
+    	for(int i=0; i<this.getArrayOfMenuItem().size(); i++) {
+    		System.out.printf("%-20s |",this.getArrayOfMenuItem().get(i).getName());
+    		float price = this.getArrayOfMenuItem().get(i).getPriceInCents();
+    		float finalprice = price/100;
+    		System.out.printf("%.2f |", finalprice);
+    		System.out.printf("%30s | \n",this.getArrayOfMenuItem().get(i).getDescription());
+    		System.out.println();
+    	}
     }
 }
