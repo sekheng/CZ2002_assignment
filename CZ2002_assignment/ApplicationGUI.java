@@ -55,8 +55,9 @@ public class ApplicationGUI
 	        			case 1:
 	        				System.out.println("Enter name of item");
 	        				String name = sc.next();
+	        				sc.nextLine();
 	        				System.out.println("Enter description of item");
-	        				String desc = sc.next();
+	        				String desc = sc.nextLine();
 	        				System.out.println("Is the item an appetiser,maincourse, or drinks?");
 	        				String type = sc.next();
 	        				System.out.println("What is the price of the item (in cents) ?");
@@ -111,7 +112,8 @@ public class ApplicationGUI
 	
 	        		}
 	        		break;
-	        		
+	        	
+
 	        		
 	        	case 3:
 	        		System.out.println("***********CREATE ORDER**************");

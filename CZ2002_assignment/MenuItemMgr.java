@@ -101,18 +101,76 @@ public class MenuItemMgr {
         // now i think about it, maybe the update is done from the array of menuitem manager
     }//end of update
 
-
+    
+    //Update menu item name
+    public void updateMenuItemName(String originalName,String newName) {
+    	for(int i=0; i<this.menuItemList.size();i++)
+    		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
+    			this.menuItemList.get(i).setName(newName);
+    			System.out.println("New name for item " + originalName + " is " + newName);
+    			return;
+    		}
+    	System.out.println("No item found with such a name");
+    	return;
+    }
+    
+    //Update menu item price
+    public void UpdateMenuItemPrice(String originalName,int price) {
+    	for(int i =0; i<this.menuItemList.size();i++) {
+    		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
+    			this.menuItemList.get(i).setPriceInCents(price);
+    			System.out.println("The new price for item " + originalName + " is " + price);
+    			return;
+    		}
+    	}
+    	System.out.println("No item found with such a name ");
+    	return;
+    }
+    
+    //Update menu item description
+    public void UpdateMenuItemDescription(String originalName, String description) {
+    	for(int i = 0; i<this.menuItemList.size();i++) {
+    		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
+    			this.menuItemList.get(i).setDescription(description);
+    			System.out.println("The new description for item " + originalName + " is : " + description);
+    			return;
+    		}
+    	}
+    	System.out.println("No item found with such a name");
+    	return;
+    }
+    
+    
+    //Update menu item type
+    public void UpdateMenuItemType(String originalName, String type) {
+    	for(int i = 0; i<this.menuItemList.size(); i++) {
+    		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
+    			this.menuItemList.get(i).setType(type);
+    			System.out.println("The new type for item " + originalName + " is " + type);
+    			return;
+    		}
+    	}
+    	System.out.println("No item found with such a name");
+    	return;
+    }
+    
+    
     /**
      * method to remove a menuItem object from the menuItemList
-     * @param i is the index for the menuItem object to be deleted
+     * @param name is the name for the menuItem object to be deleted
      * deletes selected menuItem
-     * @throws ArrayIndexOutOfBoundsException when @param index out of bounds
-     * @throws NumberFormatException when @param index is not int
      */
-    public void removeMenuItem(int index) throws ArrayIndexOutOfBoundsException, NumberFormatException
+    public void removeMenuItem(String name)
     {
-        //
-        menuItemList.remove(index);
+    	for(int i = 0; i<this.menuItemList.size(); i++) {
+    		if(this.menuItemList.get(i).getName().compareTo(name)==0) {
+    			this.menuItemList.remove(i);
+    			System.out.println("Removed " + name);
+    			return;
+    		}
+    	}
+    	System.out.println("No item found with such a name");
+    	return;
     }
 
     /**
