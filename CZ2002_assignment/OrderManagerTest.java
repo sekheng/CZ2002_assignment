@@ -9,14 +9,16 @@ import org.junit.Test;
 
 public class OrderManagerTest {
 
+	Staff stafftest = new Staff("Katy", 20, "5U34582", "Manager");
+	Order testOrder1 = new Order(stafftest, 8);
+   
+    Staff stafftest2 = new Staff("Mary", 14, "5U34567", "Waitress");
+
 	@Test
 	public void Ordertest() {
 		
-		Staff stafftest = new Staff("Katy", 20, "5U34582", "Manager");
-		Order testOrder1 = new Order(stafftest, 8);
-        assertEquals(testOrder1.getStaff(), stafftest);
-        Staff stafftest2 = new Staff("Mary", 14, "5U34567", "Waitress");
-        testOrder1.setStaff(stafftest2);
+		assertEquals(testOrder1.getStaff(), stafftest);
+	    testOrder1.setStaff(stafftest2);
         assertEquals(testOrder1.getStaff(), stafftest2);
         
         ArrayList<FoodItem> expectedResult = new ArrayList<FoodItem>(Arrays.asList(new FoodItem(150,"Rice"),			
@@ -49,9 +51,15 @@ public class OrderManagerTest {
 		
 		OrderManager myOrderMgr = new OrderManager();
 		
-		
-        
-        
+        ArrayList<Order> expectedOrderResult = new ArrayList<Order>();
+        expectedOrderResult.add(testOrder1);
+        myOrderMgr.addOrder(testOrder1);
+        System.out.print(myOrderMgr.getArrayofOrder());
+        System.out.print(expectedOrderResult);
+     
+        assertTrue("Expected Order Item array is different from actual Order Item array", OrderManagerTest.TestingOrderItemArrays(myOrderMgr.getArrayofOrder(),expectedOrderResult));
+
+
 	
 	}
 	
@@ -72,5 +80,26 @@ public class OrderManagerTest {
 	        
 	        return flag;
 	    }
+	 
+	 private static boolean TestingOrderItemArrays(ArrayList<Order> array, ArrayList<Order> arrayy)
+	    {
+		 
+		 boolean flag = false;
+		 
+	        if (array.size() == arrayy.size())
+	        {
+	        	
+	        	flag = true;
+		        for(int i=1;i<array.size();i++) {
+		        	if (array.get(i) == arrayy.get(i)) {
+		        		flag =true;
+		        	}
+		        }
+	        }
+	        
+	        
+	        return flag;
+	    }
+
 
 }
