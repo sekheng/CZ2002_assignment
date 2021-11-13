@@ -96,11 +96,17 @@ public class ApplicationGUI
 	
 	        		}
 	        		
+	        		break;
+	        		
 	        	case 3:
 	        		System.out.println("***********CREATE ORDER**************");
 	        		System.out.println("Please enter the Table ID that you would like to place the order for: ");
 	        		Integer tableID = sc.nextInt();
 	        		Table table = restaurantReservationManager.GetTableByID(tableID);
+	        		if ( table == null) {
+	        			System.out.println("Invalid Table Entered");
+	        			break;
+	        		}
 	        		
 	        
 	        		System.out.println("Please enter the name of the Staff that is creating this Order : ");
@@ -109,17 +115,13 @@ public class ApplicationGUI
 	       
 	        		Staff staff = restaurantStaffMgr.getStaff(staffName);
 	        		
-	        		if ( table == null) {
-	        			System.out.println("Invalid Table Entered");
-	        			break;
-	        		}
 	        		
 	        		if ( staff == null) {
 	        			System.out.println("Invalid Staff Entered");
 	        			break;
 	        		}
 	        		
-	        		else {
+	        		if (staff!= null && table!=null) {
 	        			
 	        			if(table.getStatus()==TableStatus.OCCUPIED) {
 	        				Order newOrder = new Order(staff, tableID);
@@ -130,8 +132,11 @@ public class ApplicationGUI
 	        			}
 	        		}
 	        		
+	        		break;
+	        		
 	        	case 11:
 	        		i = false;
+	        		break;
 	        		
 	        }
 	        
