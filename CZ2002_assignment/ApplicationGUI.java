@@ -303,9 +303,11 @@ public class ApplicationGUI
             	
 	        	case 7:
 	        		restaurantReservationManager.UpdateBookings();
-	        		System.out.println("Which customer would you like to check in ?");
+	        		System.out.println("Which customer ID would you like to check in ?");
 	        		int id = sc.nextInt();
 	        		restaurantReservationManager.CheckInCustomer(id);
+	        		System.out.println("Customer has checked in");
+	        	
 	        		break;
 	        	
 	        	case 8:
