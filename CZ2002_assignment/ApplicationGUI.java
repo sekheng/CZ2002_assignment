@@ -190,6 +190,7 @@ public class ApplicationGUI
 	    				System.out.println("Enter Index of Promotion to be edited:");
 	    				Integer editIndex = sc.nextInt();
 	    				Promotion editPromo = restaurantPromoManager.getPromotion(editIndex);
+	    				restaurantMenuItemMgr.removeMenuItem(editPromo.getName());
 	    				if(editPromo!=null) {
 	    					System.out.println("Enter: \n 1.Remove Item From Promotion \n 2. Add Item to Promotion \n 3. Update Price of Promotion");
 		    				
@@ -205,10 +206,12 @@ public class ApplicationGUI
 			    				MenuItem removeItem = restaurantMenuItemMgr.getMenuItem(removeItemName);
 			    				if(removeItem != null) {
 			    					editPromo.removeItem(removeItem);
+			    					restaurantMenuItemMgr.createMenuItem(editPromo.getPriceInCents(), editPromo.stringOfNames(), editPromo.getName(), "promotion");
 			    				}
 			    				else {
 			    					System.out.println("Incorrect Menu Item entered!");
 			    				}
+			    				
 		    				}
 			    				
 			    			else if(updatechoice==2) {
@@ -223,6 +226,8 @@ public class ApplicationGUI
 			    				if(addItem != null) {
 			    					editPromo.addItem(addItem);
 			    					System.out.println("Menu Item added to Promotion");
+			    					restaurantMenuItemMgr.createMenuItem(editPromo.getPriceInCents(), editPromo.stringOfNames(), editPromo.getName(), "promotion");
+
 			    				}
 			    				else {
 			    					System.out.println("Incorrect Menu Item entered!");
@@ -232,6 +237,8 @@ public class ApplicationGUI
 			    				System.out.println("Enter new price of Promotion:");
 			    				Integer newPrice = sc.nextInt();
 			    				editPromo.setPriceInCents(newPrice);
+		    					restaurantMenuItemMgr.createMenuItem(editPromo.getPriceInCents(), editPromo.stringOfNames(), editPromo.getName(), "promotion");
+
 			    				
 			    			}
 		    				
@@ -248,7 +255,9 @@ public class ApplicationGUI
 	    				System.out.println("**********REMOVE PROMOTION****************:");
 	    				System.out.println("Enter index of the Promotion to be removed:");
 	    				Integer removeIndex = sc.nextInt();
+	    				Promotion removePromo = restaurantPromoManager.getPromotion(removeIndex);
 	    				restaurantPromoManager.removePromotion(removeIndex);
+	    				restaurantMenuItemMgr.removeMenuItem(removePromo.getName());
 	    				
 	    				break;
 	    				
@@ -369,19 +378,7 @@ public class ApplicationGUI
 		    					}
 		    				}
 		    				break;
-						case 3: 
-							System.out.println("\n ************* ADD PROMOTION TO ORDER *******************");
-							System.out.println("Which promotion index would you like to add to this order ?\n");
-							int promoIndex = sc.nextInt();
-							Promotion promo = restaurantPromoManager.getPromotion(promoIndex);
-							if(promo!=null) {
-								MenuItem promoItem = new MenuItem(promo.getPriceInCents(),promo.stringOfNames(),promo.getName(),"promotion");
-								updateOrder.addItem(promoItem);
-							}
-							else {
-								System.out.println("Invalid promo item added! Try again");
-							}
-							break;
+
 						
 						default:
 							System.out.println("Invalid choice Entered!!");
