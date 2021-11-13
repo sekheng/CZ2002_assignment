@@ -345,11 +345,9 @@ public class ApplicationGUI
 	        	System.out.println("************************* ADD RESERVATION ****************************");
 	        	restaurantReservationManager.UpdateBookings();
             	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
-            	int noOfDesiredTables = sc.nextInt();
-        		
+            	int noOfDesiredTables = sc.nextInt();        		
         		System.out.println("Enter Customer Name ");
         		String customerName = sc.next();
-
         		System.out.println("Enter customer Gender (1-male, 2-female)");
         		int customerGender = sc.nextInt();
         		System.out.println("Is customer a member? True/False");
@@ -381,9 +379,9 @@ public class ApplicationGUI
 	        		
 	        		boolean checkin = restaurantReservationManager.CheckInCustomer(id);
 	        		if(checkin== true) {	
-	        			Table checkinTable = restaurantReservationManager.GetTableByCustID(id);
+
 	        			System.out.println("Customer has checked in");
-	        			System.out.println("Seated at Table ID: " + checkinTable.getTableID());
+
 	        		}
 	        	
 	        		break;
@@ -445,6 +443,13 @@ public class ApplicationGUI
 	        	case 11:
 	        		System.out.println("********PRINT ORDER INVOICE**************");
 	        		System.out.println("What table would you like to print the Invoice for?");
+	        		Integer invoiceTable = sc.nextInt();
+	        		System.out.println("Enter Tax:");
+	        		float invoiceTax = sc.nextFloat();
+	        		System.out.println("Enter Discount:");
+	        		float invoiceDiscount = sc.nextFloat();
+	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
+	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
 	        		
 	        		
 	        	case 13:
