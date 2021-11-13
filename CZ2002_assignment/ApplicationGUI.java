@@ -249,6 +249,7 @@ public class ApplicationGUI
 	    				System.out.println("Enter index of the Promotion to be removed:");
 	    				Integer removeIndex = sc.nextInt();
 	    				restaurantPromoManager.removePromotion(removeIndex);
+	    				
 	    				break;
 	    				
 	    			default:
