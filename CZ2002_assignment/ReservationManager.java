@@ -4,6 +4,7 @@ import java.util.*;
 import java.lang.*;
 
 public class ReservationManager {
+	private static int customerID = 1;
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
 	private int smallTableno = 10;
 	private int medTableno = 15;
@@ -41,18 +42,16 @@ public class ReservationManager {
 		
 	}
 	public int assignCustomerID() {
-		for(int i = 0; i<this.arrayOfCustomers.size();i++) {
-			if(this.arrayOfCustomers.get(i).getCustID()!=(i)) {
-				return (i+1);
-			}
-		}
-		return this.arrayOfCustomers.size();
+		int ID = this.customerID;
+		ReservationManager.customerID++;
+		return ID;
 	}
 	
-	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName,int CustomerGender, boolean MembershipStatus) {
+	public void AddReservation(int Pax, LocalDateTime RezTime,String CustomerName,int CustomerGender, boolean MembershipStatus, int CustomerID) {
 		System.out.println("Adding a reservation");
 		Customer newCustomer = new Customer(CustomerName,CustomerGender,MembershipStatus);
-		newCustomer.setCustID(this.assignCustomerID());
+		newCustomer.setCustID(CustomerID);
+		int customerID = newCustomer.getCustID();
 		this.arrayOfCustomers.add(newCustomer);
 		System.out.println("New customer added");
 		if(Pax<=2) {
@@ -63,7 +62,7 @@ public class ReservationManager {
 					Table smallTable = new Table(Pax,i);
 					smallTable.setResTime(RezTime);
 					smallTable.setStatus(TableStatus.RESERVED);
-					smallTable.setCustomerID(this.assignCustomerID());
+					smallTable.setCustomerID(customerID);
 					smallTable.setCustomerName(CustomerName);
 					this.arrayOfTables.set(i, smallTable);
 					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " name " + CustomerName + " at table number " + this.arrayOfTables.get(i).getTableID());
@@ -82,7 +81,7 @@ public class ReservationManager {
 					Table medTable = new Table(Pax,i);
 					medTable.setResTime(RezTime);
 					medTable.setStatus(TableStatus.RESERVED);
-					medTable.setCustomerID(this.assignCustomerID());
+					medTable.setCustomerID(customerID);
 					medTable.setCustomerName(CustomerName);
 					this.arrayOfTables.set(i, medTable);
 					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " name " + CustomerName + " at table number " + this.arrayOfTables.get(i).getTableID());
@@ -100,7 +99,7 @@ public class ReservationManager {
 					Table largeTable = new Table(Pax,i);
 					largeTable.setResTime(RezTime);
 					largeTable.setStatus(TableStatus.RESERVED);
-					largeTable.setCustomerID(this.assignCustomerID());
+					largeTable.setCustomerID(customerID);
 					largeTable.setCustomerName(CustomerName);
 					this.arrayOfTables.set(i, largeTable);
 					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " name " + CustomerName + " at table number " + this.arrayOfTables.get(i).getTableID());
@@ -114,25 +113,38 @@ public class ReservationManager {
 
 //Check reservation for particular customer ID
 	public void CheckReservation(int CustomerID) {
+		int flag = 0;
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
 				System.out.println("Booking found for customer " + CustomerID);
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
 				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
-				return;
+				System.out.println("The check in status is : " + this.arrayOfTables.get(i).getStatus());
+				flag = 1;
 			}
 		}
-		System.out.println("No booking found");
+		if(flag ==0) {
+			System.out.println("No booking found");
+		}
 		return;
 	}
 	
 //Check all reservations
 	public void CheckAllReservation() {
 		System.out.println("Customer IDs who have bookings are");
+		
+		int check=0;
 		for(int i = 0; i <this.arrayOfTables.size();i++) {
-			if(this.arrayOfTables.get(i).getStatus()==TableStatus.RESERVED) {
-				System.out.println(this.arrayOfTables.get(i).getCustomerID());
+			if(this.arrayOfTables.get(i).getStatus()!=TableStatus.VACANT) {
+				if(this.arrayOfTables.get(i).getCustomerID()!=check) {
+					/*
+					 * this helps to avoid the IDs of customers who have booked more than one table to get printed multiple times
+					 */
+					
+					System.out.println(this.arrayOfTables.get(i).getCustomerID());
+				}
+				check = this.arrayOfTables.get(i).getCustomerID();
 			}
 		}
 	}
@@ -166,7 +178,30 @@ public class ReservationManager {
 	public void RemoveReservationTableID(int TableID) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getTableID()  == TableID) {
-				System.out.println("Removing booking  for customer " + TableID);
+				System.out.println("Removing booking  for customer " + this.arrayOfTables.get(i).getCustomerName());
+				System.out.println("Details are:");
+				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
+				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
+				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);
+				int customerID = this.arrayOfTables.get(i).getCustomerID();
+				
+				//Removing customer from customer array
+				for(i = 0; i<this.arrayOfCustomers.size();i++) {
+					if(this.arrayOfCustomers.get(i).getCustID()==customerID) {
+						this.arrayOfCustomers.remove(i);
+					}
+				}
+				return;
+			}
+		}
+		System.out.println("No booking found");
+		return;
+	}
+	
+	public void RemoveReservationName(String name) {
+		for(int i = 0; i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getCustomerName().compareTo(name)==0) {
+				System.out.println("Removing booking  for customer " + name);
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
 				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
