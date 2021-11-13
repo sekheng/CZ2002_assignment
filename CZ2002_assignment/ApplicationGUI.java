@@ -133,6 +133,25 @@ public class ApplicationGUI
 	    				String promotionName = sc.nextLine();
 	    				System.out.println("Please enter the price of the promotion:");
 	    				Integer promotionPrice = sc.nextInt();
+	    				System.out.println("How many items would you like to add to this promotion?");
+	    				Integer noOfPromotionItems = sc.nextInt();
+	    				System.out.println("Enter Index of this promotion?: ");
+
+	    				Integer promotionIndex = sc.nextInt();
+
+	    				Promotion promo = new Promotion(promotionPrice, promotionName, promotionIndex) ;
+	    				
+	    				for(int p =0; p<noOfPromotionItems ; p++) {
+	    					System.out.printf("Enter the name of menu item %d: \n", (p+1));
+	    					String menuItemName = sc.nextLine();
+	    					MenuItem menuItem = restaurantMenuItemMgr.getMenuItem(menuItemName);
+	    					if(menuItem != null) {
+	    						promo.addItem(menuItem);
+	    					}	
+	    					else {
+	    						System.out.println("Invalid Menu Item added!");
+	    					}
+	    				}
 	    				
 	    				
 	    				break;
