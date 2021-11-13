@@ -105,7 +105,6 @@ public class ApplicationGUI
 	        		}
 	        		break;
 	        		
-	        		break;
 	        		
 	        	case 3:
 	        		System.out.println("***********CREATE ORDER**************");
