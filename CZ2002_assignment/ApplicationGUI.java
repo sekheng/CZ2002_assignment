@@ -379,9 +379,9 @@ public class ApplicationGUI
 	        		
 	        		boolean checkin = restaurantReservationManager.CheckInCustomer(id);
 	        		if(checkin== true) {	
-	        			Table checkinTable = restaurantReservationManager.GetTableByCustID(id);
+
 	        			System.out.println("Customer has checked in");
-	        			System.out.println("Seated at Table ID: " + checkinTable.getTableID());
+
 	        		}
 	        	
 	        		break;
