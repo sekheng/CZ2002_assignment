@@ -30,6 +30,15 @@ public class Promotion extends FoodItem {
 		this.arrayOfItems = this.getArrayOfItems();
 		this.arrayOfItems.add(menuItem);
 	}
+	
+	public void removeItem(MenuItem menuItem) {
+		for(int i =0; i<this.getArrayOfItems().size(); i++) {
+			if(this.getArrayOfItems().get(i) == menuItem) {
+				this.arrayOfItems.remove(i);
+				System.out.println("Successfully removed menu item from Promotion....");
+			}
+		}
+	}
 }
 	
 	

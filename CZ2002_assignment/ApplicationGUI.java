@@ -166,14 +166,52 @@ public class ApplicationGUI
 	    				System.out.println("Enter Index of Promotion to be edited:");
 	    				Integer editIndex = sc.nextInt();
 	    				Promotion editPromo = restaurantPromoManager.getPromotion(editIndex);
-	    				System.out.println("Enter: \n 1.Remove Item From Promotion \n 2. Add Item to Promotion 3. Update Price of Promotion");
-	    				
-	    				Integer updatechoice = sc.nextInt();
-	    				if(updatechoice == 1) {
-		    				System.out.println("Enter name of menu item to be removed:");
+	    				if(editPromo!=null) {
+	    					System.out.println("Enter: \n 1.Remove Item From Promotion \n 2. Add Item to Promotion \n 3. Update Price of Promotion");
 		    				
+		    				Integer updatechoice = sc.nextInt();
+		    				if(updatechoice == 1) {
+		    					sc.nextLine();
+			    				System.out.println("Enter name of menu item to be removed:");
+			    				String removeItemName = sc.nextLine();
+			    				MenuItem removeItem = restaurantMenuItemMgr.getMenuItem(removeItemName);
+			    				if(removeItem != null) {
+			    					editPromo.removeItem(removeItem);
+			    				}
+			    				else {
+			    					System.out.println("Incorrect Menu Item entered!");
+			    				}
+		    				}
+			    				
+			    			else if(updatechoice==2) {
+			    				sc.nextLine();
+			    				System.out.println("Enter name of menu item to be added:");
+			    				String addItemName = sc.nextLine();
+			    				MenuItem addItem = restaurantMenuItemMgr.getMenuItem(addItemName);
+			    				if(addItem != null) {
+			    					editPromo.addItem(addItem);
+			    					System.out.println("Menu Item added to Promotion");
+			    				}
+			    				else {
+			    					System.out.println("Incorrect Menu Item entered!");
+			    				}
+			    			}
+			    			else if(updatechoice == 3) {
+			    				System.out.println("Enter new price of Promotion:");
+			    				Integer newPrice = sc.nextInt();
+			    				editPromo.setPriceInCents(newPrice);
+			    				
+			    			}
+		    				
+			    			else {
+			    				System.out.println("Invalid Input Entered!");
 
+			    			}
+	    					
 	    				}
+	    				
+
+	    				
 
 	    				break;
 	    			case 3: 
@@ -228,6 +266,7 @@ public class ApplicationGUI
 	        		break;
 	        		
 	        	case 4:
+	        		
 	        		break;
 	        	case 5:
 	        		break;
