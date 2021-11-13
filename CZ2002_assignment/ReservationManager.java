@@ -292,6 +292,7 @@ public class ReservationManager {
 			if(this.arrayOfTables.get(i).getTableID() ==TableID) {
 				 selectedtable =  this.arrayOfTables.get(i);
 				 System.out.println("Table Successfully Identified...");
+				 return selectedtable;
 			}
 		}
 	return selectedtable;
@@ -302,9 +303,10 @@ public class ReservationManager {
 	public Table GetTableByCustID(int customerID) {
 		Table selectedtable =null;
 		for(int i =0; i<this.arrayOfTables.size(); i++) {
-			if(this.arrayOfTables.get(i).getTableID() ==customerID) {
+			if(this.arrayOfTables.get(i).getCustomerID()==customerID) {
 				 selectedtable =  this.arrayOfTables.get(i);
 				 System.out.println("Table Successfully Identified...");
+				 return selectedtable;
 			}
 		}
 	return selectedtable;
