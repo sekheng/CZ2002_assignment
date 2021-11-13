@@ -70,7 +70,7 @@ public class ApplicationGUI
 	        		
 	        			case 2:
 	        				System.out.println("******************* UPDATE MENU ITEM **********************");
-	        				System.out.println("\n List of Menu Items");
+	        				System.out.println("\n ------------------MENU-----------------------------------\n");
 	        				restaurantMenuItemMgr.viewMenu();
 	        				sc.nextLine();
 	        				System.out.println("Enter the name of the item you want to update");
@@ -83,12 +83,16 @@ public class ApplicationGUI
 	        					System.out.println("Enter new name");
 	        					String newName = sc.nextLine();
 	        					restaurantMenuItemMgr.updateMenuItemName(originalName, newName);
+	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
 	        					
 	        					break;
 	        				case 2:
 	        					System.out.println("Enter new price in cents");
 	        					int newPrice = sc.nextInt();
 	        					restaurantMenuItemMgr.UpdateMenuItemPrice(originalName, newPrice);
+	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
 	        					
 	        					break;
 	        				case 3:
@@ -96,6 +100,8 @@ public class ApplicationGUI
 	        					System.out.println("Enter new description");
 	        					String newDesc = sc.nextLine();
 	        					restaurantMenuItemMgr.UpdateMenuItemDescription(originalName, newDesc);
+	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
 	        					
 	        					break;
 	        				case 4: 
@@ -103,6 +109,8 @@ public class ApplicationGUI
 	        					System.out.println("Enter new type");
 	        					String newType = sc.nextLine();
 	        					restaurantMenuItemMgr.UpdateMenuItemType(originalName, newType);
+	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
 	        					
 	        					break;
 	        				default: 
@@ -113,12 +121,16 @@ public class ApplicationGUI
 	        				break;
 	        			case 3: 
 	        				System.out.println("************************** REMOVE MENU ITEM ****************************");
+	        				System.out.println("\n ------------------MENU-----------------------------------\n");
+	        				restaurantMenuItemMgr.viewMenu();
 	        				sc.nextLine();
 	        				System.out.println("Enter the name for the item you want to remove ");
 	        				String itemName = sc.nextLine();
 	        				restaurantMenuItemMgr.removeMenuItem(itemName);
 	        				
 	        				System.out.println("Menu Item Removed");
+	        				System.out.println("\n ------------------ UPDATED MENU-----------------------------------\n");
+	        				restaurantMenuItemMgr.viewMenu();
 	        				break;
 	        			default:
 	        				System.out.println("Please enter a valid Option");
@@ -149,6 +161,9 @@ public class ApplicationGUI
 	    				System.out.println("Enter Index of this promotion?: \n ");
 
 	    				Integer promotionIndex = sc.nextInt();
+	    				
+	    				System.out.println("\n ------------------ MENU-----------------------------------\n");
+        				restaurantMenuItemMgr.viewMenu();
 
 	    				Promotion promo = new Promotion(promotionPrice, promotionName, promotionIndex) ;
 	    				for(int p =0; p<noOfPromotionItems;) {
@@ -181,6 +196,10 @@ public class ApplicationGUI
 		    				
 		    				Integer updatechoice = sc.nextInt();
 		    				if(updatechoice == 1) {
+		    					
+		    					System.out.println("\n ------------------ MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
+		        				
 		    					sc.nextLine();
 			    				System.out.println("Enter name of menu item to be removed:");
 			    				String removeItemName = sc.nextLine();
@@ -194,6 +213,10 @@ public class ApplicationGUI
 		    				}
 			    				
 			    			else if(updatechoice==2) {
+			    				
+			    				System.out.println("\n ------------------ MENU-----------------------------------\n");
+		        				restaurantMenuItemMgr.viewMenu();
+		        				
 			    				sc.nextLine();
 			    				System.out.println("Enter name of menu item to be added:");
 			    				String addItemName = sc.nextLine();
@@ -303,6 +326,9 @@ public class ApplicationGUI
 						
 						case 1:
 							System.out.println("\n***********REMOVE ITEM FROM ORDER**************");
+							System.out.println("\n ------------------ MENU-----------------------------------\n");
+	        				restaurantMenuItemMgr.viewMenu();
+	        				sc.nextLine();
 							System.out.println("Enter name of menu item to be removed:");
 		    				String removeItemName = sc.nextLine();
 		    				MenuItem removeItem = restaurantMenuItemMgr.getMenuItem(removeItemName);
@@ -318,6 +344,8 @@ public class ApplicationGUI
 							
 						case 2:
 							System.out.println("\n***********ADD ITEM TO ORDER**************");
+							System.out.println("\n ------------------ MENU-----------------------------------\n");
+	        				restaurantMenuItemMgr.viewMenu();
 							sc.nextLine();
 							System.out.println("How many items would you like to add to this order? \n");
 		    				Integer noOfOrderItems = sc.nextInt();

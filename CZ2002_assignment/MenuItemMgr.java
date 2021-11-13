@@ -170,13 +170,13 @@ public class MenuItemMgr {
     }
     
     public void viewMenu() {
-    	System.out.printf("%-15s |","Name");
-		System.out.printf("%-15s |","Price");
-		System.out.printf("%-15s ","Description \n");
-		System.out.println(".........................................................................");
+    	System.out.printf("| %-20s |","Name");
+		System.out.printf(" %-20s |","Price");
+		System.out.printf(" %-20s ","Description \n");
+		System.out.println("............................................................");
 		
     	for(int i=0; i<this.getArrayOfMenuItem().size(); i++) {
-    		System.out.printf("%-20s |",this.getArrayOfMenuItem().get(i).getName());
+    		System.out.printf("| %-20s |",this.getArrayOfMenuItem().get(i).getName());
     		float price = this.getArrayOfMenuItem().get(i).getPriceInCents();
     		float finalprice = price/100;
     		System.out.printf("%.2f |", finalprice);
