@@ -345,11 +345,9 @@ public class ApplicationGUI
 	        	System.out.println("************************* ADD RESERVATION ****************************");
 	        	restaurantReservationManager.UpdateBookings();
             	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
-            	int noOfDesiredTables = sc.nextInt();
-        		
+            	int noOfDesiredTables = sc.nextInt();        		
         		System.out.println("Enter Customer Name ");
         		String customerName = sc.next();
-
         		System.out.println("Enter customer Gender (1-male, 2-female)");
         		int customerGender = sc.nextInt();
         		System.out.println("Is customer a member? True/False");
