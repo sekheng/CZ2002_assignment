@@ -35,7 +35,8 @@ public class ReservationTesting {
         myRManager.AddReservation(7, LocalDateTime.of(2021, 11, 14, 14, 1, 1), "CustomerName",  1, true,14);
         myRManager.AddReservation(7, LocalDateTime.of(2021, 11, 14, 15, 1, 1), "CustomerName",  1, true,15);
         myRManager.AddReservation(7, LocalDateTime.of(2021, 11, 14, 16, 1, 1), "CustomerName",  1, true,16);
-
+        
+        //Shows occupancy full after all tables of appropriate size are filled up
     }
 
     /**
@@ -56,6 +57,9 @@ public class ReservationTesting {
         System.out.println("Table 2 Status " + Table2.getStatus());
         Table Table3 = myRManager.GetTableByID(2);
         System.out.println("Table 3 Status " + Table3.getStatus());
+        
+        // Tables that are booked for more than 15 mins ago will have 
+        // expired by the time present time takes place, so tables 2 and 3 will show expired
 
     }
 }
