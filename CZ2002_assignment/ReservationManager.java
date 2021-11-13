@@ -195,7 +195,7 @@ public class ReservationManager {
 	}
 
 	//Get object of class Table with a given TableID
-	public Table GetTableIDStatus(int TableID) {
+	public Table GetTableByID(int TableID) {
 		Table selectedtable =null;
 		for(int i =0; i<this.arrayOfTables.size(); i++) {
 			if(this.arrayOfTables.get(i).getTableID() ==TableID) {
