@@ -49,7 +49,7 @@ public class Promotion extends FoodItem {
 	public String stringOfNames() {
 		String names = "";
 		for(int i = 0; i<this.arrayOfItems.size();i++) {
-			names = names + this.arrayOfItems.get(i).getName();
+			names = names + " " + this.arrayOfItems.get(i).getName() + " ";
 		}
 		return names;
 	}

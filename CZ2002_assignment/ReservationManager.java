@@ -291,6 +291,15 @@ public class ReservationManager {
 		}
 	}
 
+	
+	public void getOccupiedTables() {
+		System.out.println("The tables that are occupied are ");
+		for(int i = 0;i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getStatus()==TableStatus.OCCUPIED) {
+				System.out.println("Table ID " + this.arrayOfTables.get(i).getTableID());
+			}
+		}
+	}
 	//Get object of class Table with a given TableID
 	public Table GetTableByID(int TableID) {
 		Table selectedtable =null;
