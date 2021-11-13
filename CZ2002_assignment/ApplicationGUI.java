@@ -439,6 +439,7 @@ public class ApplicationGUI
 	        		int tableCheckID = sc.nextInt();
 	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
 	        		System.out.println(newTable.getStatus());
+	        		break; 
 	        		
 	        	case 11:
 	        		System.out.println("********PRINT ORDER INVOICE**************");
@@ -450,7 +451,33 @@ public class ApplicationGUI
 	        		float invoiceDiscount = sc.nextFloat();
 	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
 	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
+	        		break;
 	        		
+	        	case 12:
+	        		System.out.println("********PRINT REVENUE REPORT**************");
+	        		System.out.println("Enter start: (YYYY-MM-DD-HH-MM) ");
+	        		// Split string 
+	        		String start = sc.next();
+	        		String[] startsubstrings = start.split("-");
+	        		int startyear = Integer.parseInt(startsubstrings[0]);
+	        		int startmonth = Integer.parseInt(startsubstrings[1]);
+	        		int startdayOfMonth = Integer.parseInt(startsubstrings[2]);
+	        		int starthour = Integer.parseInt(startsubstrings[3]);
+	        		int startminutes = Integer.parseInt(startsubstrings[4]);
+	        		LocalDateTime startresTime = LocalDateTime.of(startyear, startmonth, startdayOfMonth, starthour, startminutes);
+	        		
+	        		System.out.println("Enter end time: (YYYY-MM-DD-HH-MM) ");
+	        		// Split string 
+	        		String end = sc.next();
+	        		String[] endsubstrings = end.split("-");
+	        		int endyear = Integer.parseInt(endsubstrings[0]);
+	        		int endmonth = Integer.parseInt(endsubstrings[1]);
+	        		int enddayOfMonth = Integer.parseInt(endsubstrings[2]);
+	        		int endhour = Integer.parseInt(endsubstrings[3]);
+	        		int endminutes = Integer.parseInt(endsubstrings[4]);
+	        		LocalDateTime endresTime = LocalDateTime.of(endyear, endmonth, enddayOfMonth, endhour, endminutes);
+	        		restaurantOrderManager.getRevenueReport().GetOrderInvoice(startresTime, endresTime);
+	        		break;
 	        		
 	        	case 13:
 	        		i = false;
