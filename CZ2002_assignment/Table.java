@@ -54,12 +54,13 @@ public class Table {
 	 * The name of the Customer assigned to the table
 	 */
 	private String customerName;
+	
 	/**
 	 * Creates a new Table given the number of people needed to be accomodated  
 	 * The name should include both first and
 	 * last name.
-	 * @param 
-	 * @param
+	 * @param noOfPax : number of people on a table
+	 * @param tableID : system assigned table ID
 	 */
 	public Table(int noOfPax, int tableID) {
 		
@@ -68,18 +69,33 @@ public class Table {
 		this.setSeatsPax();
 	}
 
+	/**
+	 * getter for customer ID
+	 * @return customer ID
+	 */
 	public int getCustomerID() {
 		return customerID;
 	}
 
+	/**
+	 * setter for customer ID
+	 * @param customerID
+	 */
 	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
 
+	/**
+	 * getter for table ID
+	 * @return table ID
+	 */
 	public int getTableID() {
 		return tableID;
 	}
 
+	/**
+	 * setter for table size (small,medium,table)
+	 */
 	public void setSeatsPax() {
 		if(this.noOfPax<=2) {
 			this.seatsPax = TablePax.SMALLTABLE;
@@ -93,38 +109,67 @@ public class Table {
 	}
 
 
-
+/**
+ * setter for table status : vacant,reserved, or occupied
+ * @param status
+ */
 	public void setStatus(TableStatus status) {
 		this.status = status;
 	}
 
-
+/**
+ * reservation expiry setter
+ * expiry time : 15 mins after booking time
+ */
 	public void setResExpiry() {
 		this.resExpiry = this.resTime.plusMinutes(15);
 	}
 
 
-
+/**
+ * getter for table size - small, medium, large
+ * @return
+ */
 	public TablePax getSeatsPax() {
 		return seatsPax;
 	}
-
+	
+/**
+ * getter for table status
+ * @return vacant, occupied, or reserved
+ */
 	public TableStatus getStatus() {
 		return status;
 	}
 
+	/**
+	 * getter for reservation time
+	 * @return Date and Time
+	 */
 	public LocalDateTime getResTime() {
 		return resTime;
 	}
 
+	/**
+	 * setter for reservation time
+	 * @param resTime
+	 */
 	public void setResTime(LocalDateTime resTime) {
 		this.resTime = resTime;
 	}
 
+	/**
+	 * getter for customer name
+	 * @return customer name
+	 */
 	public String getCustomerName() {
 		return customerName;
 	}
-
+	
+	/**
+	 * setter for customer name
+	 * @param customerName
+	 */
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
