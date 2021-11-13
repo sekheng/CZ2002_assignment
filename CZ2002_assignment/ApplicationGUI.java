@@ -53,6 +53,7 @@ public class ApplicationGUI
 	        		
 	        		switch(input1) {
 	        			case 1:
+	        				System.out.println("********************* CREATE MENU ITEM *********************");
 	        				sc.nextLine();
 	        				System.out.println("Enter name of item");
 	        				String name = sc.nextLine();
@@ -67,6 +68,7 @@ public class ApplicationGUI
 	        				break;
 	        		
 	        			case 2:
+	        				System.out.println("******************* UPDATE MENU ITEM **********************");
 	        				sc.nextLine();
 	        				System.out.println("Enter the name of the item you want to update");
 	        				String originalName = sc.nextLine();
@@ -103,6 +105,7 @@ public class ApplicationGUI
 	        				
 	        				break;
 	        			case 3: 
+	        				System.out.println("************************** REMOVE MENU ITEM ****************************");
 	        				sc.nextLine();
 	        				System.out.println("Enter the name for the item you want to remove ");
 	        				String itemName = sc.nextLine();
@@ -339,6 +342,7 @@ public class ApplicationGUI
 	        	
 	        		break;
 	        	case 6:
+	        	System.out.println("************************* ADD RESERVATION ****************************");
 	        	restaurantReservationManager.UpdateBookings();
             	System.out.println("How many tables would you like to book? (Each table can hold a maximum of 10 people)");
             	int noOfDesiredTables = sc.nextInt();
@@ -370,15 +374,22 @@ public class ApplicationGUI
             	break;
             	
 	        	case 7:
+	        		System.out.println("**************************** CHECK IN CUSTOMER *******************************");
 	        		restaurantReservationManager.UpdateBookings();
 	        		System.out.println("Which customer ID would you like to check in ?");
 	        		int id = sc.nextInt();
-	        		restaurantReservationManager.CheckInCustomer(id);
-	        		System.out.println("Customer has checked in");
+	        		
+	        		boolean checkin = restaurantReservationManager.CheckInCustomer(id);
+	        		if(checkin== true) {	
+	        			Table checkinTable = restaurantReservationManager.GetTableByCustID(id);
+	        			System.out.println("Customer has checked in");
+	        			System.out.println("Seated at Table ID: " + checkinTable.getTableID());
+	        		}
 	        	
 	        		break;
 	        	
 	        	case 8:
+	        		System.out.println("****************************** CHECK RESERVATION****************************");
 	        		restaurantReservationManager.UpdateBookings();
 	        		System.out.println("Do you want to \n 1. Check all reservations \n 2. Check a booking by customer ID");
 	        		int choice = sc.nextInt();
@@ -396,8 +407,9 @@ public class ApplicationGUI
 	        		}
 	        		break;
 	        		
-	        		
+	        			   
 	        	case 9:
+	        		System.out.println("******************************REMOVE RESERVATION ***********************************");
 	        		restaurantReservationManager.UpdateBookings();
 	        		System.out.println("Would you like to remove booking by \n 1. Customer ID \n 2. Customer name \n 3. Table ID");
 	        		int choice2 = sc.nextInt();
@@ -423,6 +435,7 @@ public class ApplicationGUI
 	        		break;
 	        		
 	        	case 10:
+	        		System.out.println("*************************************CHECK STATUS OF TABLE *************************");
 	        		restaurantReservationManager.UpdateBookings();
 	        		System.out.println("Enter the table ID whose status you want to check");
 	        		int tableCheckID = sc.nextInt();
