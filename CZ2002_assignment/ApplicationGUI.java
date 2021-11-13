@@ -254,6 +254,8 @@ public class ApplicationGUI
 	        			
 	        			if(table.getStatus()==TableStatus.OCCUPIED) {
 	        				Order newOrder = new Order(staff, tableID);
+	        				restaurantOrderManager.addOrder(newOrder);
+	        				System.out.println("Order successfully created. Please Add Items to the order using Function 5 on the Control Panel");
 	        			}
 	        			
 	        			else {
@@ -424,6 +426,9 @@ public class ApplicationGUI
 	        		int tableCheckID = sc.nextInt();
 	        		Table newTable = restaurantReservationManager.GetTableByID(tableCheckID);
 	        		System.out.println(newTable.getStatus());
+	        		
+	        	case 11:
+	        		
 	        	case 13:
 	        		i = false;
 	        		break;
