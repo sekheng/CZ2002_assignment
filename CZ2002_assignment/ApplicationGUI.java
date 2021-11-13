@@ -88,7 +88,14 @@ public class ApplicationGUI
 	        		
 	        		switch(input2) {
 	    			case 1:
-	    				System.out.println("Created Promotion");
+	    				
+	    				System.out.println("******CREATE PROMOTION*******");
+	    				System.out.println("Please enter the name of the promotion:");
+	    				String promotionName = sc.nextLine();
+	    				System.out.println("Please enter the price of the promotion:");
+	    				Integer promotionPrice = sc.nextInt();
+	    				
+	    				
 	    				break;
 	    		
 	    			case 2:
@@ -119,7 +126,6 @@ public class ApplicationGUI
 	        
 	        		System.out.println("Please enter the name of the Staff that is creating this Order : ");
 	        		String staffName = sc.next();
-	        		System.out.println(staffName);
 	       
 	        		Staff staff = restaurantStaffMgr.getStaff(staffName);
 	        		
@@ -141,6 +147,9 @@ public class ApplicationGUI
 	        		}
 	        		
 	        		break;
+	        		
+	        	case 4:
+	        		
 	        		
 	        	case 11:
 	        		i = false;

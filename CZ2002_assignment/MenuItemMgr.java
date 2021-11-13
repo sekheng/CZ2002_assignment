@@ -122,4 +122,16 @@ public class MenuItemMgr {
     public ArrayList<MenuItem> getArrayOfMenuItem(){
         return menuItemList;
     };
+    
+    public MenuItem getMenuItem(String Name) {
+    	MenuItem menuItem = null;
+    	for(int i=0; i<this.getArrayOfMenuItem().size(); i++) {
+    		if(this.getArrayOfMenuItem().get(i).getName().compareTo(Name) == 0) {
+    			menuItem = this.getArrayOfMenuItem().get(i);
+    			System.out.println("Menu item successfully identified.....");
+    		}
+
+    	};
+    	return menuItem;
+    }
 }
