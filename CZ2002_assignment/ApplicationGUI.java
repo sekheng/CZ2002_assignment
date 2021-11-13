@@ -325,13 +325,13 @@ public class ApplicationGUI
 	        		break;
 	        	case 5:
 	        		System.out.println("\n***********ADD/REMOVE ITEMS TO/FROM ORDER**************");
-	        		
+	        		restaurantReservationManager.getOccupiedTables();
 	        		System.out.println("Enter Table ID of Order you would like to update:");
 	        		Integer updatetableID = sc.nextInt();
 	        		Order updateOrder = restaurantOrderManager.getOrder(updatetableID);
 	        		if(updateOrder!=null) {
 	        			
-	        			System.out.println("Enter: \n 1.Remove Item From Order \n 2. Add Item to Order \n 3. Add Promotion to Order");
+	        			System.out.println("Enter: \n 1.Remove Item From Order \n 2. Add Item to Order ");
 						Integer input5 = sc.nextInt();
 						
 						switch(input5) {
@@ -419,6 +419,7 @@ public class ApplicationGUI
 	        	case 7:
 	        		System.out.println("**************************** CHECK IN CUSTOMER *******************************");
 	        		restaurantReservationManager.UpdateBookings();
+	        		restaurantReservationManager.CheckAllReservation();
 	        		System.out.println("Which customer ID would you like to check in ?");
 	        		int id = sc.nextInt();
 	        		

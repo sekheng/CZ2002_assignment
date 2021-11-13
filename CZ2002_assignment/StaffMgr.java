@@ -101,4 +101,12 @@ public class StaffMgr {
     	};
     	return staff;
     }
+    
+    public void printStaff() {
+    	System.out.println("--------------List of Staff---------------");
+    	for(int i=0; i<this.getArrayOfStaff().size(); i++) {
+    		System.out.println(this.getArrayOfStaff().get(i).getName());
+    	}
+    	
+    	}
 }
