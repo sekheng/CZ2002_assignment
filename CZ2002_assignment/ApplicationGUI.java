@@ -441,6 +441,9 @@ public class ApplicationGUI
 	        		System.out.println(newTable.getStatus());
 	        		
 	        	case 11:
+	        		System.out.println("********PRINT ORDER INVOICE**************");
+	        		System.out.println("What table would you like to print the Invoice for?");
+	        		
 	        		
 	        	case 13:
 	        		i = false;
