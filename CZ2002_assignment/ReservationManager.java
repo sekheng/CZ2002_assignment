@@ -1,5 +1,5 @@
 package CZ2002_assignment;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.util.*;
 import java.lang.*;
 
@@ -17,7 +17,6 @@ public class ReservationManager {
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
 	public ReservationManager() {
-
 		
 		//Adding small tables to array of tables
 		for(int i = 0 ; i< this.smallTableno; i++) {
@@ -81,7 +80,6 @@ public class ReservationManager {
 			System.out.println("No vacancy, sorry!");
 			return;
 		}
-		
 		else {
 			System.out.println("Booking a large table");
 			for(int i = 0; i<this.arrayOfTables.size();i++) {
@@ -97,9 +95,7 @@ public class ReservationManager {
 			}
 			System.out.println("No vacancy, sorry!");
 			return;
-					
 		}	
-			
 	}
 
 //Check reservation for particular customer ID
@@ -127,26 +123,28 @@ public class ReservationManager {
 		}
 	}
 
-//Remove reservation based on customer ID
+//Remove reservation for all tables based on customer ID
 	public void RemoveReservationCustomerID(int CustomerID) {
+		int flag = 0;
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
 			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
+				flag = 1;
 				System.out.println("Removing booking  for customer " + CustomerID);
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
 				System.out.println("Booking time :" + this.arrayOfTables.get(i).getResTime());
-				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);
-				
-				//Removing customer from customer array
-				for (i = 0; i<this.arrayOfCustomers.size();i++) {
-					if(this.arrayOfCustomers.get(i).getCustID() == CustomerID) {
-						this.arrayOfCustomers.remove(i);
-					}
-				}
-				return;
+				this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);	
 			}
 		}
-		System.out.println("No booking found");
+		//Removing customer from customer array
+		for (int i = 0; i<this.arrayOfCustomers.size();i++) {
+			if(this.arrayOfCustomers.get(i).getCustID() == CustomerID) {
+				this.arrayOfCustomers.remove(i);
+			}
+		}
+		if(flag ==0) {
+			System.out.println("No booking found");
+		}
 		return;
 	}
 
@@ -173,6 +171,37 @@ public class ReservationManager {
 		System.out.println("No booking found");
 		return;
 	}
-	
 
+//Change status of customer's bookings from Reserved to Occupied
+	public void CheckInCustomer(int CustomerID) {
+		for (int i = 0; i < this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getCustomerID() == CustomerID) {
+				this.arrayOfTables.get(i).setStatus(TableStatus.OCCUPIED);
+			}
+		}
+	}
+
+	//Check all tables that are reserved, and make them vacant if current time is >15 mins from reservation time
+	public void UpdateBookings() {
+		for(int i = 0; i<this.arrayOfTables.size();i++) {
+			if(this.arrayOfTables.get(i).getStatus() == TableStatus.RESERVED) {
+				Duration duration = Duration.between(this.arrayOfTables.get(i).getResTime(), LocalDateTime.now());
+				if(duration.toMinutes()>15) {
+					this.arrayOfTables.get(i).setStatus(TableStatus.VACANT);
+				}
+			}
+			
+		}
+	}
+
+	//Get object of class Table with a given TableID
+	public Table GetTableIDStatus(int TableID) {
+		Table selectedtable =null;
+		for(int i =0; i<this.arrayOfTables.size(); i++) {
+			if(this.arrayOfTables.get(i).getTableID() ==TableID) {
+				 selectedtable =  this.arrayOfTables.get(i);
+			}
+		}
+	return selectedtable;
+	}
 }
