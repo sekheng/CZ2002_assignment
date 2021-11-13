@@ -89,10 +89,13 @@ public class StaffMgr {
     public Staff getStaff(String Name) {
     	Staff staff = null;
     	for(int i=0; i<this.getArrayOfStaff().size(); i++) {
+    		System.out.println(this.getArrayOfStaff().get(i).getName());
     		if(this.getArrayOfStaff().get(i).getName() == Name) {
+    			System.out.println("Yayyy");
     			staff = this.getArrayOfStaff().get(i);
     		}
-    	}
+
+    	};
     	return staff;
     }
 }
