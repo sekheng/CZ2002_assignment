@@ -215,6 +215,8 @@ public class ApplicationGUI
 			    				if(removeItem != null) {
 			    					editPromo.removeItem(removeItem);
 			    					restaurantMenuItemMgr.createMenuItem(editPromo.getPriceInCents(), editPromo.stringOfNames(), editPromo.getName(), "promotion");
+			    					System.out.println("\n ------------------ UPDATED MENU-----------------------------------\n");
+			        				restaurantMenuItemMgr.viewMenu();
 			    				}
 			    				else {
 			    					System.out.println("Incorrect Menu Item entered!");
