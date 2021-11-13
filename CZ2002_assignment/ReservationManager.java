@@ -295,6 +295,9 @@ public class ReservationManager {
 				 return selectedtable;
 			}
 		}
+	if(selectedtable == null) {
+		System.out.println("NO SUCH TABLE");
+	}
 	return selectedtable;
 	}
 
@@ -309,6 +312,9 @@ public class ReservationManager {
 				 return selectedtable;
 			}
 		}
+	if(selectedtable == null) {
+		System.out.println("NO SUCH TABLE");
+	}
 	return selectedtable;
 	}
 	
