@@ -56,53 +56,12 @@ public class MenuItemMgr {
     }
 
 
+
     /**
-     * method to change the name, description, priceInCents, and type of a menuItem object
-     * @param item is the menu item to be updated
-     * we ask the users whcih attribute they want to change
-     * we print the old attribute and ask for a replacement
-     * @throws InputMismatchException when new price is not int
+     * method to change the name of the menu item
+     * @param originalName is the old name of the menu item
+     * @param newName is the new name of the menu item
      */
-    public void updateMenuItem(MenuItem item) throws InputMismatchException
-    {
-        /*
-        Scanner sc = new Scanner(System.in);
-        System.out.println("(1) change name, (2) change priceInCents, (3) change description, (4) change type");
-        switch(sc.nextInt())
-        {
-            case 1:
-            System.out.println("old name is " + item.getName());
-            item.setName(sc.nextLine());
-            break;
-
-            case 2:
-            System.out.println("old priceInCents is " + item.getPriceInCents());
-            item.setPriceInCents(sc.nextInt());
-            break;
-
-            case 3:
-            System.out.println("old description is " + item.getDescription());
-            item.setDescription(sc.nextLine());
-            break;
-
-            case 4:
-            System.out.println("old type is " + item.getType());
-            item.setType(sc.nextLine());
-            break;
-
-            default:
-            System.out.println("that choice is not available");
-            break;
-        }// end of switch
-        sc.close();
-        */
-        // clearly SC has to be outside of MenuItemMgr
-        // thus this will fixed it by assuming that scanner will be enter from outside
-        // now i think about it, maybe the update is done from the array of menuitem manager
-    }//end of update
-
-    
-    //Update menu item name
     public void updateMenuItemName(String originalName,String newName) {
     	System.out.println("Original name entered is " + originalName);
     	for(int i=0; i<this.menuItemList.size();i++)
@@ -115,7 +74,11 @@ public class MenuItemMgr {
     	return;
     }
     
-    //Update menu item price
+    /**
+     * method to change the price of the menu item
+     * @param originalName is the name of the menu item
+     * @param price is the new price of the menu item
+     */
     public void UpdateMenuItemPrice(String originalName,int price) {
     	for(int i =0; i<this.menuItemList.size();i++) {
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
@@ -128,8 +91,12 @@ public class MenuItemMgr {
     	return;
     }
     
-    //Update menu item description
-    public void UpdateMenuItemDescription(String originalName, String description) {
+    /**
+     * method to change the description of the menu item
+     * @param originalName is the name of the menu item
+     * @param description is the new description of the menu item
+     */
+        public void UpdateMenuItemDescription(String originalName, String description) {
     	for(int i = 0; i<this.menuItemList.size();i++) {
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
     			this.menuItemList.get(i).setDescription(description);
@@ -142,8 +109,12 @@ public class MenuItemMgr {
     }
     
     
-    //Update menu item type
-    public void UpdateMenuItemType(String originalName, String type) {
+    /**
+     * method to change the type of the menu item
+     * @param originalName is the name of the menu item
+     * @param type is the new type of the menu item
+     */
+        public void UpdateMenuItemType(String originalName, String type) {
     	for(int i = 0; i<this.menuItemList.size(); i++) {
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
     			this.menuItemList.get(i).setType(type);
@@ -182,6 +153,11 @@ public class MenuItemMgr {
         return menuItemList;
     };
     
+     /**
+     * method to get a menu item from its name
+     * @param Name is name of the menu item object
+     * @return menuItem
+     */
     public MenuItem getMenuItem(String Name) {
     	MenuItem menuItem = null;
     	for(int i=0; i<this.getArrayOfMenuItem().size(); i++) {
