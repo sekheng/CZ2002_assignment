@@ -136,7 +136,7 @@ public class ReservationManager {
 					largeTable.setCustomerID(customerID);
 					largeTable.setCustomerName(CustomerName);
 					this.arrayOfTables.set(i, largeTable);
-					System.out.println("Booking added for customer ID " + this.arrayOfTables.get(i).getCustomerID() + " name " + CustomerName + " at table number " + this.arrayOfTables.get(i).getTableID());
+					System.out.println("BOOKING ADDED FOR CUSTOMER ID " + this.arrayOfTables.get(i).getCustomerID() + " NAME " + CustomerName + " AT TABLE NUMBER " + this.arrayOfTables.get(i).getTableID());
 					return;
 				}
 			}
