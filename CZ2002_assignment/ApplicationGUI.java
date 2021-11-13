@@ -63,16 +63,20 @@ public class ApplicationGUI
 	        				int price = sc.nextInt();
 	        				restaurantMenuItemMgr.createMenuItem(price,desc,name,type);
 	        				System.out.println("Created item");
+	        				break;
 	        		
 	        			case 2:
 	        				System.out.println("Menu Item Updated");
+	        				break;
 	        			case 3: 
 	        				System.out.println("Menu Item Removed");
-	        				
+	        				break;
 	        			default:
 	        				System.out.println("Please enter a valid Option");
-	
+	        				break;
+	        				
 	        		}
+	        		break;
 	        		
 	        	case 2:
 	        		System.out.println("Press one of the following options to perform the following function: ");
@@ -85,16 +89,21 @@ public class ApplicationGUI
 	        		switch(input2) {
 	    			case 1:
 	    				System.out.println("Created Promotion");
+	    				break;
 	    		
 	    			case 2:
 	    				System.out.println("Promotion Updated");
+	    				break;
 	    			case 3: 
 	    				System.out.println("Promotion Removed");
+	    				break;
 	    				
 	    			default:
 	    				System.out.println("Please enter a valid Option");
+	    				break;
 	
 	        		}
+	        		break;
 	        		
 	        	case 3:
 	        		System.out.println("***********CREATE ORDER**************");
