@@ -21,15 +21,9 @@ public class PromotionTest {
         new MenuItem(350,"cold","lemon tea","drinks")
     ));
 
-    ArrayList<MenuItem> testPromoSet2 = new ArrayList<MenuItem>(Arrays.asList(
-        new MenuItem(250,"vegetarian","sandwich","appetizer"),
-        new MenuItem(500,"many mushrooms","mushroom risoto","maincourse"),
-        new MenuItem(400,"cold","lemon tea","drinks")
-    ));
-
     /**
      * Test PromotionManager against manually created Promotion Set
-     * @param ArrayList<MenuItem> list  = testPromoSet, testPromoSet2
+     * @param ArrayList<MenuItem> list  = testPromoSet
      * The above params are meant to be the 'promotional sets' in use for testing
      * This function to see if PromotionManager is working as intended against a manually
      *  created Promotion List
@@ -49,22 +43,6 @@ public class PromotionTest {
         artificialPromoList.add(artificialPromo);
         //Check that both are created and initialized properly
         Assert.assertTrue("Both Promotion Set Lists are NOT the same!", promoSetComparison(testPromoMgr.getArrayOfPromotions(), artificialPromoList));
-    }
-
-    /**
-     * Test PromotionManager against manually created Promotion Set
-     * @param ArrayList<MenuItem> list  = testPromoSet, testPromoSet2
-     * The above params are meant to be the 'promotional sets' in use for testing
-     * This function serves to test to see if 2 different promotion sets are indeed different
-     */
-    @Test
-    public void PromoMgrNotEql() {
-        PromotionManager testPromoMgr = new PromotionManager();
-        ArrayList<Promotion> artificialPromoList = new ArrayList<Promotion>();
-        Promotion artificialPromo = new Promotion(1000, "Vegetarian Set", testPromoSet, artificialPromoList.size());
-        artificialPromoList.add(artificialPromo);
-        testPromoMgr.addPromo(artificialPromo);
-        Assert.assertFalse("Both Promotion Set Lists are THE SAME", promoSetComparison(testPromoMgr.getArrayOfPromotions(), artificialPromoList));
     }
 
     /**
