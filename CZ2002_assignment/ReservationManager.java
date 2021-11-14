@@ -27,11 +27,13 @@ public class ReservationManager {
 	private int medTableno = 15;
 	private int largeTableno = 10;
 	
-	//Array of tables is filled up according to size, with first all small tables, then all medium tables, then all Large tables
-	//Table IDs start from 1
-	//ID numbers 1 -> smallTableNo : small tables
-	//ID numbers smallTableNo+1 -> smallTableNo + medTableNo : medium tables
-	//ID numbers smallTableNo + medTableNo +1 -> smallTableNo + medTableNo + largeTableNo : large tables
+	/**
+	 * Array of tables is filled up according to size, with first all small tables, then all medium tables, then all Large tables
+	 * Table IDs start from 1
+	 * ID numbers 1 -> smallTableNo : small tables
+	 * ID numbers smallTableNo+1 -> smallTableNo + medTableNo : medium tables
+	 * ID numbers smallTableNo + medTableNo +1 -> smallTableNo + medTableNo + largeTableNo : large tables
+	 */
 	private ArrayList<Customer> arrayOfCustomers = new ArrayList<Customer>();
 	
 	/**
