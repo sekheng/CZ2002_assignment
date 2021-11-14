@@ -2,9 +2,18 @@ package CZ2002_assignment;
 import java.util.*;
 import java.time.*;
 
+/**
+ * Boundary class meant to test the UI
+ * @author	Lee Sek Heng
+ * @version	1.0
+ * @since	2021-11-01
+ */
 public class ApplicationGUI
 {
-	
+	/**
+	 * To render the UI at the console
+	 * @param args	Not Applicable
+	 */
     public static void main(String[] args) {
     	Scanner sc = new Scanner(System.in);   
        OrderManager restaurantOrderManager =  new OrderManager();
@@ -94,7 +103,7 @@ public class ApplicationGUI
 	        				case 2:
 	        					System.out.println("Enter new price in cents");
 	        					int newPrice = sc.nextInt();
-	        					restaurantMenuItemMgr.UpdateMenuItemPrice(originalName, newPrice);
+	        					restaurantMenuItemMgr.updateMenuItemPrice(originalName, newPrice);
 	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
 		        				restaurantMenuItemMgr.viewMenu();
 	        					
@@ -103,7 +112,7 @@ public class ApplicationGUI
 	        					sc.nextLine();
 	        					System.out.println("Enter new description");
 	        					String newDesc = sc.nextLine();
-	        					restaurantMenuItemMgr.UpdateMenuItemDescription(originalName, newDesc);
+	        					restaurantMenuItemMgr.updateMenuItemDescription(originalName, newDesc);
 	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
 		        				restaurantMenuItemMgr.viewMenu();
 	        					
@@ -112,7 +121,7 @@ public class ApplicationGUI
 	        					sc.nextLine();
 	        					System.out.println("Enter new type");
 	        					String newType = sc.nextLine();
-	        					restaurantMenuItemMgr.UpdateMenuItemType(originalName, newType);
+	        					restaurantMenuItemMgr.updateMenuItemType(originalName, newType);
 	        					System.out.println("\n ------------------UPDATED MENU-----------------------------------\n");
 		        				restaurantMenuItemMgr.viewMenu();
 	        					

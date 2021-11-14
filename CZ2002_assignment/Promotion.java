@@ -1,36 +1,67 @@
 package CZ2002_assignment;
 import java.util.*;
-
+/**
+ * promotion package definition
+ * @author	Lee Sek Heng
+ * @version	1.0
+ * @since	2021-11-10
+ */
 public class Promotion extends FoodItem {
-	private ArrayList<MenuItem> arrayOfItems = new ArrayList<MenuItem>();	
+	/**
+	 * array to contain all menu items
+	 */
+	private ArrayList<MenuItem> arrayOfItems = new ArrayList<MenuItem>();
+	/**
+	 * unique index to identify itself from menu items
+	 */
 	private int index;
-	
+	/**
+	 * contructor for promotion
+	 * @param price	price of promotion
+	 * @param name	name of promotion
+	 * @param items	all the menu items
+	 * @param index	unique ID
+	 */
 	public Promotion(int price, String name, ArrayList<MenuItem> items,int index) {
 		super(price, name);
-		// TODO Auto-generated constructor stub
 		this.arrayOfItems = items;
 		this.index = index;
 	}
-	
+	/**
+	 * constructor for promotion without menu items
+	 * @param price	price of promotion
+	 * @param name	name of promotion
+	 * @param index	unique ID
+	 */
 	public Promotion(int price, String name, int index) {
 		super(price, name);
-		// TODO Auto-generated constructor stub
 		this.index = index;
 	}
-
+	/**
+	 * get all menu items from promotion
+	 * @return	all the menu items
+	 */
 	public ArrayList<MenuItem> getArrayOfItems() {
 		return arrayOfItems;
 	}
-
+	/**
+	 * index of promotion
+	 * @return	index
+	 */
 	public int getIndex() {
 		return index;
 	}
-
+	/**
+	 * to add individual menu item into promotion
+	 * @param menuItem	valid menu item
+	 */
 	public void addItem(MenuItem menuItem) {
-		this.arrayOfItems = this.getArrayOfItems();
 		this.arrayOfItems.add(menuItem);
 	}
-	
+	/**
+	 * to remove the menu item from the promotion
+	 * @param menuItem	the desired menu item
+	 */
 	public void removeItem(MenuItem menuItem) {
 		boolean flag = false;
 		for(int i =0; i<this.getArrayOfItems().size(); i++) {
@@ -45,7 +76,10 @@ public class Promotion extends FoodItem {
 			System.out.println("This item does not exist in promotion");
 		}
 	}
-	
+	/**
+	 * meant for formatting of menu items in its menu items array
+	 * @return	a string by concatenation of the menu items' name
+	 */
 	public String stringOfNames() {
 		String names = "";
 		for(int i = 0; i<this.arrayOfItems.size();i++) {

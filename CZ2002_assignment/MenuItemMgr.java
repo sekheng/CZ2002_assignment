@@ -1,9 +1,6 @@
 package CZ2002_assignment;
 
-import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-
 /**
     To manage a list of menuItems
     allows addition, updates, and deletion of menuItems
@@ -71,7 +68,6 @@ public class MenuItemMgr {
     			return;
     		}
     	System.out.println("No item found with such a name");
-    	return;
     }
     
     /**
@@ -79,7 +75,7 @@ public class MenuItemMgr {
      * @param originalName is the name of the menu item
      * @param price is the new price of the menu item
      */
-    public void UpdateMenuItemPrice(String originalName,int price) {
+    public void updateMenuItemPrice(String originalName,int price) {
     	for(int i =0; i<this.menuItemList.size();i++) {
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
     			this.menuItemList.get(i).setPriceInCents(price);
@@ -88,7 +84,6 @@ public class MenuItemMgr {
     		}
     	}
     	System.out.println("No item found with such a name ");
-    	return;
     }
     
     /**
@@ -96,7 +91,7 @@ public class MenuItemMgr {
      * @param originalName is the name of the menu item
      * @param description is the new description of the menu item
      */
-        public void UpdateMenuItemDescription(String originalName, String description) {
+        public void updateMenuItemDescription(String originalName, String description) {
     	for(int i = 0; i<this.menuItemList.size();i++) {
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
     			this.menuItemList.get(i).setDescription(description);
@@ -105,7 +100,6 @@ public class MenuItemMgr {
     		}
     	}
     	System.out.println("No item found with such a name");
-    	return;
     }
     
     
@@ -114,7 +108,7 @@ public class MenuItemMgr {
      * @param originalName is the name of the menu item
      * @param type is the new type of the menu item
      */
-        public void UpdateMenuItemType(String originalName, String type) {
+        public void updateMenuItemType(String originalName, String type) {
     	for(int i = 0; i<this.menuItemList.size(); i++) {
     		if(this.menuItemList.get(i).getName().compareTo(originalName)==0) {
     			this.menuItemList.get(i).setType(type);
@@ -168,7 +162,9 @@ public class MenuItemMgr {
     	};
     	return menuItem;
     }
-    
+    /**
+     * Display all menu items
+     */
     public void viewMenu() {
     	System.out.printf("| %-20s |","Name");
 		System.out.printf(" %-20s |","Price");

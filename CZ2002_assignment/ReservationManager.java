@@ -196,7 +196,7 @@ public class ReservationManager {
 
 /**
  * Checks reservation status for a particular customer ID
- * @param CustomerID
+ * @param CustomerID customer whose ID will be removed
  */
 	public void RemoveReservationCustomerID(int CustomerID) {
 		int flag = 0;
@@ -224,7 +224,7 @@ public class ReservationManager {
 
 /**
  * Removes reservation based on table ID
- * @param TableID
+ * @param TableID ID whose table will be removed
  */
 	public void RemoveReservationTableID(int TableID) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
@@ -250,7 +250,7 @@ public class ReservationManager {
 	}
 /**
  * removes reservation based on customer name
- * @param name
+ * @param name name whose reservation will be removed
  */
 	public void RemoveReservationName(String name) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
@@ -277,7 +277,7 @@ public class ReservationManager {
 
 /**
  * Check in the customer, and change their booking status from reserved to booked
- * @param CustomerID
+ * @param CustomerID ID of customer who is going to be checked in
  * @return boolean to show if check in was successful or not
  */
 	public boolean CheckInCustomer(int CustomerID) {
@@ -328,7 +328,7 @@ public class ReservationManager {
 	}
 /**
  * returns the Table based on table ID
- * @param TableID
+ * @param TableID ID of the table
  * @return object of class Table
  */
 	public Table GetTableByID(int TableID) {

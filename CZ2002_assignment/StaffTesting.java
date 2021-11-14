@@ -7,6 +7,9 @@ import java.util.Arrays;
 
 /**
  * Meant to test Staff manager and Staff item functions solely!
+ * @author  Lee Sek Heng
+ * @version 1.0
+ * @since   2021-11-13
  */
 
 public class StaffTesting {

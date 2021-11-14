@@ -5,10 +5,20 @@ package CZ2002_assignment;
  *@version 1.0
  *@since 2021/11/14
  */
-public class Customer {
-	private String name;
-	private int gender; //1- male, 2- female
+public class Customer extends ObjectName {
+	/**
+	 * identify the gender of the customer.
+	 * 1 as male.
+	 * 2 as female
+	 */
+	private int gender; 
+	/**
+	 * flag to indicate whether it has membership
+	 */
 	private boolean membership;
+	/**
+	 * customer ID. also meant as contact!
+	 */
 	private int custID;
 	
 	/**
@@ -18,17 +28,9 @@ public class Customer {
 	 * @param membership
 	 */
 	public Customer(String name, int gender, boolean membership) {
-		this.name = name;
+		super(name);
 		this.gender = gender; 
 		this.membership = membership;
-	}
-
-	/**
-	 * getter for customer name
-	 * @return customer name
-	 */
-	public String getName() {
-		return this.name;
 	}
 	
 	/**

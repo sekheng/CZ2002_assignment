@@ -45,8 +45,38 @@ public class MenuItemTesting {
         testItem.setName("newName");
         assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
         // then test removing the item from it
-//        myMenuMgr.removeMenuItem(myMenuMgr.getArrayOfMenuItem().size() - 1);
+        myMenuMgr.removeMenuItem(testItem.name);
         expectedResult.remove(testItem);
+        assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
+    }
+
+    /**
+     * Meant to test updating menu item through MenuItemMgr
+     */
+    @Test
+    public void TestUpdateMenuItem()
+    {
+        MenuItemMgr myMenuMgr = new MenuItemMgr();
+        ArrayList<MenuItem> expectedResult = new ArrayList<MenuItem>(Arrays.asList(
+            new MenuItem(300,"served with chili sauce","french fries","appetizer")
+            ,new MenuItem(250,"vegetarian","sandwich","appetizer")
+            ,new MenuItem(600,"spicy","chicken rice","maincourse")
+            ,new MenuItem(500,"many mushrooms","mushroom risoto","maincourse")
+            ,new MenuItem(350,"cold","lemon tea","drinks")
+            ,new MenuItem(400,"hot","special coffee","drinks")
+        ));
+        myMenuMgr.updateMenuItemPrice("sandwich", 100);
+        MenuItem sandwichItem = expectedResult.get(1);
+        sandwichItem.setPriceInCents(100);
+        assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
+        myMenuMgr.updateMenuItemName("sandwich", "newName");
+        sandwichItem.setName("newName");
+        assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
+        myMenuMgr.updateMenuItemDescription("newName", "description");
+        sandwichItem.setDescription("description");
+        assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
+        myMenuMgr.updateMenuItemType("newName", "type");
+        sandwichItem.setType("type");
         assertTrue("Expected menu item array is different from actual menu item array", MenuItemTesting.TestingBothItemArrays(myMenuMgr.getArrayOfMenuItem(), expectedResult));
     }
 
