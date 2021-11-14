@@ -2,7 +2,6 @@ package CZ2002_assignment;
 
 import java.util.ArrayList;
 import java.time.LocalDateTime;
-import java.util.*;
 
 /**
 Represents a an Order Manager 
@@ -31,7 +30,6 @@ public class OrderManager {
 	 * Creates an OrderManager 
 	 */
 	public OrderManager(){
-		this.ArrayofOrders = ArrayofOrders;
 	}
 		
 	

@@ -6,14 +6,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.Test;
-
+/**
+ * Test cases for order manager
+ * @author	Lee Sek Heng
+ * @version	1.0
+ * @since	2021-11-12
+ */
 public class OrderManagerTest {
-
+	/**
+	 * default staff test
+	 */
 	Staff stafftest = new Staff("Katy", 20, "5U34582", "Manager");
+	/**
+	 * order test 
+	 */
 	Order testOrder1 = new Order(stafftest, 8);
-   
+   /**
+	* 2nd staff test
+    */
     Staff stafftest2 = new Staff("Mary", 14, "5U34567", "Waitress");
-
+	/**
+	 * To test order and see if it can add and remove food item correctly
+	 */
 	@Test
 	public void Ordertest() {
 		
@@ -45,7 +59,9 @@ public class OrderManagerTest {
 	
 	}
 	
-	
+	/**
+	 * Testing order manager
+	 */
 	@Test
 	public void OrderMgrtest() {
 		
@@ -64,7 +80,12 @@ public class OrderManagerTest {
 	}
 	
 	
-	
+	/**
+	 * checking whether both arrays of food item is exactly the same
+	 * @param array1	first array
+	 * @param array2	2nd array
+	 * @return	true if they are exactly the same
+	 */
 	 private static boolean TestingFoodItemArrays(ArrayList<FoodItem> array1, ArrayList<FoodItem> array2)
 	    {
 		 
@@ -80,7 +101,12 @@ public class OrderManagerTest {
 	        
 	        return flag;
 	    }
-	 
+	/**
+	 * Test whether both arrays of orders are exactly the same
+	 * @param array	first array
+	 * @param arrayy	second array
+	 * @return	true if they are exactly the same
+	 */
 	 private static boolean TestingOrderItemArrays(ArrayList<Order> array, ArrayList<Order> arrayy)
 	    {
 		 

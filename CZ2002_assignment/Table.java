@@ -79,7 +79,7 @@ public class Table {
 
 	/**
 	 * setter for customer ID
-	 * @param customerID
+	 * @param customerID new customer ID
 	 */
 	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
@@ -87,7 +87,7 @@ public class Table {
 
 	/**
 	 * getter for table ID
-	 * @return table ID
+	 * @return new table ID
 	 */
 	public int getTableID() {
 		return tableID;
@@ -111,7 +111,7 @@ public class Table {
 
 /**
  * setter for table status : vacant,reserved, or occupied
- * @param status
+ * @param status new status of the table
  */
 	public void setStatus(TableStatus status) {
 		this.status = status;
@@ -152,7 +152,7 @@ public class Table {
 
 	/**
 	 * setter for reservation time
-	 * @param resTime
+	 * @param resTime new time for the table
 	 */
 	public void setResTime(LocalDateTime resTime) {
 		this.resTime = resTime;

@@ -1,25 +1,26 @@
 package CZ2002_assignment;
 
-import java.util.*;
-import static org.junit.Assert.*;
-
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+
 
 import org.junit.Test;
-import java.time.*;
-
+/**
+ * To test order
+ * @author		Lee Sek Heng
+ * @version		1.0
+ * @since		2021-11-13
+ */
 public class OrderTest {
 
+	/**
+	 * Test whether each of the functions work properly.
+	 * the output at the debug console will show whether anything is printing
+	 */
 	@Test
 	public void test() {
 		
 		Staff stafftest;
-		Scanner sc = new Scanner(System.in);
 		stafftest = new Staff("Katy", 20, "5U34582", "Manager");
-		
-		
 
 		Order testOrder1 = new Order(stafftest, 8);
 		
@@ -39,19 +40,12 @@ public class OrderTest {
 		
 		RevenueReport revenueReport = testManager.getRevenueReport();
 		
-		sc.nextLine();
-		System.out.println("Enter start Date: YYYY-MM-DD HH:MM:SS ");
+		LocalDateTime startDate = LocalDateTime.of(2011, 11, 11, 11, 11, 11);
+		LocalDateTime endDate = LocalDateTime.of(2025, 11, 11, 11, 11, 11);
 		
-		String s = sc.nextLine();
-		
-		System.out.println("Enter end Date: YYYY-MM-DD HH:MM:SS ");
-		
-		String e = sc.nextLine();
-		LocalDateTime startDate = LocalDateTime.parse(s, DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss"));
-		LocalDateTime endDate = LocalDateTime.parse(e, DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss"));
-		
+		revenueReport.StoreInvoice(testinvoice);
 		revenueReport.GetOrderInvoice(startDate, endDate);
-		
+		// if everything is called successfully, then passed in here
 	}
 
 }
