@@ -16,7 +16,7 @@ public class ReservationManager {
 	 */
 	private int customerID = 1;
 	/**
-	 * ArrayList of tables in the restauratnt, with details of table ID, 
+	 * ArrayList of tables in the restaurant, with details of table ID, 
 	 * table size, status and the customer assigned to them
 	 */
 	private ArrayList<Table> arrayOfTables = new ArrayList<Table>();
@@ -152,7 +152,7 @@ public class ReservationManager {
 	public void CheckReservation(int CustomerID) {
 		int flag = 0;
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
-			if(this.arrayOfTables.get(i).getCustomerID()== CustomerID) {
+			if(this.arrayOfTables.get(i).getCustomerID() == CustomerID) {
 				System.out.println("Booking found for customer " + CustomerID);
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
@@ -186,6 +186,11 @@ public class ReservationManager {
 				}
 				check = this.arrayOfTables.get(i).getCustomerID();
 			}
+		}
+
+		if (check == 0)
+		{
+			System.out.println("There are currently no reservations!");
 		}
 	}
 
@@ -223,7 +228,7 @@ public class ReservationManager {
  */
 	public void RemoveReservationTableID(int TableID) {
 		for(int i = 0; i<this.arrayOfTables.size();i++) {
-			if(this.arrayOfTables.get(i).getTableID()  == TableID) {
+			if(this.arrayOfTables.get(i).getTableID()  == TableID && this.arrayOfTables.get(i).getStatus() == TableStatus.RESERVED) {
 				System.out.println("Removing booking  for customer " + this.arrayOfTables.get(i).getCustomerName());
 				System.out.println("Details are:");
 				System.out.println("Table ID: " + this.arrayOfTables.get(i).getTableID());
