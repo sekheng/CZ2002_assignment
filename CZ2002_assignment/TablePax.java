@@ -1,7 +1,7 @@
 package CZ2002_assignment;
 /**
  * enums for capacity of the table
- * @author	Lee Sek Heng
+ * @author	Swapneel Bhatt
  * @version	1.0
  * @since	2021-11-05
  */

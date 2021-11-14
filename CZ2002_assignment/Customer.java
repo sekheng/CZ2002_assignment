@@ -1,7 +1,7 @@
 package CZ2002_assignment;
 /**
  * Customer definition class
- * @author swapneelbhatt
+ * @author Swapneel Bhatt
  *@version 1.0
  *@since 2021/11/14
  */

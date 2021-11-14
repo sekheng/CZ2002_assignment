@@ -4,14 +4,22 @@ import java.time.*;
 
 /**
  * Boundary class meant to test the UI
- * @author	Lee Sek Heng
+ * @author	Kanupriya Malhotra, Swapneel Bhatt
  * @version	1.0
- * @since	2021-11-01
+ * @since	2021-11-14
  */
 public class ApplicationGUI
 {
 	/**
 	 * To render the UI at the console
+	 * Opens a switch case with Options to:
+	 * 1. Manage menu and menu items
+	 * 2. Manage promotions and promo items
+	 * 3. Manage and view orders for particular tables
+	 * 4. Make and manage bookings and customer check-ins
+	 * 5. Output table availability
+	 * 6. Print reciepts
+	 * 7. Print revenue reports for a period of time 
 	 * @param args	Not Applicable
 	 */
     public static void main(String[] args) {
@@ -47,9 +55,15 @@ public class ApplicationGUI
 	        
 	        Integer input = sc.nextInt();
 	       
-	        
+	        /**
+	         * main switch case
+	         */
 	        switch(input) {
-	        
+	        /**
+	         * Menu item manager.
+	         * Here we can create menu items, update them, and remove them
+	         * 
+	         */
 	        	case 1:
 	        		System.out.println("Press one of the following options to perform the following function: ");
 	        		System.out.println("1. Create Menu Item");
@@ -151,7 +165,11 @@ public class ApplicationGUI
 	        				
 	        		}
 	        		break;
-	        		
+	        	/**	
+	        	 * Promotion manager
+	        	 * Here we can create, update, and remove promotions.
+	        	 * A promotion is a set meal with a discounted price.
+	        	 */
 	        	case 2:
 	        		System.out.println("Press one of the following options to perform the following function: ");
 	        		System.out.println("1. Create Promotion");
@@ -295,7 +313,11 @@ public class ApplicationGUI
 	        		break;
 	        	
 
-	        		
+	        	/**	
+	        	 * Here we can create an order for a table.
+	        	 * Creating an order is basically opening a tab for a table.
+	        	 * Items can be added to and removed from the order now.
+	        	 */
 	        	case 3:
 	        		System.out.println("\n***********CREATE ORDER**************");
 	        		restaurantReservationManager.getOccupiedTables();
@@ -336,6 +358,9 @@ public class ApplicationGUI
 	        		
 	        		break;
 	        		
+	        	/**	
+	        	 * View the current order for a table
+	        	 */
 	        	case 4:
 	        		System.out.println("\n***********VIEW ORDER**************");
 	        		restaurantReservationManager.getOccupiedTables();
@@ -351,6 +376,11 @@ public class ApplicationGUI
 	        		}
 	        		
 	        		break;
+	        		
+	        	/**
+	        	 * Order manager
+	        	 * Here we can add or remove items from the order
+	        	 */
 	        	case 5:
 	        		System.out.println("\n***********ADD/REMOVE ITEMS TO/FROM ORDER**************");
 	        		restaurantReservationManager.getOccupiedTables();
@@ -415,6 +445,11 @@ public class ApplicationGUI
 	        		}
 	        	
 	        		break;
+	        	/**	
+	        	 * Reservation system.
+	        	 * Here we can add a booking per customer
+	        	 * Each customer can book multiple tables, but max 10 pax per table.
+	        	 */
 	        	case 6:
 	        	System.out.println("************************* ADD RESERVATION ****************************");
 	        	restaurantReservationManager.UpdateBookings();
@@ -441,10 +476,19 @@ public class ApplicationGUI
             	for (int j =0; j<noOfDesiredTables; j++) {
             		System.out.printf("Number of people on Table %d:",j+1);
             		int noOfPeople = sc.nextInt();
+            		if(noOfPeople>10) {
+            			j=j-1;
+            			System.out.println("Maxmimum 10 per table");
+            			continue;
+            			}
             		restaurantReservationManager.AddReservation(noOfPeople, resTime, customerName, customerGender, membershipStatus,bookingCustomerID);
             	}
             	break;
             	
+            	/**
+            	 * Here the customer can check-in to the restaurant, to change booking status from reserved to occupied.
+            	 * If a customer doesnt check in within 15 mins of booking time, his booking expires.
+            	 */
 	        	case 7:
 	        		System.out.println("**************************** CHECK IN CUSTOMER *******************************");
 	        		restaurantReservationManager.UpdateBookings();
@@ -463,7 +507,9 @@ public class ApplicationGUI
 	        		}
 	        	
 	        		break;
-	        	
+	        	/**
+	        	 * Checks reservation status per customer ID.
+	        	 */
 	        	case 8:
 	        		System.out.println("****************************** CHECK RESERVATION****************************");
 	        		restaurantReservationManager.UpdateBookings();
@@ -487,7 +533,10 @@ public class ApplicationGUI
 	        		}
 	        		break;
 	        		
-	        			   
+	        	/**		   
+	        	 * Remove reservation based on
+	        	 * Customer ID, customer name, or table ID
+	        	 */
 	        	case 9:
 	        		System.out.println("******************************REMOVE RESERVATION ***********************************");
 	        		restaurantReservationManager.UpdateBookings();
@@ -513,7 +562,9 @@ public class ApplicationGUI
 	        			System.out.println("Choose a correct option");
 	        		}
 	        		break;
-	        		
+	        	/**	
+	        	 * Check the status of a particular table
+	        	 */
 	        	case 10:
 	        		System.out.println("*************************************CHECK STATUS OF TABLE *************************");
 	        		restaurantReservationManager.UpdateBookings();
@@ -523,7 +574,10 @@ public class ApplicationGUI
 	        		System.out.println("Table number : " + newTable.getTableID());
 	        		System.out.println(newTable.getStatus());
 	        		break;
-	        		
+	        	/**	
+	        	 * Print the reciept for a table
+	        	 *Also vacates that particular table
+	        	 */
 	        	case 11:
 	        		System.out.println("*************************************ORDER INVOICE *************************");
 	        		restaurantReservationManager.getOccupiedTables();
@@ -536,7 +590,9 @@ public class ApplicationGUI
 	        		restaurantOrderManager.printReceipt(invoiceTable, invoiceDiscount, invoiceTax);
 	        		restaurantReservationManager.RemoveReservationTableID(invoiceTable);
 	        		break;
-	        		
+	        	/**	
+	        	 * Prints revenue report for a particular period
+	        	 */
 	        	case 12:
 	        		System.out.println("********PRINT REVENUE REPORT**************");
 	        		System.out.println("Enter start: (YYYY-MM-DD-HH-MM) ");

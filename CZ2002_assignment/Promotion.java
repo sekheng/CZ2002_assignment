@@ -2,7 +2,7 @@ package CZ2002_assignment;
 import java.util.*;
 /**
  * promotion package definition
- * @author	Lee Sek Heng
+ * @author	Kanupriya Malhotra, Swapneel Bhatt
  * @version	1.0
  * @since	2021-11-10
  */

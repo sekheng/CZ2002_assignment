@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import org.junit.Test;
 /**
  * To test order
- * @author		Lee Sek Heng
+ * @author		Kanupriya Malhotra
  * @version		1.0
  * @since		2021-11-13
  */

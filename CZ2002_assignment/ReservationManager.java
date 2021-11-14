@@ -4,7 +4,7 @@ import java.util.*;
 import java.lang.*;
 /**
  * Manager class for adding, checking, and removing reservations
- * @author swapneelbhatt
+ * @author Swapneel Bhatt
  * @version 1.0
  * @since 2021-11-10
  *

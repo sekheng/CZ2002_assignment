@@ -8,7 +8,7 @@ import java.util.Arrays;
 import org.junit.Test;
 /**
  * Test cases for order manager
- * @author	Lee Sek Heng
+ * @author	Kanupriya Malhotra
  * @version	1.0
  * @since	2021-11-12
  */

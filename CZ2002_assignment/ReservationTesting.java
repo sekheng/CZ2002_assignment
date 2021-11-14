@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  * Meant to test reservation manager
- * @author      Lee Sek Heng
+ * @author      Swapneel Bhatt
  * @version     1.0	
  * @since        2021-11-13
  */

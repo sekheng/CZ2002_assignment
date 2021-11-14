@@ -2,7 +2,7 @@ package CZ2002_assignment;
 import java.util.*;
 /**
  * To handle promotions
- * @author	Lee Sek Heng
+ * @author	Kanupriya Malhotra
  * @version	1.0
  * @since	2021-11-05
  */
